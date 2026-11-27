@@ -62,8 +62,13 @@ Both write explicit JSON evidence and exit nonzero on failure. The frozen smoke 
 removes external Python/library/plugin path overrides, uses an unrelated working
 directory, strips Python from Windows PATH and compares headless/GUI result hashes.
 On Windows it clears the offscreen override to exercise the real Windows Qt platform
-plugin; Linux smoke is explicitly offscreen. This is stronger than an import check,
-but it is still not a Python-free-VM test.
+plugin; Linux smoke is explicitly offscreen. Application logs are retained from isolated
+temporary profiles even when a windowed process fails. With `--source-report`, the source
+and frozen result hashes must agree on the same host; CI and the build script supply it.
+The successful-run summary records executable/report SHA-256 values and a hashed inventory
+of runtime bundle files (before handoff documents/evidence are appended). Summary and
+manifest files are removed before a new run so stale success cannot satisfy a failure.
+This is stronger than an import check, but it is still not a Python-free-VM test.
 
 ## Clean Windows acceptance — must actually be performed
 

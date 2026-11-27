@@ -50,10 +50,12 @@ jobs:
         run: python tools/ci_step.py --name pip-check -- -m pip check
       - name: Tests and lint (no dependency skips)
         run: python tools/ci_step.py --name quality -- tools/check.py
+      - name: Record source result on the same build host
+        run: python tools/ci_step.py --name source-selftest -- -m struct_ai --selftest --output .artifacts/source-selftest.json
       - name: Build windowed onedir diagnostic
         run: python tools/ci_step.py --name freeze -- -m PyInstaller --noconfirm --clean packaging/struct_ai.spec
       - name: Exercise actual frozen solver and GUI worker
-        run: python tools/ci_step.py --name frozen-selftest -- tools/smoke_frozen.py dist/struct_ai/struct_ai.exe --output .artifacts/windows-selftest
+        run: python tools/ci_step.py --name frozen-selftest -- tools/smoke_frozen.py dist/struct_ai/struct_ai.exe --output .artifacts/windows-selftest --source-report .artifacts/source-selftest.json
       - name: Capture source widgets (offscreen; not native DPI acceptance)
         run: python tools/ci_step.py --name screenshots -- tools/make_screenshots.py --output .artifacts/windows-screenshots
       - name: Mark artifact scope and acceptance limits

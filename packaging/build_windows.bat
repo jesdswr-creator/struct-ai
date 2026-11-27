@@ -22,9 +22,11 @@ if errorlevel 1 goto fail
 if errorlevel 1 goto fail
 .venv\Scripts\python.exe tools\check.py
 if errorlevel 1 goto fail
+.venv\Scripts\python.exe -m struct_ai --selftest --output .artifacts\source-selftest.json
+if errorlevel 1 goto fail
 .venv\Scripts\python.exe -m PyInstaller --noconfirm --clean packaging\struct_ai.spec
 if errorlevel 1 goto fail
-.venv\Scripts\python.exe tools\smoke_frozen.py dist\struct_ai\struct_ai.exe --output .artifacts\windows-selftest
+.venv\Scripts\python.exe tools\smoke_frozen.py dist\struct_ai\struct_ai.exe --output .artifacts\windows-selftest --source-report .artifacts\source-selftest.json
 if errorlevel 1 goto fail
 
 echo Build and local frozen smoke tests passed. Clean Windows VM acceptance is still required.

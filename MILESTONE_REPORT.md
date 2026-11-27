@@ -53,7 +53,23 @@ CRLF where its cross-platform display contract requires LF. The annotation imple
 now normalises display newlines only; saved raw logs and SHA-256 values remain byte-exact.
 The existing test expectation is unchanged, and an additional actual-subprocess test proves
 that CRLF log bytes are retained. Linux passed its full 200-test gate on that revision.
-A new full cross-platform/Windows frozen CI run is required after this tooling fix.
+At `cdedbcd`, [both source platforms passed](https://github.com/jesdswr-creator/struct-ai/actions/runs/45986283284)
+the full **201-test** suite. [Windows packaging](https://github.com/jesdswr-creator/struct-ai/actions/runs/45986283217)
+also passed all 201 tests (10.07 s), Ruff, `pip check`, and **created the real windowed
+onedir executable**. Its smoke harness then failed before launching it: copying Windows
+`os.environ` into a plain dict preserves uppercase keys, but the harness looked up
+`SystemRoot` rather than `SYSTEMROOT`. This is not claimed as frozen runtime success.
+
+The harness now uses explicit Windows case-insensitive environment handling, with no
+fallback if the OS root is missing. Five software-only tests cover real file inventory
+hashes, both environment-key spellings, missing-root rejection and Linux sanitisation.
+It also retains windowed application logs from isolated temporary profiles, compares the
+source/frozen result on the same CI host, and records real executable/report/bundle hashes.
+The runtime bundle manifest is captured before handoff documents/evidence are appended.
+Public binary upload remains disabled on ordinary push/PR runs. Local validation passed
+**190 headless tests in 2.85 s** (not the historical 190-test full GUI suite), Ruff/format
+(71 files), and `pip check`; the expanded full CI suite now has 206 tests. New frozen
+execution is required; no prior evidence is promoted to a pass by these tooling changes.
 
 M0b is still **not accepted**. A successful CI build will not substitute for clean Windows
 without Python, native DPI feedback or licensing review. M1 has not started.

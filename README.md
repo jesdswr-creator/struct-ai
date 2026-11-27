@@ -17,10 +17,10 @@ building, perform Indian Standard checks, or produce construction documents.
 | M0b — clean Windows/no-Python acceptance | **Pending**; not certified |
 | M1–M15 — engineering, building workflow, full GUI, installer | Not implemented |
 
-Workflow access is now working and the implementation is pushed. The first Windows CI
-and cross-platform test runs exposed setup/test failures; repairs are in progress. See
-[the milestone report](MILESTONE_REPORT.md) for actual run links and outcomes. No successful
-Windows build or clean-machine acceptance is claimed yet.
+Workflow access is working and the implementation is pushed. Both Windows and Linux
+source CI now pass 201 tests, and CI has built the actual Windows onedir executable.
+Frozen execution is still being validated after a smoke-harness fix; clean-machine
+acceptance remains pending. See [the milestone report](MILESTONE_REPORT.md) for run evidence.
 
 ## Desktop preview
 
