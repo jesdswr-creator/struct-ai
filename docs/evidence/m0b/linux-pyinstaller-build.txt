@@ -1,0 +1,189 @@
+53 INFO: PyInstaller: 6.14.2, contrib hooks: 2025.5
+53 INFO: Python: 3.11.2
+55 INFO: Platform: Linux-6.1.158+-x86_64-with-glibc2.36
+55 INFO: Python environment: /home/user/struct-ai/.venv
+56 INFO: Removing temporary files and cleaning cache in /home/user/.cache/pyinstaller
+Process 0 Terminating
+Process 0 Terminating
+362 INFO: Module search paths (PYTHONPATH):
+['/home/user/struct-ai',
+ '/usr/lib/python311.zip',
+ '/usr/lib/python3.11',
+ '/usr/lib/python3.11/lib-dynload',
+ '/home/user/struct-ai/.venv/lib/python3.11/site-packages',
+ '__editable__.struct_ai-0.0.1.finder.__path_hook__',
+ '/home/user/struct-ai/.venv/lib/python3.11/site-packages/setuptools/_vendor',
+ '/home/user/struct-ai/packaging',
+ '/home/user/struct-ai']
+490 INFO: Appending 'binaries' from .spec
+490 INFO: Appending 'datas' from .spec
+492 INFO: checking Analysis
+492 INFO: Building Analysis because Analysis-00.toc is non existent
+492 INFO: Running Analysis Analysis-00.toc
+492 INFO: Target bytecode optimization level: 0
+492 INFO: Initializing module dependency graph...
+492 INFO: Initializing module graph hook caches...
+498 INFO: Analyzing modules for base_library.zip ...
+833 INFO: Processing standard module hook 'hook-encodings.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+1061 INFO: Processing standard module hook 'hook-heapq.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+2094 INFO: Processing standard module hook 'hook-pickle.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+3066 INFO: Caching module dependency graph...
+3098 INFO: Looking for Python shared library...
+3107 INFO: Using Python shared library: /home/user/struct-ai/.cache/native-build/cpython-shared/libpython3.11.so.1.0
+3107 INFO: Analyzing /home/user/struct-ai/packaging/spike_entry.py
+3134 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+3262 INFO: Processing standard module hook 'hook-xml.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+3455 INFO: Processing standard module hook 'hook-pydantic.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+/home/user/struct-ai/.venv/lib/python3.11/site-packages/pydantic/experimental/__init__.py:7: PydanticExperimentalWarning: This module is experimental, its contents are subject to change and deprecation.
+  warnings.warn(
+3650 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_safe_import_module'
+3651 INFO: SetuptoolsInfo: initializing cached setuptools info...
+6935 INFO: Processing standard module hook 'hook-platform.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+7163 INFO: Processing standard module hook 'hook-zoneinfo.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+7180 INFO: Processing standard module hook 'hook-sysconfig.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+7857 INFO: Processing standard module hook 'hook-PySide6.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+7961 INFO: Processing standard module hook 'hook-shiboken6.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+8060 INFO: Processing standard module hook 'hook-PySide6.QtNetwork.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+8705 INFO: Processing standard module hook 'hook-PySide6.QtCore.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+9351 INFO: Processing standard module hook 'hook-PySide6.QtWidgets.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+10008 INFO: Processing standard module hook 'hook-PySide6.QtGui.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+10613 INFO: Analyzing hidden import 'PySide6.QtSvg'
+10617 INFO: Processing standard module hook 'hook-PySide6.QtSvg.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+10725 INFO: Analyzing hidden import 'openseespy.postprocessing'
+10725 INFO: Analyzing hidden import 'openseespy.postprocessing.ModelToJSON'
+10730 INFO: Analyzing hidden import 'openseespy.preprocessing'
+10730 INFO: Analyzing hidden import 'openseespy.preprocessing.DiscretizeMember'
+10732 INFO: Analyzing hidden import 'openseespylinux.lib'
+10732 INFO: Processing module hooks (post-graph stage)...
+10841 INFO: Processing pre-safe-import-module hook 'hook-tomli.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_safe_import_module'
+10841 INFO: Setuptools: 'tomli' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.tomli'!
+10845 INFO: Processing standard module hook 'hook-setuptools.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+10852 INFO: Processing pre-safe-import-module hook 'hook-distutils.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_safe_import_module'
+10853 INFO: Processing pre-find-module-path hook 'hook-distutils.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_find_module_path'
+11010 INFO: Processing standard module hook 'hook-distutils.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+11027 INFO: Processing standard module hook 'hook-distutils.util.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+11113 INFO: Processing standard module hook 'hook-_osx_support.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+11153 INFO: Processing pre-safe-import-module hook 'hook-packaging.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_safe_import_module'
+11406 INFO: Processing pre-safe-import-module hook 'hook-jaraco.text.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_safe_import_module'
+11406 INFO: Setuptools: 'jaraco.text' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.jaraco.text'!
+11450 INFO: Processing standard module hook 'hook-setuptools._vendor.jaraco.text.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+11451 INFO: Processing pre-safe-import-module hook 'hook-importlib_resources.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_safe_import_module'
+11452 INFO: Processing pre-safe-import-module hook 'hook-jaraco.functools.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_safe_import_module'
+11452 INFO: Setuptools: 'jaraco.functools' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.jaraco.functools'!
+11458 INFO: Processing pre-safe-import-module hook 'hook-more_itertools.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_safe_import_module'
+11459 INFO: Setuptools: 'more_itertools' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.more_itertools'!
+11539 INFO: Processing pre-safe-import-module hook 'hook-jaraco.context.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_safe_import_module'
+11539 INFO: Setuptools: 'jaraco.context' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.jaraco.context'!
+11717 INFO: Processing pre-safe-import-module hook 'hook-backports.tarfile.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_safe_import_module'
+11717 INFO: Setuptools: 'backports.tarfile' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.backports.tarfile'!
+11775 INFO: Processing standard module hook 'hook-backports.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+11827 INFO: Processing pre-safe-import-module hook 'hook-importlib_metadata.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_safe_import_module'
+11828 INFO: Setuptools: 'importlib_metadata' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.importlib_metadata'!
+11865 INFO: Processing standard module hook 'hook-setuptools._vendor.importlib_metadata.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+11866 INFO: Processing pre-safe-import-module hook 'hook-zipp.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_safe_import_module'
+11866 INFO: Setuptools: 'zipp' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.zipp'!
+12454 INFO: Processing pre-safe-import-module hook 'hook-wheel.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_safe_import_module'
+12662 INFO: Processing standard module hook 'hook-PySide6.QtDBus.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+13119 INFO: Processing standard module hook 'hook-difflib.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+13527 INFO: Performing binary vs. data reclassification (245 entries)
+13674 INFO: Looking for ctypes DLLs
+13706 INFO: Analyzing run-time hooks ...
+13706 INFO: Including custom run-time hook '/home/user/struct-ai/packaging/hooks/runtime_native.py'
+13711 INFO: Including run-time hook 'pyi_rth_inspect.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/rthooks'
+13713 INFO: Including run-time hook 'pyi_rth_pyside6.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/rthooks'
+13714 INFO: Processing pre-find-module-path hook 'hook-_pyi_rth_utils.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/pre_find_module_path'
+13714 INFO: Processing standard module hook 'hook-_pyi_rth_utils.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks'
+13716 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/rthooks'
+13717 INFO: Including run-time hook 'pyi_rth_setuptools.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/rthooks'
+13718 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/hooks/rthooks'
+13729 INFO: Creating base_library.zip...
+13767 INFO: Looking for dynamic libraries
+15112 WARNING: Library not found: could not resolve 'libxkbcommon-x11.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-xfixes.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-shape.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libX11-xcb.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-icccm.so.4', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-sync.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-keysyms.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-xkb.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-render.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-image.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-render-util.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-cursor.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-shm.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-randr.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platforms/libqxcb.so'.
+15112 WARNING: Library not found: could not resolve 'libX11-xcb.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/egldeviceintegrations/libqeglfs-x11-integration.so'.
+15112 WARNING: Library not found: could not resolve 'libgdk_pixbuf-2.0.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platformthemes/libqgtk3.so'.
+15112 WARNING: Library not found: could not resolve 'libpango-1.0.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platformthemes/libqgtk3.so'.
+15112 WARNING: Library not found: could not resolve 'libcairo-gobject.so.2', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platformthemes/libqgtk3.so'.
+15112 WARNING: Library not found: could not resolve 'libgdk-3.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platformthemes/libqgtk3.so'.
+15112 WARNING: Library not found: could not resolve 'libcairo.so.2', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platformthemes/libqgtk3.so'.
+15112 WARNING: Library not found: could not resolve 'libpangocairo-1.0.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platformthemes/libqgtk3.so'.
+15112 WARNING: Library not found: could not resolve 'libgtk-3.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platformthemes/libqgtk3.so'.
+15112 WARNING: Library not found: could not resolve 'libatk-1.0.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/platformthemes/libqgtk3.so'.
+15112 WARNING: Library not found: could not resolve 'libxkbcommon-x11.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-xfixes.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-shape.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15112 WARNING: Library not found: could not resolve 'libX11-xcb.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-icccm.so.4', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-sync.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15112 WARNING: Library not found: could not resolve 'libxcb-keysyms.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-xkb.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-render.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-image.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-render-util.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-cursor.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-shm.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-randr.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxkbcommon-x11.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-xfixes.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-shape.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libX11-xcb.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-icccm.so.4', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-sync.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-glx.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-keysyms.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-xkb.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-render.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-image.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-render-util.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-cursor.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-shm.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxcb-randr.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so'.
+15113 WARNING: Library not found: could not resolve 'libxkbcommon-x11.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15113 WARNING: Library not found: could not resolve 'libxcb-xfixes.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15113 WARNING: Library not found: could not resolve 'libxcb-shape.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15113 WARNING: Library not found: could not resolve 'libX11-xcb.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15113 WARNING: Library not found: could not resolve 'libxcb-icccm.so.4', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15113 WARNING: Library not found: could not resolve 'libxcb-sync.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15113 WARNING: Library not found: could not resolve 'libxcb-keysyms.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15113 WARNING: Library not found: could not resolve 'libxcb-xkb.so.1', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15113 WARNING: Library not found: could not resolve 'libxcb-render.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15113 WARNING: Library not found: could not resolve 'libxcb-image.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15113 WARNING: Library not found: could not resolve 'libxcb-render-util.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15113 WARNING: Library not found: could not resolve 'libxcb-cursor.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15113 WARNING: Library not found: could not resolve 'libxcb-shm.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15113 WARNING: Library not found: could not resolve 'libxcb-randr.so.0', dependency of '/home/user/struct-ai/.venv/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6XcbQpa.so.6'.
+15130 INFO: Warnings written to /home/user/struct-ai/build/struct_ai/warn-struct_ai.txt
+15157 INFO: Graph cross-reference written to /home/user/struct-ai/build/struct_ai/xref-struct_ai.html
+15174 INFO: checking PYZ
+15174 INFO: Building PYZ because PYZ-00.toc is non existent
+15174 INFO: Building PYZ (ZlibArchive) /home/user/struct-ai/build/struct_ai/PYZ-00.pyz
+15781 INFO: Building PYZ (ZlibArchive) /home/user/struct-ai/build/struct_ai/PYZ-00.pyz completed successfully.
+15795 INFO: checking PKG
+15795 INFO: Building PKG because PKG-00.toc is non existent
+15795 INFO: Building PKG (CArchive) struct_ai.pkg
+15808 INFO: Building PKG (CArchive) struct_ai.pkg completed successfully.
+15808 INFO: Bootloader /home/user/struct-ai/.venv/lib/python3.11/site-packages/PyInstaller/bootloader/Linux-64bit-intel/run
+15808 INFO: checking EXE
+15808 INFO: Building EXE because EXE-00.toc is non existent
+15808 INFO: Building EXE from EXE-00.toc
+15808 INFO: Copying bootloader EXE to /home/user/struct-ai/build/struct_ai/struct_ai
+15808 INFO: Appending PKG archive to custom ELF section in EXE
+15838 INFO: Building EXE from EXE-00.toc completed successfully.
+15840 INFO: checking COLLECT
+15840 INFO: Building COLLECT because COLLECT-00.toc is non existent
+15840 INFO: Removing dir /home/user/struct-ai/dist/struct_ai
+15894 INFO: Building COLLECT COLLECT-00.toc
+16127 INFO: Building COLLECT COLLECT-00.toc completed successfully.
+16132 INFO: Build complete! The results are available in: /home/user/struct-ai/dist

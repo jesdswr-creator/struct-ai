@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools==80.9.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "struct-ai"
+version = "0.0.1"
+description = "Fail-closed foundations and packaging diagnostic for a structural design assistant"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "pydantic==2.11.7",
+    "openseespy==3.7.1.2",
+    "openseespywin==3.7.1.2; sys_platform == 'win32'",
+    "openseespylinux==3.7.1.2; sys_platform == 'linux'",
+    "PySide6-Essentials==6.8.3",
+    "shiboken6==6.8.3",
+]
+
+[project.scripts]
+struct-ai = "struct_ai.app_entry:main"
+struct-ai-unverified = "struct_ai.codes.audit:main"
+
+[tool.setuptools.packages.find]
+include = ["struct_ai*"]
+
+[tool.setuptools.package-data]
+struct_ai = ["codes/*/data/*.json", "gui/resources/**/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-config --strict-markers"
+filterwarnings = ["error"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-include = ["*.spec"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+# These names are injected by PyInstaller's documented spec-file execution context.
+"packaging/*.spec" = ["F821"]
+
+[tool.ruff.format]
+quote-style = "double"

@@ -1,0 +1,23 @@
+# Local environments, caches and build products
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+.cache/
+.artifacts/
+*.log
+# Local project inputs and diagnostic outputs are not reference evidence
+*.struct_ai.json
+selftest-result.json
+# OS/editor state
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

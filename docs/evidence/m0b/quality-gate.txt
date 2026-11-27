@@ -1,0 +1,34 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+PySide6 6.8.3 -- Qt runtime 6.8.3 -- Qt compiled 6.8.3
+rootdir: /home/user/struct-ai
+configfile: pyproject.toml
+testpaths: tests
+plugins: qt-4.5.0
+collected 190 items
+
+tests/gui/test_spike.py ..........                                       [  5%]
+tests/gui/test_worker.py .....                                           [  7%]
+tests/integration/test_diagnostic_jobs.py ....                           [ 10%]
+tests/integration/test_list_unverified.py ....                           [ 12%]
+tests/integration/test_selftest.py ....                                  [ 14%]
+tests/integration/test_service_boundary.py .........                     [ 18%]
+tests/integration/test_solver_diagnostic.py .......................      [ 31%]
+tests/unit/test_checks.py ..................                             [ 40%]
+tests/unit/test_code_registry.py ..........................              [ 54%]
+tests/unit/test_diagnostic_verification.py .                             [ 54%]
+tests/unit/test_exceptions.py ........                                   [ 58%]
+tests/unit/test_input_boundaries.py .............                        [ 65%]
+tests/unit/test_project_io.py ....                                       [ 67%]
+tests/unit/test_resources.py .......                                     [ 71%]
+tests/unit/test_theme.py ....                                            [ 73%]
+tests/unit/test_units.py ............................................... [ 98%]
+...                                                                      [100%]
+
+============================= 190 passed in 6.31s ==============================
+Process 0 Terminating
+All checks passed!
+68 files already formatted
+No broken requirements found.
+No engineering code constants implemented. Building design is unavailable.
+An empty catalogue is NOT evidence of verified design.

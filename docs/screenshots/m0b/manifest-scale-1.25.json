@@ -1,0 +1,34 @@
+[
+  {
+    "file": "light-1366x768-scale-1.25-checked.png",
+    "theme": "light",
+    "state": "checked",
+    "logical_size": [
+      1366,
+      768
+    ],
+    "pixel_size": [
+      1708,
+      960
+    ],
+    "device_pixel_ratio": 1.25,
+    "result_hash": "33431478a4aa16c5d5c11c4fcbe09c69dfd57c00c00823b6bce440893fb9c1b0",
+    "evidence": "Actual PySide6 widget.grab; checked states run the real isolated OpenSees service"
+  },
+  {
+    "file": "dark-1366x768-scale-1.25-checked.png",
+    "theme": "dark",
+    "state": "checked",
+    "logical_size": [
+      1366,
+      768
+    ],
+    "pixel_size": [
+      1708,
+      960
+    ],
+    "device_pixel_ratio": 1.25,
+    "result_hash": "33431478a4aa16c5d5c11c4fcbe09c69dfd57c00c00823b6bce440893fb9c1b0",
+    "evidence": "Actual PySide6 widget.grab; checked states run the real isolated OpenSees service"
+  }
+]

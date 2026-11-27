@@ -1,0 +1,67 @@
+name: Windows packaging spike
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      publish_diagnostic_binary:
+        description: 'Upload diagnostic binary only after reviewing redistribution permissions'
+        required: false
+        default: false
+        type: boolean
+permissions:
+  contents: read
+jobs:
+  windows-diagnostic:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    env:
+      PYTHONUTF8: '1'
+      QT_QPA_PLATFORM: offscreen
+      PYTEST_QT_API: pyside6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.10'
+          architecture: x64
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: Install exact dependencies
+        run: python -m pip install -r requirements.lock
+      - name: Install project without changing dependency pins
+        run: python -m pip install --no-deps --no-build-isolation -e .
+      - name: Check pinned dependency consistency
+        run: python -m pip check
+      - name: Tests and lint (no dependency skips)
+        run: python tools/check.py
+      - name: Build windowed onedir diagnostic
+        run: python -m PyInstaller --noconfirm --clean packaging/struct_ai.spec
+      - name: Exercise actual frozen solver and GUI worker
+        run: python tools/smoke_frozen.py dist/struct_ai/struct_ai.exe --output .artifacts/windows-selftest
+      - name: Capture real desktop evidence
+        run: python tools/make_screenshots.py --output .artifacts/windows-screenshots
+      - name: Mark artifact scope and acceptance limits
+        shell: pwsh
+        run: |
+          Copy-Item docs/packaging-spike.md dist/struct_ai/PACKAGING-SPIKE.md
+          Copy-Item struct_ai/gui/resources/NOTICES.md dist/struct_ai/THIRD-PARTY-NOTICES.md
+          Copy-Item -Recurse .artifacts/windows-selftest dist/struct_ai/ci-evidence
+      # Artifact labels are not access controls, particularly in a public repository.
+      # Build/test automatically; publish the binary only by explicit reviewed opt-in.
+      - name: Upload diagnostic binary, NOT a commercial release
+        if: github.event_name == 'workflow_dispatch' && inputs.publish_diagnostic_binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: struct-ai-m0b-windows-x64-diagnostic
+          path: dist/struct_ai/
+          retention-days: 7
+          if-no-files-found: error
+      - name: Upload test and screenshot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m0b-windows-evidence
+          path: .artifacts/
+          retention-days: 7
+          if-no-files-found: warn

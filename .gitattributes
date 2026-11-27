@@ -1,0 +1,10 @@
+# Keep source/catalogue/resource text stable across Linux and Windows checkouts.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.png binary
+*.ttf binary
+*.ico binary
+
+# This upstream OFL notice is retained byte-for-byte, including one trailing space.
+# Its original content hash is recorded in fonts/SOURCE.json; do not "clean" it.
+struct_ai/gui/resources/fonts/OFL.txt -whitespace

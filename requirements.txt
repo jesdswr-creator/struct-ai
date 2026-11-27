@@ -1,0 +1,9 @@
+# Runtime only. Use requirements.lock for reproducible test/build environments.
+# Windows requires CPython 3.12 x64 with the selected OpenSees native wheel.
+pydantic==2.11.7
+openseespy==3.7.1.2
+openseespywin==3.7.1.2; sys_platform == "win32"
+openseespylinux==3.7.1.2; sys_platform == "linux"
+# Essentials supplies PySide6.QtWidgets without the Addons/QtWebEngine metapackage.
+PySide6-Essentials==6.8.3
+shiboken6==6.8.3
