@@ -37,8 +37,10 @@ raise instead of producing NaN or infinity. The diagnostic's displayed ratios ar
 - Actual Windows source tests, onedir build and both frozen selftests now pass in CI
   on **Windows Server 2025**, using the native `windows` Qt plugin. This is not the
   proposed Windows 11 clean-machine acceptance. See [saved CI evidence](evidence/m0b/windows-ci-2026-11-27/README.md).
-- Repository workflow access is restored. Only evidence was uploaded; public binary
-  publication remains a separate reviewed opt-in. No installer has been generated.
+- Repository workflow access is restored. A [seven-day diagnostic EXE bundle](TEST_WINDOWS_EXE.md)
+  was uploaded by an explicitly user-approved manual run. Automatic binary publication
+  remains disabled; this is not commercial redistribution approval. No installer has
+  been generated.
 - Historical Linux source/frozen evidence used a custom matching shared Python runtime
   for the restricted sandbox. That excluded bundle/cache is not retained and was not
   rebuilt after the Windows fixes.

@@ -1,0 +1,281 @@
+{
+  "kind": "USER_AUTHORISED_DIAGNOSTIC_BINARY_HANDOFF",
+  "date": "2026-11-27",
+  "authorization": "User selected publish_test_bundle after disclosure that the repository is public and the artifact is retained for seven days.",
+  "authorization_scope": "Diagnostic testing only; not commercial redistribution licensing, a release audit, or milestone acceptance.",
+  "source_revision": "a6c8d8c01a006c0b2540621fa8f5f977b466032f",
+  "artifact_download_page": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45991582390/artifacts/15193683657",
+  "binary_artifact": {
+    "id": 15193683657,
+    "node_id": "MDg6QXJ0aWZhY3QxNTE5MzY4MzY1Nw==",
+    "name": "struct-ai-m0b-windows-x64-diagnostic",
+    "size_in_bytes": 53771752,
+    "url": "https://api.github.com/repos/jesdswr-creator/struct-ai/actions/artifacts/15193683657",
+    "archive_download_url": "https://api.github.com/repos/jesdswr-creator/struct-ai/actions/artifacts/15193683657/zip",
+    "expired": false,
+    "digest": "sha256:5d6d53092673d2e3a97cb509467e896f56efc137fb582a8075147b73f6d9e8ce",
+    "created_at": "2026-11-27T11:35:36Z",
+    "updated_at": "2026-11-27T11:35:36Z",
+    "expires_at": "2026-12-04T11:35:32Z",
+    "workflow_run": {
+      "id": 45991582390,
+      "repository_id": 1474085139,
+      "head_repository_id": 1474085139,
+      "head_branch": "arena/4feb7a32-struct-ai",
+      "head_sha": "a6c8d8c01a006c0b2540621fa8f5f977b466032f"
+    }
+  },
+  "run": {
+    "conclusion": "success",
+    "databaseId": 45991582390,
+    "headSha": "a6c8d8c01a006c0b2540621fa8f5f977b466032f",
+    "jobs": [
+      {
+        "completedAt": "2026-11-27T11:35:40Z",
+        "conclusion": "success",
+        "databaseId": 140480458552,
+        "name": "windows-diagnostic",
+        "startedAt": "2026-11-27T11:34:30Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Isolate exact dependencies from runner preinstalled packages",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install exact dependencies",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install project without changing dependency pins",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Check pinned dependency consistency",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Tests and lint (no dependency skips)",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Record source result on the same build host",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Build windowed onedir diagnostic",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Exercise actual frozen solver and GUI worker",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Capture source widgets (offscreen; not native DPI acceptance)",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Mark artifact scope and acceptance limits",
+            "number": 13,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Upload diagnostic binary, NOT a commercial release",
+            "number": 14,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Upload test and screenshot evidence",
+            "number": 15,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 29,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 30,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 31,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45991582390/job/140480458552"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45991582390"
+  },
+  "frozen_summary": {
+    "bundle_manifest_sha256": "49d7963b5524bbd720a369f41dfb7762340bbc84917aa1cf088ba687d1609610",
+    "bundle_regular_file_bytes": 129441769,
+    "bundle_regular_files": 297,
+    "bundle_symlinks": 0,
+    "checks": 5,
+    "clean_windows_no_python_accepted": false,
+    "executable_sha256": "e124eb527fba8901d26265145ffc09d974d8f46ca414a2f10f9ef6eaee42a0e3",
+    "kind": "M0B_FROZEN_SMOKE",
+    "platform": "Windows-2025Server-10.0.26100-SP0",
+    "python_version": "3.12.10",
+    "qt_platform": "windows",
+    "report_sha256": {
+      "gui-selftest": "d1b801f7287838c220e351d281f6bad05de30d69ad5403221a5a8b896fdc05d5",
+      "selftest": "01afd7495016b802231570189749f9cc238eab7ff6178968adb8b9634128cc90"
+    },
+    "resources": 10,
+    "result_hash": "33431478a4aa16c5d5c11c4fcbe09c69dfd57c00c00823b6bce440893fb9c1b0",
+    "source_result_compared": true,
+    "status": "PASS"
+  },
+  "ci_annotations": [
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/a6c8d8c01a006c0b2540621fa8f5f977b466032f/.github",
+      "start_line": 17,
+      "start_column": null,
+      "end_line": 17,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI screenshots",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\screenshots.log\nSaved 8 real desktop captures to .artifacts\\windows-screenshots\n",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/a6c8d8c01a006c0b2540621fa8f5f977b466032f/.github",
+      "start_line": 33,
+      "start_column": null,
+      "end_line": 33,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI frozen-selftest",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\frozen-selftest.log\nApplication log D:\\a\\struct-ai\\struct-ai\\.artifacts\\windows-selftest\\selftest-app-struct_ai.log:\n\nApplication log D:\\a\\struct-ai\\struct-ai\\.artifacts\\windows-selftest\\gui-selftest-app-native-console.log:\n\nApplication log D:\\a\\struct-ai\\struct-ai\\.artifacts\\windows-selftest\\gui-selftest-app-struct_ai.log:\n\nFrozen headless and GUI selftests passed from an unrelated working directory.\nThis is NOT evidence of running on a clean Windows machine without Python.\n{\"bundle_manifest_sha256\": \"49d7963b5524bbd720a369f41dfb7762340bbc84917aa1cf088ba687d1609610\", \"bundle_regular_file_bytes\": 129441769, \"bundle_regular_files\": 297, \"bundle_symlinks\": 0, \"checks\": 5, \"clean_windows_no_python_accepted\": false, \"executable_sha256\": \"e124eb527fba8901d26265145ffc09d974d8f46ca414a2f10f9ef6eaee42a0e3\", \"kind\": \"M0B_FROZEN_SMOKE\", \"platform\": \"Windows-2025Server-10.0.26100-SP0\", \"python_version\": \"3.12.10\", \"qt_platform\": \"windows\", \"report_sha256\": {\"gui-selftest\": \"d1b801f7287838c220e351d281f6bad05de30d69ad5403221a5a8b896fdc05d5\", \"selftest\": \"01afd7495016b802231570189749f9cc238eab7ff6178968adb8b9634128cc90\"}, \"resources\": 10, \"result_hash\": \"33431478a4aa16c5d5c11c4fcbe09c69dfd57c00c00823b6bce440893fb9c1b0\", \"source_result_compared\": true, \"status\": \"PASS\"}\n",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/a6c8d8c01a006c0b2540621fa8f5f977b466032f/.github",
+      "start_line": 283,
+      "start_column": null,
+      "end_line": 283,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI freeze",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\freeze.log\nd not resolve 'api-ms-win-shcore-scaling-l1-1-1.dll', dependency of 'D:\\\\a\\\\struct-ai\\\\struct-ai\\\\.venv\\\\Lib\\\\site-packages\\\\PySide6\\\\plugins\\\\platforms\\\\qwindows.dll'.\n15075 INFO: Warnings written to D:\\a\\struct-ai\\struct-ai\\build\\struct_ai\\warn-struct_ai.txt\n15107 INFO: Graph cross-reference written to D:\\a\\struct-ai\\struct-ai\\build\\struct_ai\\xref-struct_ai.html\n15125 INFO: checking PYZ\n15127 INFO: Building PYZ because PYZ-00.toc is non existent\n15127 INFO: Building PYZ (ZlibArchive) D:\\a\\struct-ai\\struct-ai\\build\\struct_ai\\PYZ-00.pyz\n15748 INFO: Building PYZ (ZlibArchive) D:\\a\\struct-ai\\struct-ai\\build\\struct_ai\\PYZ-00.pyz completed successfully.\n15770 INFO: checking PKG\n15770 INFO: Building PKG because PKG-00.toc is non existent\n15770 INFO: Building PKG (CArchive) struct_ai.pkg\n15782 INFO: Building PKG (CArchive) struct_ai.pkg completed successfully.\n15784 INFO: Bootloader D:\\a\\struct-ai\\struct-ai\\.venv\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\runw.exe\n15784 INFO: checking EXE\n15784 INFO: Building EXE because EXE-00.toc is non existent\n15784 INFO: Building EXE from EXE-00.toc\n15784 INFO: Copying bootloader EXE to D:\\a\\struct-ai\\struct-ai\\build\\struct_ai\\struct_ai.exe\n15785 INFO: Copying icon to EXE\n15786 INFO: Copying version information to EXE\n15789 INFO: Copying 0 resources to EXE\n15789 INFO: Embedding manifest in EXE\n15790 INFO: Appending PKG archive to EXE\n15793 INFO: Fixing EXE headers\n15835 INFO: Building EXE from EXE-00.toc completed successfully.\n15839 INFO: checking COLLECT\n15839 INFO: Building COLLECT because COLLECT-00.toc is non existent\n15839 INFO: Building COLLECT COLLECT-00.toc\n16323 INFO: Building COLLECT COLLECT-00.toc completed successfully.\n16326 INFO: Build complete! The results are available in: D:\\a\\struct-ai\\struct-ai\\dist\n",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/a6c8d8c01a006c0b2540621fa8f5f977b466032f/.github",
+      "start_line": 17,
+      "start_column": null,
+      "end_line": 17,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI source-selftest",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\source-selftest.log\nM0b diagnostic selftest PASS (not building design): .artifacts\\source-selftest.json\n",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/a6c8d8c01a006c0b2540621fa8f5f977b466032f/.github",
+      "start_line": 77,
+      "start_column": null,
+      "end_line": 77,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI quality",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\quality.log\n runtime 6.8.3 -- Qt compiled 6.8.3\nrootdir: D:\\a\\struct-ai\\struct-ai\nconfigfile: pyproject.toml\ntestpaths: tests\nplugins: qt-4.5.0\ncollected 206 items\n\ntests\\gui\\test_spike.py ..........                                       [  4%]\ntests\\gui\\test_worker.py .....                                           [  7%]\ntests\\integration\\test_diagnostic_jobs.py ......                         [ 10%]\ntests\\integration\\test_list_unverified.py ....                           [ 12%]\ntests\\integration\\test_selftest.py ....                                  [ 14%]\ntests\\integration\\test_service_boundary.py .........                     [ 18%]\ntests\\integration\\test_solver_diagnostic.py .......................      [ 29%]\ntests\\unit\\test_bundle_inventory.py .....                                [ 32%]\ntests\\unit\\test_checks.py ..................                             [ 40%]\ntests\\unit\\test_ci_step.py .......                                       [ 44%]\ntests\\unit\\test_code_registry.py ..........................              [ 56%]\ntests\\unit\\test_diagnostic_verification.py .                             [ 57%]\ntests\\unit\\test_exceptions.py ........                                   [ 61%]\ntests\\unit\\test_input_boundaries.py .............                        [ 67%]\ntests\\unit\\test_project_io.py ....                                       [ 69%]\ntests\\unit\\test_resources.py .........                                   [ 73%]\ntests\\unit\\test_theme.py ....                                            [ 75%]\ntests\\unit\\test_units.py ............................................... [ 98%]\n...                                                                      [100%]\n\n============================= 206 passed in 8.00s =============================\nAll checks passed!\n71 files already formatted\n",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/a6c8d8c01a006c0b2540621fa8f5f977b466032f/.github",
+      "start_line": 17,
+      "start_column": null,
+      "end_line": 17,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI pip-check",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\pip-check.log\nNo broken requirements found.\n",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/a6c8d8c01a006c0b2540621fa8f5f977b466032f/.github",
+      "start_line": 47,
+      "start_column": null,
+      "end_line": 47,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI install-project",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\install-project.log\nObtaining file:///D:/a/struct-ai/struct-ai\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: struct-ai\n  Building editable for struct-ai (pyproject.toml): started\n  Building editable for struct-ai (pyproject.toml): finished with status 'done'\n  Created wheel for struct-ai: filename=struct_ai-0.0.1-0.editable-py3-none-any.whl size=8291 sha256=6c63f4a5ac9c76d3b106810d03ff27758100a4a1d90be77f63d6018696364dc4\n  Stored in directory: C:\\Users\\runneradmin\\AppData\\Local\\Temp\\pip-ephem-wheel-cache-qdtf9koc\\wheels\\69\\38\\5e\\63a2acd896a65d2cc8b287d21ce56d4bf597c8269e0f1d53f2\nSuccessfully built struct-ai\nInstalling collected packages: struct-ai\nSuccessfully installed struct-ai-0.0.1\n\n[notice] A new release of pip is available: 25.1.1 -> 26.3\n[notice] To update, run: python.exe -m pip install --upgrade pip\n",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/a6c8d8c01a006c0b2540621fa8f5f977b466032f/.github",
+      "start_line": 185,
+      "start_column": null,
+      "end_line": 185,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI install-pins",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\install-pins.log\n0-py3-none-any.whl (6.0 kB)\nUsing cached packaging-25.0-py3-none-any.whl (66 kB)\nUsing cached pluggy-1.6.0-py3-none-any.whl (20 kB)\nUsing cached pygments-2.19.2-py3-none-any.whl (1.2 MB)\nUsing cached pytest-8.4.1-py3-none-any.whl (365 kB)\nUsing cached pytest_qt-4.5.0-py3-none-any.whl (37 kB)\nUsing cached ruff-0.12.2-py3-none-win_amd64.whl (11.6 MB)\nUsing cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)\nUsing cached altgraph-0.17.4-py2.py3-none-any.whl (21 kB)\nUsing cached pyinstaller-6.14.2-py3-none-win_amd64.whl (1.4 MB)\nUsing cached pyinstaller_hooks_contrib-2025.5-py3-none-any.whl (437 kB)\nUsing cached pefile-2023.2.7-py3-none-any.whl (71 kB)\nUsing cached pywin32_ctypes-0.2.3-py3-none-any.whl (30 kB)\nInstalling collected packages: altgraph, wheel, typing-extensions, shiboken6, setuptools, ruff, pywin32-ctypes, Pygments, pluggy, pip, pefile, packaging, openseespywin, iniconfig, colorama, annotated-types, typing-inspection, pytest, PySide6-Essentials, pyinstaller-hooks-contrib, pydantic-core, openseespy, pytest-qt, pyinstaller, pydantic\n  Attempting uninstall: pip\n    Found existing installation: pip 25.0.1\n    Uninstalling pip-25.0.1:\n      Successfully uninstalled pip-25.0.1\nSuccessfully installed PySide6-Essentials-6.8.3 Pygments-2.19.2 altgraph-0.17.4 annotated-types-0.7.0 colorama-0.4.6 iniconfig-2.1.0 openseespy-3.7.1.2 openseespywin-3.7.1.2 packaging-25.0 pefile-2023.2.7 pip-25.1.1 pluggy-1.6.0 pydantic-2.11.7 pydantic-core-2.33.2 pyinstaller-6.14.2 pyinstaller-hooks-contrib-2025.5 pytest-8.4.1 pytest-qt-4.5.0 pywin32-ctypes-0.2.3 ruff-0.12.2 setuptools-80.9.0 shiboken6-6.8.3 typing-extensions-4.14.1 typing-inspection-0.4.1 wheel-0.45.1\n\n[notice] A new release of pip is available: 25.1.1 -> 26.3\n[notice] To update, run: python.exe -m pip install --upgrade pip\n",
+      "raw_details": ""
+    }
+  ],
+  "retrieval_method": "GitHub run/job/artifact metadata and check annotations through gh",
+  "archive_downloaded_and_rehashed_in_this_sandbox": false,
+  "archive_digest_basis": "GitHub artifact API digest; executable hash from the actual CI smoke runner.",
+  "clean_windows_no_python_accepted": false,
+  "commercial_redistribution_approved": false,
+  "msi_or_installer_produced": false
+}

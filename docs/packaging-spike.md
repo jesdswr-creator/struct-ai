@@ -108,7 +108,7 @@ This is stronger than an import check, but it is still not a Python-free-VM test
 |---|---|
 | Windows local PyInstaller build | PENDING — no Windows execution in this sandbox |
 | Windows CI build and frozen execution | PASS at `8768572` on Windows Server 2025; native `windows` Qt plugin; [evidence](evidence/m0b/windows-ci-2026-11-27/README.md) |
-| Windows binary publication | Not enabled on push/PR; evidence artifact only, no EXE download |
+| Windows binary publication | User-approved seven-day diagnostic [EXE bundle](TEST_WINDOWS_EXE.md) uploaded by manual run `45991582390`; still disabled on push/PR |
 | Clean Windows with no Python: headless selftest | PENDING |
 | Clean Windows with no Python: real window/worker | PENDING |
 | CI artifact tested on clean Windows | PENDING |

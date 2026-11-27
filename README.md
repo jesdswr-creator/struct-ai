@@ -23,7 +23,20 @@ selftests using the native Windows Qt plugin, with matching source/frozen result
 The CI host was Windows Server 2025—not a clean Windows 11 machine without Python.
 [Recorded CI evidence](docs/evidence/m0b/windows-ci-2026-11-27/README.md) ·
 [Milestone report and remaining acceptance gates](MILESTONE_REPORT.md).
-Only evidence was uploaded; binary publication remains disabled pending licensing review.
+A temporary diagnostic binary has now been uploaded with the user's explicit approval;
+automatic push/PR binary uploads remain disabled. Commercial release/licensing review is
+still outstanding.
+
+## Download the Windows test EXE
+
+**[Download EXE + required runtime files — ZIP, about 54 MB](https://github.com/jesdswr-creator/struct-ai/actions/runs/45991582390/artifacts/15193683657)**
+
+Choose **Extract All**, then double-click **`struct_ai.exe`** and click **Run diagnostic**.
+Keep the `_internal` folder and other files beside the EXE. This is a portable Windows x64
+benchmark, not a source ZIP, MSI installer or building-design application. The download
+expires **2026-12-04 11:35:32 UTC**; GitHub may require sign-in.
+[Launch instructions, hashes and troubleshooting](docs/TEST_WINDOWS_EXE.md).
+The executable is unsigned; do not disable security protections if it is blocked.
 
 ## Desktop preview
 

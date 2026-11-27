@@ -1,6 +1,27 @@
 # Milestone report
 
-## Current status — Windows CI build/runtime passed; M0b acceptance pending (2026-11-27)
+## Runnable Windows test bundle delivered (2026-11-27)
+
+The user explicitly approved a seven-day public diagnostic artifact after the repository's
+public visibility was disclosed. Manual run
+[45991582390](https://github.com/jesdswr-creator/struct-ai/actions/runs/45991582390), from
+**`a6c8d8c`**, passed **206 tests in 8.00 s**, Ruff/format, pip consistency, the actual
+Windows onedir build and source/headless-frozen/GUI-frozen checks. The binary-upload step
+completed successfully, not merely the evidence-upload step.
+
+**[Download the runnable EXE + DLL bundle](https://github.com/jesdswr-creator/struct-ai/actions/runs/45991582390/artifacts/15193683657)**
+— 53,771,752 bytes, expires **2026-12-04 11:35:32 UTC**. Extract all files, keep `_internal`
+beside `struct_ai.exe`, and run the EXE. No MSI installer was produced.
+[Launch guide and hashes](docs/TEST_WINDOWS_EXE.md) ·
+[Exact artifact/run/smoke metadata](docs/evidence/m0b/windows-test-download-2026-11-27.json).
+
+This is a test-only publication, **not** commercial licensing approval or a release audit.
+The default push/PR publication guard is unchanged. No engine code, engineering constants,
+expected numerical values or milestone gates changed. The binary was built on Windows
+Server 2025; separate clean-Windows/no-Python acceptance and native user feedback are still
+pending. **M0b is not accepted and M1 has not started.**
+
+## Recorded CI baseline — Windows build/runtime passed; M0b acceptance pending (2026-11-27)
 
 **Workflow access is resolved.** The implementation and fixes are pushed on
 `arena/4feb7a32-struct-ai`. Tested implementation revision: **`8768572`**.
@@ -15,7 +36,7 @@
 | Source/frozen result equality | **PASS on the same Windows host** |
 | Windows source-widget captures | Eight offscreen captures generated in CI; not visually reviewed here or native-DPI acceptance |
 | Separate clean Windows / no Python | **NOT RUN — mandatory acceptance still pending** |
-| Binary publication / redistribution review | Binary upload not enabled; licensing review remains required |
+| Binary publication / redistribution review | Manual diagnostic artifact now available above; automatic upload stays disabled and commercial licensing review remains required |
 
 Successful runs: [cross-platform tests](https://github.com/jesdswr-creator/struct-ai/actions/runs/45986697648)
 and [Windows packaging](https://github.com/jesdswr-creator/struct-ai/actions/runs/45986697708).
@@ -39,8 +60,9 @@ Human gates before acceptance/advancement:
 1. Perform the [separate clean-Windows/no-Python checklist](docs/packaging-spike.md#clean-windows-acceptance--must-actually-be-performed),
    preserving tester/OS identity, exit codes, both JSON reports, bundle hashes and native
    screenshots. Native DPI/performance/accessibility/AV checks remain outstanding.
-2. Resolve distribution permissions before publishing any CI binary. Evidence is uploaded,
-   but an executable was deliberately not published by these push runs.
+2. Keep binary publication a deliberate reviewed action; automatic push runs publish only
+   evidence. The manual test artifact above was explicitly authorised, but commercial
+   redistribution permission and the complete release licence audit remain outstanding.
 3. Supply/review controlled numerical sources and unresolved building assumptions before
    M1. [Public-reference research](docs/research/M1_PUBLIC_REFERENCES.md) is review material,
    not adopted engine data. Review the actual UI captures before subsequent UI milestones.
@@ -364,12 +386,14 @@ UI milestone.** No user design approval has been assumed.
 ### External blockers and human-verification checklist
 
 - [x] Repository workflow access restored; fixes pushed on `arena/4feb7a32-struct-ai`.
-      Both actual CI workflows passed at `8768572`; evidence is linked above. No PR,
-      installer, public executable or release was created by this continuation.
+      Both actual CI workflows passed; evidence is linked above. No PR, installer or
+      commercial release was created.
+- [x] User explicitly approved the public diagnostic upload; manual run `45991582390`
+      published the seven-day EXE bundle. Public artifacts are not private or licensed
+      for commercial redistribution merely because they carry a diagnostic label.
 - [ ] Build on Windows 11 x64 and run both frozen selftests on a clean VM without Python.
-- [ ] After distribution-permission review, explicitly opt in to a CI binary upload and
-      repeat the clean-VM test with that artifact; retain hashes, exit codes and screenshots.
-      Public-repository artifacts are not made private by an "internal-use" label.
+- [ ] Repeat the clean-VM test with the downloadable CI artifact; retain hashes, exit
+      codes and screenshots.
 - [ ] Resolve OpenSeesPy commercial redistribution licensing and audit all dependency obligations.
 - [ ] Confirm Windows versions/architecture and native DPI/performance requirements.
 - [ ] Review benchmark conventions, numerical tolerances and source-to-output traceability.
