@@ -46,7 +46,14 @@ per-message truncation limit so future failure summaries remain visible.
 Local repair validation: **184 headless tests passed in 2.56 s**, Ruff/format (70 files)
 and `pip check` passed. The changed files intentionally supersede their earlier historical
 source-manifest hashes; the old evidence is not rewritten to imply a new frozen run.
-A new full cross-platform/Windows frozen CI run is required to validate this repair.
+At `d6b738b`, all Windows GUI, IPC, solver and resource tests passed: **199 passed, one
+failed** in [the packaging run](https://github.com/jesdswr-creator/struct-ai/actions/runs/45985977070).
+The only remaining failure was the new tooling test: annotation text retained Windows
+CRLF where its cross-platform display contract requires LF. The annotation implementation
+now normalises display newlines only; saved raw logs and SHA-256 values remain byte-exact.
+The existing test expectation is unchanged, and an additional actual-subprocess test proves
+that CRLF log bytes are retained. Linux passed its full 200-test gate on that revision.
+A new full cross-platform/Windows frozen CI run is required after this tooling fix.
 
 M0b is still **not accepted**. A successful CI build will not substitute for clean Windows
 without Python, native DPI feedback or licensing review. M1 has not started.

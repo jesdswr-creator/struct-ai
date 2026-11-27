@@ -59,7 +59,9 @@ def main() -> int:
         severity = "error" if completed.returncode else "notice"
         # Full logs remain artifacts; bounded annotations are readable through the REST API.
         limit = 14000 if completed.returncode else 1800
-        tail = output[-limit:]
+        # Display annotations have canonical LF lines on every OS. The saved log
+        # and its digest retain the subprocess's exact original bytes, including CRLF.
+        tail = output.replace("\r\n", "\n")[-limit:]
         summary = f"Exit code: {completed.returncode}\nLog: {log}\n{tail}"
         # GitHub truncates individual annotation messages to about 4 KiB. Split on
         # a smaller UTF-8 byte budget so the final failure summary is not lost.

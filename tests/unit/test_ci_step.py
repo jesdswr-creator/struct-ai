@@ -99,3 +99,32 @@ def test_long_unicode_failure_annotations_preserve_the_final_diagnostic(tmp_path
     assert len(parts) >= 3
     assert all(len(part.encode("utf-8")) <= 3000 for part in parts)
     assert "".join(parts).endswith("-FINAL-DIAGNOSTIC\n")
+
+
+def test_annotations_use_lf_but_original_crlf_log_bytes_are_not_modified(tmp_path):
+    completed = subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPT),
+            "--name",
+            "crlf-output",
+            "--output",
+            str(tmp_path),
+            "--",
+            "-c",
+            "import sys; sys.stdout.buffer.write(b'exact 50%\\r\\n')",
+        ],
+        env=dict(os.environ, GITHUB_ACTIONS="true", PYTHONUTF8="1"),
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        check=False,
+        timeout=15,
+    )
+    assert completed.returncode == 0
+    assert (tmp_path / "crlf-output.log").read_bytes() == b"exact 50%\r\n"
+    annotation = next(
+        line for line in completed.stdout.splitlines() if line.startswith("::notice title=")
+    )
+    assert annotation.endswith("exact 50%25%0A")
+    assert "%0D" not in annotation
