@@ -1,20 +1,28 @@
-# Repository workflow access — current external blocker
+# Repository workflow access — resolved on 2026-11-27
 
 This concerns Arena's **repository Git connection**, not a chat-app connector.
 
-The ordinary baseline branch push succeeded, but uploading the actual implementation was
-rejected. The same rejection was returned after the user reported updating access:
+After the latest user access update, pushing implementation commit `bfb6fcf` to the current
+session branch succeeded. Both configured workflows actually started. Their first runs
+failed at setup/test gates; see [the milestone report](../MILESTONE_REPORT.md). No further
+permission change is currently requested. CI success and clean-machine acceptance remain
+separate requirements.
+
+## Historical rejection and remediation
+
+The ordinary baseline branch push had succeeded, but uploading the actual implementation
+was previously rejected, including after an earlier access-update confirmation:
 
 ```text
 refusing to allow a GitHub App to create or update workflow
 `.github/workflows/build.yml` without `workflows` permission
 ```
 
-The remote `arena/4feb7a32-struct-ai` branch therefore still contains the initial README-only
-baseline, not this implementation. A successful baseline push or repository-admin status
-does not establish that the installation credential can modify workflows.
+At that time the remote `arena/4feb7a32-struct-ai` branch contained only the initial baseline.
+A successful baseline push or repository-admin status alone did not establish workflow
+permissions. This state was superseded by the successful implementation push above.
 
-## Required connection-side action
+## Connection-side action if the error recurs
 
 1. Reconnect/reauthorise the **repository connection** in Arena with permission to write
    repository contents **and workflows**.

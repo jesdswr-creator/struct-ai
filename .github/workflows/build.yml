@@ -20,27 +20,42 @@ jobs:
       QT_QPA_PLATFORM: offscreen
       PYTEST_QT_API: pyside6
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.12.10'
           architecture: x64
           cache: pip
           cache-dependency-path: requirements.lock
+      - name: Isolate exact dependencies from runner preinstalled packages
+        shell: python
+        run: |
+          import os
+          import venv
+          from pathlib import Path
+          target = Path('.venv').resolve()
+          venv.create(target, with_pip=True)
+          scripts = target / 'Scripts'
+          with open(os.environ['GITHUB_PATH'], 'a', encoding='utf-8') as output:
+              output.write(str(scripts) + '\n')
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as output:
+              output.write('VIRTUAL_ENV=' + str(target) + '\n')
       - name: Install exact dependencies
-        run: python -m pip install -r requirements.lock
+        run: python tools/ci_step.py --name install-pins -- -m pip install -r requirements.lock
       - name: Install project without changing dependency pins
-        run: python -m pip install --no-deps --no-build-isolation -e .
+        run: python tools/ci_step.py --name install-project -- -m pip install --no-deps --no-build-isolation -e .
       - name: Check pinned dependency consistency
-        run: python -m pip check
+        run: python tools/ci_step.py --name pip-check -- -m pip check
       - name: Tests and lint (no dependency skips)
-        run: python tools/check.py
+        run: python tools/ci_step.py --name quality -- tools/check.py
       - name: Build windowed onedir diagnostic
-        run: python -m PyInstaller --noconfirm --clean packaging/struct_ai.spec
+        run: python tools/ci_step.py --name freeze -- -m PyInstaller --noconfirm --clean packaging/struct_ai.spec
       - name: Exercise actual frozen solver and GUI worker
-        run: python tools/smoke_frozen.py dist/struct_ai/struct_ai.exe --output .artifacts/windows-selftest
-      - name: Capture real desktop evidence
-        run: python tools/make_screenshots.py --output .artifacts/windows-screenshots
+        run: python tools/ci_step.py --name frozen-selftest -- tools/smoke_frozen.py dist/struct_ai/struct_ai.exe --output .artifacts/windows-selftest
+      - name: Capture source widgets (offscreen; not native DPI acceptance)
+        run: python tools/ci_step.py --name screenshots -- tools/make_screenshots.py --output .artifacts/windows-screenshots
       - name: Mark artifact scope and acceptance limits
         shell: pwsh
         run: |
@@ -51,7 +66,7 @@ jobs:
       # Build/test automatically; publish the binary only by explicit reviewed opt-in.
       - name: Upload diagnostic binary, NOT a commercial release
         if: github.event_name == 'workflow_dispatch' && inputs.publish_diagnostic_binary
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: struct-ai-m0b-windows-x64-diagnostic
           path: dist/struct_ai/
@@ -59,9 +74,10 @@ jobs:
           if-no-files-found: error
       - name: Upload test and screenshot evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: m0b-windows-evidence
           path: .artifacts/
+          include-hidden-files: true
           retention-days: 7
           if-no-files-found: warn

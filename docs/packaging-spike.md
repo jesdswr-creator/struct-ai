@@ -32,8 +32,9 @@ and ruff, builds `packaging/struct_ai.spec`, and uses `tools/smoke_frozen.py` to
 real frozen selftests. Output: `dist\struct_ai\struct_ai.exe` **plus the entire onedir
 folder**. Do not copy just the EXE. Do not run a Linux-built artifact on Windows.
 
-The Windows workflow builds and tests automatically when it can be pushed. It always
-uploads available test evidence, but the **binary upload is opt-in**: use Run workflow
+Workflow access is restored and the Windows workflow now actually runs. Initial setup/test
+failures and subsequent repairs are tracked in [the milestone report](../MILESTONE_REPORT.md).
+It uploads available test evidence, but the **binary upload is opt-in**: use Run workflow
 with `publish_diagnostic_binary=true` only after reviewing distribution permissions.
 An artifact named "diagnostic" or "internal-use" is not private by virtue of its name;
 this repository is public. No binary is uploaded on ordinary pushes or pull requests.
@@ -100,7 +101,7 @@ but it is still not a Python-free-VM test.
 | Item | Status / evidence |
 |---|---|
 | Windows local PyInstaller build | PENDING — no Windows execution in this sandbox |
-| Windows CI artifact | BLOCKED — GitHub connection lacks workflow-write permission |
+| Windows CI build / evidence | RUNNING VALIDATION — access restored; initial runs failed setup/test gates |
 | Clean Windows with no Python: headless selftest | PENDING |
 | Clean Windows with no Python: real window/worker | PENDING |
 | CI artifact tested on clean Windows | PENDING |

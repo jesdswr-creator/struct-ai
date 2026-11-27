@@ -17,9 +17,10 @@ building, perform Indian Standard checks, or produce construction documents.
 | M0b — clean Windows/no-Python acceptance | **Pending**; not certified |
 | M1–M15 — engineering, building workflow, full GUI, installer | Not implemented |
 
-Windows CI is configured but cannot run yet: the Arena GitHub App rejected the push
-because it lacks permission to update workflow files. Reconnect GitHub in Arena with
-workflow access. No Windows executable or installer is claimed to have been produced.
+Workflow access is now working and the implementation is pushed. The first Windows CI
+and cross-platform test runs exposed setup/test failures; repairs are in progress. See
+[the milestone report](MILESTONE_REPORT.md) for actual run links and outcomes. No successful
+Windows build or clean-machine acceptance is claimed yet.
 
 ## Desktop preview
 
@@ -109,8 +110,8 @@ GUI-worker selftests. It produces an **entire onedir folder**, not a standalone 
 The Windows smoke runner exercises the native Windows Qt platform plugin with Python
 removed from PATH; Linux smoke uses offscreen rendering. It compares headless/GUI
 result hashes and removes external Python/library/plugin path overrides. CI builds/tests
-run automatically once workflow access is available; binary artifact upload is a separate
-manual opt-in after distribution-permission review. In a public repository, a diagnostic
+now run automatically; binary artifact upload is a separate manual opt-in after
+distribution-permission review. In a public repository, a diagnostic
 artifact's label is not an access restriction.
 
 **No clean-Windows test has been performed.** Follow the documented
@@ -193,8 +194,8 @@ Native Windows DPI testing and design feedback are still required before later U
 Logs: `%APPDATA%\struct_ai\logs` on Windows, XDG state storage on Linux. Copy diagnostics
 shows versions and the log path without exposing environment secrets.
 
-Next gates: [repair repository workflow access](docs/GITHUB_WORKFLOW_ACCESS.md); validate
-the real Windows artifact on a clean machine; resolve redistribution licensing; review
+Next gates: finish the actual CI/build validation ([workflow access is restored](docs/GITHUB_WORKFLOW_ACCESS.md));
+validate the real Windows artifact on a clean machine; resolve redistribution licensing; review
 [the public-reference shortlist and M1 data needs](docs/research/M1_PUBLIC_REFERENCES.md)
 and supply the unresolved design-basis information. That shortlist is not runtime code data.
 **Do not advance to engineering milestones on the strength of a passing two-node diagnostic.**

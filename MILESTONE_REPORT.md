@@ -1,6 +1,35 @@
 # Milestone report
 
-## Latest continuation — Windows gate still blocked (2026-11-27)
+## Latest continuation — workflow access restored; first CI failures (2026-11-27)
+
+The user updated the repository connection again. The subsequent push of `bfb6fcf`
+**succeeded** on the session branch. Workflow-write access is no longer the blocker.
+Actual first runs:
+
+- [Windows packaging, 45984232268](https://github.com/jesdswr-creator/struct-ai/actions/runs/45984232268):
+  failed at `pip check`, before tests or a frozen build.
+- [Tests and lint, 45984232279](https://github.com/jesdswr-creator/struct-ai/actions/runs/45984232279):
+  Linux failed because `ubuntu-latest` now selects Ubuntu 26.04, for which the pinned
+  CPython 3.12.10 has no distribution. Windows reached and failed the quality gate.
+
+The GitHub API exposes job outcomes but this sandbox cannot fetch the redirected log
+storage host. The precise first Windows failure output is not yet available; it is not
+attributed to an engineering error or declared repaired without another run.
+
+CI repairs being validated: explicitly use Ubuntu 24.04 (supported by the exact Python
+release manifest); isolate both runners in fresh venvs; retain command logs and bounded
+success/failure annotations via `tools/ci_step.py`; upload only scoped evidence including
+its hidden parent directory; pin current Node-24 actions to reviewed release commits.
+Five real-subprocess tests cover exit-code propagation, log hashing, annotation escaping
+and unsafe names. The local headless subset passed **179 tests in 2.05 s**; Ruff passed
+with 70 formatted files and `pip check` passed. Full GUI validation is delegated to the
+actual CI run, not reported as locally repeated. No engine results, expected engineering
+values, dependency pins or licensing/publication gates were changed.
+
+M0b is still **not accepted**. A successful CI build will not substitute for clean Windows
+without Python, native DPI feedback or licensing review. M1 has not started.
+
+## Earlier continuation — historical access rejection (2026-11-27)
 
 The resumed checkout contained the implementation files but its Git HEAD was the original
 `565b834` baseline; the earlier unpublished commit objects and excluded native caches/build
