@@ -1,0 +1,14 @@
+{
+  "calculation_label": "SAMPLE deflection_limits — NOT a project design",
+  "source_basis": "PUBLIC_TEACHING_DRAFT",
+  "acknowledge_unverified": true,
+  "operation": "DEFLECTION_LIMITS",
+  "method": "SUPPLIED_FINAL_DEFLECTIONS",
+  "action_basis": "SERVICE_UNFACTORED",
+  "reference_level": "AS_CAST_SUPPORTS",
+  "effective_span_mm": 6000.0,
+  "final_all_effects_deflection_mm": 18.0,
+  "after_partitions_finishes_deflection_mm": 10.0,
+  "includes_creep_shrinkage_temperature": true,
+  "external_calculation_reference": "SAMPLE supplied numbers, not an analysis"
+}

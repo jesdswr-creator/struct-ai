@@ -19,6 +19,7 @@ from struct_ai.resources import resource_path
 from struct_ai.serialization import content_hash
 
 if TYPE_CHECKING:
+    from struct_ai.design.beam_check_models import BeamCheckInput, BeamCheckRun
     from struct_ai.design.beam_models import (
         BeamFlexureAssessmentInput,
         BeamFlexureDesignInput,
@@ -35,6 +36,7 @@ class EngineStatus(FrozenModel):
     state: Literal["DRAFT_BEAM_SECTIONS"]
     building_design_available: Literal[False]
     draft_beam_flexure_available: Literal[True]
+    draft_beam_component_checks_available: Literal[True]
     ollama_integration_available: Literal[False]
     message: str
 
@@ -58,9 +60,11 @@ def get_engine_status() -> EngineStatus:
         state="DRAFT_BEAM_SECTIONS",
         building_design_available=False,
         draft_beam_flexure_available=True,
+        draft_beam_component_checks_available=True,
         ollama_integration_available=False,
         message=(
-            "Unverified draft beam-section flexure is available through the service. "
+            "Unverified draft beam flexure and scoped component checks are available through "
+            "the service."
             "Building analysis/design and Ollama are not implemented. No IS-code compliance is "
             "claimed."
         ),
@@ -232,13 +236,13 @@ _SectionInput = TypeVar("_SectionInput", bound=BaseModel)
 
 
 def _validate_section_input(
-    data: BaseModel | Mapping[str, Any], model: type[_SectionInput]
+    data: BaseModel | Mapping[str, Any], model: type[_SectionInput], *, milestone: str = "M1"
 ) -> _SectionInput:
     """Revalidate even constructed model instances; preserve all context. Units: field suffixes."""
     if not isinstance(data, BaseModel | Mapping):
         raise InputOutOfRange(
             "Beam-section input must be a complete named object.",
-            clause="M1 SECTION INPUT DOMAIN (software bounds, not code allowances)",
+            clause=f"{milestone} SECTION INPUT DOMAIN (software bounds, not code allowances)",
             value=data,
             limit="explicit geometry, strengths/curve, factored actions and draft acknowledgement",
         )
@@ -249,7 +253,7 @@ def _validate_section_input(
     except (ValidationError, PydanticSerializationError) as error:
         raise InputOutOfRange(
             "Invalid beam-section input; no defaults or coerced values were used.",
-            clause="M1 SECTION INPUT DOMAIN (software bounds, not code allowances)",
+            clause=f"{milestone} SECTION INPUT DOMAIN (software bounds, not code allowances)",
             value=payload,
             limit=error.errors(include_url=False)
             if isinstance(error, ValidationError)
@@ -311,7 +315,7 @@ def assess_beam_flexure(
     return _run_beam_section(validate_beam_flexure_assessment(data), data_root)
 
 
-def run_beam_flexure_json(text: str) -> BeamFlexureRun:
+def _parse_section_json(text: str, operations: tuple[str, ...]) -> dict[str, Any]:
     """Reject duplicate, nonfinite or oversized JSON. Units: explicit field suffixes."""
 
     def unique_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
@@ -331,15 +335,21 @@ def run_beam_flexure_json(text: str) -> BeamFlexureRun:
         if not isinstance(text, str) or len(text.encode("utf-8")) > 1_000_000:
             raise ValueError("Request must be UTF-8 JSON text of at most 1,000,000 bytes")
         payload = json.loads(text, object_pairs_hook=unique_pairs, parse_constant=reject_constant)
-        if not isinstance(payload, dict) or payload.get("operation") not in ("DESIGN", "ASSESS"):
-            raise ValueError("operation must explicitly be DESIGN or ASSESS")
+        if not isinstance(payload, dict) or payload.get("operation") not in operations:
+            raise ValueError(f"operation must explicitly be one of {operations}")
     except (ValueError, TypeError, UnicodeError, RecursionError) as error:
         raise InputOutOfRange(
             "Cannot parse beam-section JSON; no calculation was started.",
-            clause="M1 JSON INPUT FORMAT (not a code clause)",
+            clause="SECTION JSON INPUT FORMAT (not a code clause)",
             value=str(error),
             limit="unambiguous finite JSON object with an explicit operation",
         ) from error
+    return payload
+
+
+def run_beam_flexure_json(text: str) -> BeamFlexureRun:
+    """Parse strict JSON then use the same service pipeline. Units: field suffixes."""
+    payload = _parse_section_json(text, ("DESIGN", "ASSESS"))
     if payload["operation"] == "DESIGN":
         return design_beam_flexure(payload)
     return assess_beam_flexure(payload)
@@ -367,3 +377,90 @@ def beam_flexure_report(run: BeamFlexureRun) -> str:
             limit="unaltered, self-consistent section result with its matching hash",
         ) from error
     return render_beam_report(checked_run)
+
+
+def validate_beam_checks(data: BaseModel | Mapping[str, Any]) -> BeamCheckInput:
+    """
+    Validate the explicitly selected M2 subcheck, including constructed models. Units:
+    suffixes.
+    """
+    from struct_ai.design.beam_check_models import (
+        BeamShearTorsionInput,
+        CoverSpacingInput,
+        DeflectionCheckInput,
+        DevelopmentLengthInput,
+    )
+
+    models = {
+        "SHEAR_TORSION": BeamShearTorsionInput,
+        "DEVELOPMENT_LENGTH": DevelopmentLengthInput,
+        "COVER_SPACING": CoverSpacingInput,
+        "DEFLECTION_LIMITS": DeflectionCheckInput,
+    }
+    operation = (
+        getattr(data, "operation", None)
+        if isinstance(data, BaseModel)
+        else (data.get("operation") if isinstance(data, Mapping) else None)
+    )
+    if not isinstance(operation, str) or operation not in models:
+        raise InputOutOfRange(
+            "An explicit supported beam-component operation is required.",
+            clause="M2 INPUT CONTRACT (not a code allowance)",
+            value=operation,
+            limit=tuple(models),
+        )
+    return _validate_section_input(data, models[operation], milestone="M2")
+
+
+def assess_beam_checks(
+    data: BaseModel | Mapping[str, Any],
+    *,
+    data_root: Path | None = None,
+) -> BeamCheckRun:
+    """Run only requested draft subchecks; no building/member approval. Units: field suffixes."""
+    from struct_ai.design.beam_checks import calculate_beam_checks
+
+    request = validate_beam_checks(data)
+    registry = CodeRegistry.load(resource_path("codes") if data_root is None else data_root)
+    try:
+        return calculate_beam_checks(request, registry)
+    except (ArithmeticError, ValidationError) as error:
+        raise SolverFailure(
+            "Beam component arithmetic/result-contract failure; no result was published.",
+            clause="M2 NUMERICAL RESULT DOMAIN (not a code allowance)",
+            value=str(error),
+            limit="finite self-consistent subcheck result",
+        ) from error
+
+
+def run_beam_checks_json(text: str) -> BeamCheckRun:
+    """Strict bounded JSON ingress shared with flexure. Units: explicit field suffixes."""
+    return assess_beam_checks(
+        _parse_section_json(
+            text, ("SHEAR_TORSION", "DEVELOPMENT_LENGTH", "COVER_SPACING", "DEFLECTION_LIMITS")
+        )
+    )
+
+
+def beam_checks_report(run: BeamCheckRun) -> str:
+    """Render revalidated values/checks, never perform report-side engineering. Units: payload."""
+    from struct_ai.design.beam_check_models import BeamCheckRun
+    from struct_ai.reporting.beam_checks import render_component_report
+
+    if not isinstance(run, BeamCheckRun):
+        raise InputOutOfRange(
+            "A component report requires a completed hashed run.",
+            clause="M2 REPORT CONTRACT",
+            value=type(run).__name__,
+            limit="BeamCheckRun from engine_service",
+        )
+    try:
+        checked = BeamCheckRun.model_validate(run.model_dump(warnings="error"))
+    except (ValidationError, PydanticSerializationError) as error:
+        raise InputOutOfRange(
+            "Component report integrity/contract validation failed.",
+            clause="M2 REPORT CONTRACT",
+            value=str(error),
+            limit="unaltered result and matching hash",
+        ) from error
+    return render_component_report(checked)

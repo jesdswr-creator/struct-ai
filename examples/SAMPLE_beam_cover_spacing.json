@@ -1,0 +1,17 @@
+{
+  "calculation_label": "SAMPLE cover_spacing — NOT a project design",
+  "source_basis": "PUBLIC_TEACHING_DRAFT",
+  "acknowledge_unverified": true,
+  "operation": "COVER_SPACING",
+  "scope": "BASE_COVER_AND_MINIMUM_CLEAR_SPACING_ONLY",
+  "exposure": "MODERATE",
+  "nominal_cover_to_outermost_steel_mm": 35.0,
+  "largest_bar_diameter_mm": 20.0,
+  "nominal_maximum_aggregate_mm": 20.0,
+  "minimum_horizontal_clear_mm": 30.0,
+  "number_of_rows": 2,
+  "minimum_vertical_clear_mm": 25.0,
+  "rows_vertically_aligned": true,
+  "request_fire_check": false,
+  "request_maximum_crack_spacing_check": false
+}

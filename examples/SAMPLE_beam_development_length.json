@@ -1,0 +1,14 @@
+{
+  "calculation_label": "SAMPLE development_length — NOT a project design",
+  "source_basis": "PUBLIC_TEACHING_DRAFT",
+  "acknowledge_unverified": true,
+  "operation": "DEVELOPMENT_LENGTH",
+  "concrete_grade": "M25",
+  "steel_grade": "Fe415",
+  "bar_type": "DEFORMED_IS1786",
+  "stress_state": "TENSION",
+  "bar_diameter_mm": 20.0,
+  "design_bar_stress_n_mm2": 300.0,
+  "equal_diameter_bundle_count": 1,
+  "available_straight_length_mm": 800.0
+}
