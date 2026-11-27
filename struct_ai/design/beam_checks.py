@@ -5,6 +5,8 @@ from __future__ import annotations
 import math
 from itertools import pairwise
 
+from pydantic import ValidationError
+
 from struct_ai import __version__
 from struct_ai.checks import CheckResult
 from struct_ai.codes.registry import CodeRegistry, CodeUseTracker
@@ -147,9 +149,16 @@ class ComponentCalculation:
         payload = request.flexure.model_dump()
         payload["factored_moment_kn_m"] = moment
         payload["calculation_label"] += " / M2 equivalent flexure demand"
-        run = calculate_beam_flexure(
-            BeamFlexureAssessmentInput.model_validate(payload), self.registry
-        )
+        try:
+            assessment = BeamFlexureAssessmentInput.model_validate(payload)
+        except ValidationError as error:
+            raise InputOutOfRange(
+                "Equivalent bending demand lies outside the validated M1 input domain.",
+                clause="41.4.2 / M1 software domain, not a code allowance",
+                value={"equivalent_moment_kn_m": moment},
+                limit=error.errors(include_url=False),
+            ) from error
+        run = calculate_beam_flexure(assessment, self.registry)
         self.flexure.append(run)
         for check in run.result.checks:
             self.checks.append(
@@ -198,7 +207,8 @@ class ComponentCalculation:
             kn_to_n(abs(request.factored_shear_kn)),
             kn_m_to_n_mm(abs(request.factored_torsion_kn_m)),
         )
-        equivalent_v = v
+        # Retain the action in its public units; kN -> N -> stress may erase an overload.
+        equivalent_v_kn = abs(request.factored_shear_kn)
         mt = 0.0
         if t:
             if g.flange is not None:
@@ -222,8 +232,10 @@ class ComponentCalculation:
                     limit="two effective legs and explicit closed-cage geometry",
                 )
             if not (
-                tg.corner_bar_width_mm < tg.stirrup_centreline_width_mm < b
-                and corner_depth < tg.stirrup_centreline_depth_mm < depth
+                tg.corner_bar_width_mm < tg.stirrup_centreline_width_mm
+                and tg.stirrup_centreline_width_mm + request.stirrups.diameter_mm < b
+                and corner_depth < tg.stirrup_centreline_depth_mm
+                and tg.stirrup_centreline_depth_mm + request.stirrups.diameter_mm < depth
             ):
                 raise InputOutOfRange(
                     "Torsion cage dimensions do not enclose the principal corner bars.",
@@ -235,13 +247,24 @@ class ComponentCalculation:
                         "corner_bar_depth_mm": corner_depth,
                     },
                 )
-            equivalent_v += self.data.number("torsion.equivalent_shear_factor") * t / b
+            equivalent_v_kn += n_to_kn(self.data.number("torsion.equivalent_shear_factor") * t / b)
             mt = (
                 abs(request.factored_torsion_kn_m)
                 * (1 + depth / b)
                 / self.data.number("torsion.equivalent_moment_divisor")
             )
-        tau_ve = equivalent_v / (b * d)
+        maximum_shear_kn = n_to_kn(tau_max * b * d)
+        # Exact published endpoint, not an inequality tolerance or a demand clamp.
+        tau_ve = (
+            tau_max if equivalent_v_kn == maximum_shear_kn else kn_to_n(equivalent_v_kn) / (b * d)
+        )
+        self.check(
+            "Maximum equivalent shear force (public units)",
+            equivalent_v_kn,
+            maximum_shear_kn,
+            "kN",
+            "40.2.3 / 41.3.1 / Table 20; direct public-action comparison",
+        )
         original_fy = (
             self.data.number("steel.fe250.yield_strength", "N/mm²")
             if request.stirrups.steel_grade == "Fe250"
@@ -285,7 +308,7 @@ class ComponentCalculation:
             ("table19_lower_row", low, "%", "40.2.1 / Table 19"),
             ("table19_upper_row", high, "%", "40.2.1 / Table 19"),
             ("concrete_shear_strength", tau_c, "N/mm²", "40.2.1 / Table 19"),
-            ("equivalent_shear", n_to_kn(equivalent_v), "kN", "41.3.1"),
+            ("equivalent_shear", equivalent_v_kn, "kN", "41.3.1; public-action units"),
             ("stirrup_area", asv, "mm²", "geometry: effective_legs*pi*diameter²/4"),
             ("stirrup_input_yield", original_fy, "N/mm²", "declared steel grade"),
             ("stirrup_credited_yield", credited_fy, "N/mm²", "40.4 / explicit fy ceiling"),

@@ -68,7 +68,7 @@ model weights or large generated artifacts are to be bundled.
 
 The user requested the balance of work, verification and an EXE inside GitHub Actions.
 The [M2 draft source/basis plan](research/M2_DRAFT_DESIGN_BASIS.md) was announced before
-implementation. Scoped checks and file commands are implemented, with 505 local
+implementation. Scoped checks and file commands are implemented, with 510 local
 headless tests passing; 16 Qt-dependent cases await full CI. This is not full M2 acceptance:
 fire cover, maximum crack spacing and chart-derived deflection checks remain blocked.
 M3 is not advanced. The new publication is explicitly authorised by this request; it

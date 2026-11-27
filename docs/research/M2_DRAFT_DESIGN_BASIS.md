@@ -30,6 +30,8 @@ standard prose or PDF is copied into this repository. Numerical records remain
 - **N13** https://archive.nptel.ac.in/content/storage2/courses/105105104/pdf/m6l13.pdf
   chunks 0–1, 2026-11-27: §§6.13.3–8; Table 6.1 (IS 456 Table 19), Table 6.2
   (Table 20), vertical stirrups, minimum reinforcement, fy ceiling, spacing.
+- **N06** https://archive.nptel.ac.in/content/storage2/courses/105105104/pdf/m3l6.pdf
+  chunk 0, 2026-11-27: §3.6.2.6 Fe250 grade designation for the optional stirrup grade.
 - **N14** https://archive.nptel.ac.in/content/storage2/courses/105105104/pdf/m6l14.pdf
   chunk 0, 2026-11-27: §6.14.2 Problem 1 explicitly uses linear interpolation in
   tensile-steel percentage. Published steel/bar/percentage rounding is not an exact oracle.
@@ -102,6 +104,24 @@ provisions were NOT reviewed there. This does not resolve present-day amendments
 - Only requested subchecks can pass; result status will be `DRAFT_COMPONENT_CHECKS_PASS`,
   never a complete-member/building approval. Failed checks give `REVISE_SECTION`.
   Input/data/scope errors raise typed errors; no sizing/clamping/rounding to pass.
+
+## Numerical boundary and validation findings
+
+A seeded probe found that kN -> N -> N/mm² conversion could round the next representable
+public-unit shear overload back to stress equality. A failing regression was written
+first. M2 now also checks equivalent shear directly in public kN against its published
+Table 20 force bound. At exact public endpoint equality, the corresponding known stress
+endpoint is used; no overload is reduced, no inequality tolerance is introduced, and
+both public-force and stress checks are retained. A separate 35-example property test
+checks exact published equality and the next representable overload. Existing independent
+stress, area, torsion and development-length expectations were not altered to fit results.
+
+Known torsion-cage geometry now includes stirrup diameter when checking that the outer
+stirrup fibre remains inside the section; this still does not certify cover or full cage fit.
+Equivalent moments outside M1's domain, including a tiny opposite-face demand, raise a
+typed input error rather than being rounded away. The first Windows full-suite attempt
+also exposed a pytest-generated oversized node ID exceeding the OS environment-variable
+limit; only test IDs were bounded, not the oversized JSON inputs or refusal requirements.
 
 ## Human verification still required
 

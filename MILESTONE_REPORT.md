@@ -19,11 +19,16 @@ records. Actual use is separately counted per calculation and prominently warned
 `f417ef1d947cd46599faa65e17d18c5f9d03ea9a5f1f6fd4de176ab8e6694f3a`.
 [Adopted basis, clauses, source discrepancies and human-review requirements](docs/research/M2_DRAFT_DESIGN_BASIS.md).
 
-Local gate: **505 headless tests passed in 12.11 s**, Ruff/format **95 files**, pip and diff
+Local gate: **510 headless tests passed in 11.93 s**, Ruff/format **95 files**, pip and diff
 checks passed. This includes 15 real source section-command paths from an unrelated working
 directory (nine pass samples, two failed assessments, three refusals, overwrite refusal).
 Qt remains unavailable locally; the same 16 GUI-dependent cases are not selected here.
-Full Windows/Linux CI and actual frozen section commands are next, not claimed yet.
+The first full Windows gate at `a5fb507` failed on an oversized pytest case ID exceeding
+Windows' environment-variable limit; only the case IDs were shortened. A separate seeded
+probe found a public kN/stress endpoint rounding issue; a failing regression was added,
+then fixed with a direct public-force check (no passing tolerance), with 35 property
+examples. Stirrup outer-fibre geometry and tiny opposite-moment refusal also have tests.
+Full Windows/Linux CI and actual frozen section commands are being rerun, not claimed yet.
 
 The updated Actions build adds source/frozen full-payload/report comparisons, typed-error
 and overwrite tests, explicit SAMPLE launcher/files, new-file-only JSON/Markdown/error

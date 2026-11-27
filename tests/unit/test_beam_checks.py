@@ -329,3 +329,63 @@ def test_development_length_scales_linearly_with_required_stress(stress):
     assert quantities(two)["required_straight_development_length"] == pytest.approx(
         quantities(one)["required_straight_development_length"] / 2, rel=1e-14
     )
+
+
+def test_public_shear_endpoint_next_representable_overload_is_not_lost_in_stress_units():
+    # Seeded probe found kN -> N -> stress rounding a real public-unit overload to equality.
+    request = shear_request()
+    b, overall = 244.01569998471433, 509.28391371365325
+    request["flexure"]["geometry"].update(web_width_mm=b, overall_depth_mm=overall)
+    request["flexure"]["reinforcement"] = {
+        "top_mm2": 0.0,
+        "bottom_mm2": 0.005 * b * (overall - 50.0),
+    }
+    request["flexure"]["factored_moment_kn_m"] = 1.0
+    request["stirrups"]["spacing_mm"] = 5.0
+    # Independent Table 20 M25 force limit: tau_cmax * bw * d / 1000.
+    limit_kn = 3.1 * b * (overall - 50.0) / 1000.0
+    request["factored_shear_kn"] = limit_kn
+    assert service.assess_beam_checks(request).result.status == "DRAFT_COMPONENT_CHECKS_PASS"
+    request["factored_shear_kn"] = math.nextafter(limit_kn, math.inf)
+    assert service.assess_beam_checks(request).result.status == "REVISE_SECTION"
+
+
+@settings(max_examples=35, deadline=None)
+@given(
+    b=st.floats(min_value=200.0, max_value=600.0, allow_nan=False, allow_infinity=False),
+    overall=st.floats(min_value=300.0, max_value=700.0, allow_nan=False, allow_infinity=False),
+)
+def test_published_shear_endpoint_equality_and_nextafter_property(b, overall):
+    request = shear_request()
+    request["flexure"]["geometry"].update(web_width_mm=b, overall_depth_mm=overall)
+    request["flexure"]["reinforcement"] = {
+        "top_mm2": 0.0,
+        "bottom_mm2": 0.005 * b * (overall - 50.0),
+    }
+    request["flexure"]["factored_moment_kn_m"] = 1.0
+    request["factored_shear_kn"] = 1.0
+    request["stirrups"]["spacing_mm"] = 5.0
+    cap = checks(service.assess_beam_checks(request))[
+        "Maximum equivalent shear force (public units)"
+    ].capacity
+    request["factored_shear_kn"] = cap
+    assert service.assess_beam_checks(request).result.status == "DRAFT_COMPONENT_CHECKS_PASS"
+    request["factored_shear_kn"] = math.nextafter(cap, math.inf)
+    assert service.assess_beam_checks(request).result.status == "REVISE_SECTION"
+
+
+@pytest.mark.parametrize(
+    "field,value", [("stirrup_centreline_width_mm", 295.0), ("stirrup_centreline_depth_mm", 545.0)]
+)
+def test_stirrup_outer_fibre_cannot_project_outside_concrete(field, value):
+    request = torsion_request()
+    request["torsion_geometry"][field] = value
+    with pytest.raises(InputOutOfRange, match="cage dimensions"):
+        service.assess_beam_checks(request)
+
+
+def test_tiny_opposite_equivalent_moment_is_refused_not_rounded_away():
+    request = torsion_request()
+    request["flexure"]["factored_moment_kn_m"] = 50.0 - 1e-8
+    with pytest.raises(InputOutOfRange, match="Equivalent bending demand"):
+        service.assess_beam_checks(request)

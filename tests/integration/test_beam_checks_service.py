@@ -172,6 +172,9 @@ def test_constructed_model_is_revalidated_and_null_input_is_refused():
         "[" * 2000 + "0" + "]" * 2000,
         "é" * 500001,
     ],
+    # pytest exports node IDs in PYTEST_CURRENT_TEST; Windows env values have a size cap.
+    # Keep the same oversized/deep test INPUTS, but give cases bounded diagnostic names.
+    ids=["duplicate", "nonfinite", "array", "string", "deep", "oversize-utf8"],
 )
 def test_json_transport_is_bounded_finite_and_unambiguous(text):
     with pytest.raises(InputOutOfRange):
