@@ -18,8 +18,8 @@ current-code compliance, select bars or produce construction documents.
 | M0 — units, errors, checks, code provenance, service, tests | Complete; Linux and Windows CI pass |
 | M0b — diagnostic desktop and packaging implementation | Implemented; Windows build and both frozen selftests pass |
 | M0b — clean Windows/no-Python acceptance | **User reports full clean-machine success**; OS/JSON/screenshot audit evidence outstanding |
-| M1 — beam-section flexure | Draft service/CLI implemented; **342 full tests pass on Windows and Linux**, packaging regression passes |
-| M2 — beam component checks | Scoped service/file commands implemented; missing fire/crack-spacing/chart routes blocked; full CI in progress |
+| M1 — beam-section flexure | Draft service/file commands implemented; included in the current **526-test Windows/Linux gates** |
+| M2 — beam component checks | Scoped draft implemented and EXE published; **526 full tests pass on each OS**, 15 frozen section paths pass; full M2 acceptance remains open |
 | M3–M15 — remaining engineering, building workflow, Ollama, full GUI, installer | Not implemented |
 
 [Use the M1 section service](docs/M1_BEAM_FLEXURE.md) ·
@@ -27,7 +27,8 @@ current-code compliance, select bars or produce construction documents.
 [Section-enabled Windows bundle instructions](docs/WINDOWS_DRAFT_BUNDLE.md) ·
 [Draft source basis and independent derivations](docs/research/M1_DRAFT_DESIGN_BASIS.md).
 The exact unverified-warning count accompanies every section result/report.
-[M1 source/build evidence](docs/evidence/m1/README.md), tested implementation `6663735`.
+[Current M2 source/build/publication evidence](docs/evidence/m2/README.md), tested implementation
+`c60b6e9`; [earlier M1 evidence](docs/evidence/m1/README.md) remains historical.
 
 **Historical M0b baseline:** 206 tests passed on both Windows and Linux. Windows CI
 built the onedir executable and passed both frozen selftests using the native Windows
@@ -41,11 +42,26 @@ still outstanding.
 
 ## Windows draft EXE
 
-The **Windows draft EXE** Actions workflow now builds and exercises the actual M1/M2
-section commands as well as the diagnostic desktop. It publishes an onedir artifact
-only on explicit manual `publish_draft_binary=true` after every test/build/smoke gate
-passes. The current publication is in progress; no new download is claimed yet.
-[Instructions and exact scope](docs/WINDOWS_DRAFT_BUNDLE.md).
+**[Download the section-enabled EXE + required runtime — ZIP, about 55 MB](https://github.com/jesdswr-creator/struct-ai/actions/runs/46004913427/artifacts/15202120175)**
+
+Built from **`c60b6e9`** in [successful manual run 46004913427](https://github.com/jesdswr-creator/struct-ai/actions/runs/46004913427).
+The artifact expires **2026-12-04 13:12:55 UTC**; GitHub sign-in may be required.
+Choose **Extract All** and keep `_internal` beside `struct_ai.exe`. Open the EXE for
+the diagnostic desktop, or explicitly confirm **`RUN-SAMPLE-SECTIONS.cmd`** to try
+the synthetic flexure/torsion samples and read their JSON/Markdown reports.
+
+The **Windows draft EXE** workflow passed 526 tests, the actual onedir build, native
+headless/GUI diagnostics and **15 frozen section-command paths** with source-result/report
+comparison. Both binary and evidence uploads succeeded. Automatic push/PR binary uploads
+remain disabled; publication requires manual `publish_draft_binary=true`.
+[Instructions, hashes and exact scope](docs/WINDOWS_DRAFT_BUNDLE.md) ·
+[Persistent CI/publication evidence](docs/evidence/m2/README.md).
+
+**This is an unsigned draft test bundle, not a complete structural-design app or an
+installer.** All code constants remain unverified; full M2 acceptance, columns, building
+analysis/design, seismic design, Ollama and the full design GUI are not complete.
+Clean-machine testing of this newer bundle is still required; it does not inherit the
+earlier M0b acceptance.
 
 ### Earlier diagnostic-only download (historical)
 
@@ -61,7 +77,8 @@ The executable is unsigned; do not disable security protections if it is blocked
 
 ## Desktop preview
 
-Actual PySide6 captures of a real solver run, not mockups or made-up building results:
+Historical M0b PySide6 captures of a real solver run—not mockups, new beam screens or
+made-up building results. Current CI captures were generated but not visually reviewed here:
 
 ![Light diagnostic workspace](docs/screenshots/m0b/light-1366x768-scale-1-checked.png)
 
@@ -116,17 +133,19 @@ set PYTHONUTF8=1
 ```
 
 `tools/check.py` runs pytest, ruff lint and ruff format checks, returning nonzero on
-failure. The recorded full CI gates at `8768572` passed **206 tests, zero skipped**, on
-both Windows and Ubuntu 24.04. Tests exercise actual OpenSees, spawned workers and Qt
-widgets, not mocked engineering functions. Ruff/format and `pip check` also passed.
-The restricted local sandbox ran the expanded **190-test headless subset**; its graphics
-prerequisites remain absent, so that local subset is not a full GUI/frozen rerun. See
-[current CI evidence](docs/evidence/m0b/windows-ci-2026-11-27/README.md) and the
-[earlier restoration record](docs/evidence/m0b/continuation-2026-11-27.json). The historical
-190-test full suite predates the added regression tests. M1 adds separate analytical,
-quadrature, property, strict-input, provenance and real-CLI tests; its latest validation
-is recorded in the milestone report. These test an explicitly unverified draft basis,
-not controlled textbook values or current-code compliance.
+failure. The full CI gates at **`c60b6e9` passed 526 tests, zero skipped, on each of
+Windows and Ubuntu 24.04**. They exercise actual OpenSees, spawned workers, Qt widgets,
+independent section arithmetic, quadrature, property checks, strict inputs, provenance,
+real CLI paths and packaging helpers. Ruff/format and `pip check` also passed.
+
+The restricted local sandbox passed **510 headless tests**. Its graphics prerequisites
+remain absent: the GUI directory and one GUI-dependent integration test are excluded
+locally, not skipped or removed from full CI. Actual Windows frozen diagnostics and
+15 section-command paths also passed before the manual artifact upload.
+[Current CI/publication evidence](docs/evidence/m2/README.md) and the
+[milestone report](MILESTONE_REPORT.md) preserve the initial failure and subsequent
+repairs. These test implemented, explicitly unverified draft behaviour—not controlled
+textbook values, complete-code coverage or current-code compliance.
 
 To return to the ordinary Windows display after offscreen tests, run
 `set QT_QPA_PLATFORM=` before launching the source app normally.
@@ -147,8 +166,13 @@ test environment and its limitations; scratch native dependencies are not commit
 packaging\build_windows.bat
 ```
 
-This runs pinned installation → pytest/ruff → PyInstaller → real frozen headless and
-GUI-worker selftests. It produces an **entire onedir folder**, not a standalone EXE.
+This **legacy local diagnostic recipe** runs pinned installation → pytest/ruff →
+PyInstaller → real frozen headless and GUI-worker selftests. It produces an **entire
+onedir folder**, not a standalone EXE. Unlike the current Actions workflow, this local
+recipe does **not** copy the section SAMPLE launcher/docs, run the separate section smoke
+or inventory the final distribution. Use the Actions artifact above for the documented
+section-enabled bundle; do not infer equivalent section-packaging verification from the
+legacy script alone.
 The Windows smoke runner exercises the native Windows Qt platform plugin with Python
 removed from PATH; Linux smoke uses offscreen rendering. It compares headless/GUI
 result hashes and removes external Python/library/plugin path overrides. CI builds/tests

@@ -1,0 +1,318 @@
+{
+  "kind": "PUBLISHED_SCOPED_DRAFT_WINDOWS_BUNDLE",
+  "recorded_date_utc": "2026-11-27",
+  "tested_commit": "c60b6e933a8c514f0c33b6c3c3309caa0d033947",
+  "workflow_path": ".github/workflows/build.yml",
+  "run": {
+    "id": 46004913427,
+    "html_url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/46004913427",
+    "head_branch": "arena/4feb7a32-struct-ai",
+    "head_sha": "c60b6e933a8c514f0c33b6c3c3309caa0d033947",
+    "event": "workflow_dispatch",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-27T13:11:07Z",
+    "updated_at": "2026-11-27T13:13:04Z"
+  },
+  "job": {
+    "id": 140525550027,
+    "name": "windows-draft",
+    "conclusion": "success",
+    "check_run_url": "https://api.github.com/repos/jesdswr-creator/struct-ai/check-runs/140525550027",
+    "pytest_passed": 526,
+    "pytest_seconds": 25.99,
+    "steps": [
+      {
+        "number": 1,
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 2,
+        "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 3,
+        "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 4,
+        "name": "Isolate exact dependencies from runner preinstalled packages",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 5,
+        "name": "Install exact dependencies",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 6,
+        "name": "Install project without changing dependency pins",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 7,
+        "name": "Check pinned dependency consistency",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 8,
+        "name": "Tests and lint (no dependency skips)",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 9,
+        "name": "Record source result on the same build host",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 10,
+        "name": "Exercise source section commands and refusal paths",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 11,
+        "name": "Build windowed onedir draft",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 12,
+        "name": "Include draft documentation and explicit opt-in samples",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 13,
+        "name": "Exercise actual frozen solver and GUI worker",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 14,
+        "name": "Exercise frozen section commands and compare full source payloads",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 15,
+        "name": "Capture source widgets (offscreen; not native DPI acceptance)",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 16,
+        "name": "Mark artifact scope and acceptance limits",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 17,
+        "name": "Inventory final distribution including copied evidence",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 18,
+        "name": "Upload draft section EXE, NOT a commercial release",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 19,
+        "name": "Upload test and screenshot evidence",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 37,
+        "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 38,
+        "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 39,
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "frozen_diagnostic_summary": {
+    "bundle_manifest_sha256": "322d417d5397d6917f233d33180ce8d39020e85de013f821826a74505562bc8e",
+    "bundle_regular_file_bytes": 130691818,
+    "bundle_regular_files": 314,
+    "bundle_symlinks": 0,
+    "checks": 5,
+    "clean_windows_no_python_accepted": false,
+    "executable_sha256": "16c75dff9fdbeb06d610e9af3f0cae6e2edb497d6e1d9ab971c482c000bb97ac",
+    "kind": "M0B_FROZEN_SMOKE",
+    "platform": "Windows-2025Server-10.0.26100-SP0",
+    "python_version": "3.12.10",
+    "qt_platform": "windows",
+    "report_sha256": {
+      "gui-selftest": "cf4276f586c4f1b70fc02db1b7fdfee6c6898838be9311a8c64a7434e0164a63",
+      "selftest": "45c604a3ae618b3eba2d6ba8bdaa98e6ce07f0f081b4a2e9c49b3bfd40b234bc"
+    },
+    "resources": 10,
+    "result_hash": "ec391b2bd243a1c33939b1388e42854eccd4b3a138ea39bc61782b419961ed90",
+    "source_result_compared": true,
+    "status": "PASS"
+  },
+  "selected_check_annotations": [
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/c60b6e933a8c514f0c33b6c3c3309caa0d033947/.github",
+      "start_line": 17,
+      "start_column": null,
+      "end_line": 17,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI distribution-manifest",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\distribution-manifest.log\nDraft distribution manifest: 431 files; source c60b6e933a8c514f0c33b6c3c3309caa0d033947\n",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/c60b6e933a8c514f0c33b6c3c3309caa0d033947/.github",
+      "start_line": 17,
+      "start_column": null,
+      "end_line": 17,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI frozen-sections",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\frozen-sections.log\nb61ee32a3d705ff242f1\"}, {\"checks\": 2, \"exit_code\": 0, \"mode\": \"beam-checks\", \"name\": \"SAMPLE_deflection_limits\", \"report_sha256\": \"927173caa3f1a6c69694d3e3a83e84a7f1303fb1b9c2be8a2ff660ea44484a6e\", \"result_hash\": \"75761dea964ff0a1a7f57be2ca4a85fff6d670d95ea2a045a1dd22537aef3cd0\", \"result_sha256\": \"bd62e63b5c4c1956561c9e22990cccd410d1fbe97a2c91a1369010f33fa903fc\"}, {\"checks\": 7, \"exit_code\": 1, \"mode\": \"beam-flexure\", \"name\": \"flexure_revise\", \"report_sha256\": \"1935b8f5db690af53ec67422114f0c342bb1203bdcdbcda4fcfe40e2d012692f\", \"result_hash\": \"7d8806897af4400bf00ead7e0842dd013836b822caf67b6d2a9d90b873ade401\", \"result_sha256\": \"ed18198d0cf46515d5d60567bcb76b6bccf0fa315475a6c130597b4746d78ccb\"}, {\"checks\": 12, \"exit_code\": 1, \"mode\": \"beam-checks\", \"name\": \"shear_revise\", \"report_sha256\": \"1041f1286417e1a7b819ad64ce542a09e745853049c5150b22e28ca2b6c18d72\", \"result_hash\": \"22dd1b72c3baef0a25b3dd791db896f930e8888ed5a04990a38738e30e622126\", \"result_sha256\": \"e150a26e5652ea30afa87638dd6407746943bf1f2bf06159eed83a4250b57b00\"}, {\"error_type\": \"MissingCodeValue\", \"exit_code\": 2, \"mode\": \"beam-checks\", \"name\": \"missing_fire_data\"}, {\"error_type\": \"InputOutOfRange\", \"exit_code\": 2, \"mode\": \"beam-checks\", \"name\": \"duplicate_json\"}, {\"error_type\": \"InputOutOfRange\", \"exit_code\": 2, \"mode\": \"beam-checks\", \"name\": \"strict_type_refusal\"}, {\"exit_code\": 2, \"name\": \"overwrite_refusal\", \"protected_files\": [\"input.json\", \"result.json\", \"trace.md\"]}], \"clean_windows_no_python_accepted\": false, \"executable_sha256\": \"16c75dff9fdbeb06d610e9af3f0cae6e2edb497d6e1d9ab971c482c000bb97ac\", \"kind\": \"DRAFT_SECTION_COMMAND_SMOKE\", \"mode\": \"FROZEN_EXECUTABLE\", \"platform\": \"Windows-2025Server-10.0.26100-SP0\", \"source_payloads_and_reports_compared\": true, \"status\": \"PASS\", \"verified_code_compliance\": false}\n",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/c60b6e933a8c514f0c33b6c3c3309caa0d033947/.github",
+      "start_line": 33,
+      "start_column": null,
+      "end_line": 33,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI frozen-selftest",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\frozen-selftest.log\nApplication log D:\\a\\struct-ai\\struct-ai\\.artifacts\\windows-selftest\\selftest-app-struct_ai.log:\n\nApplication log D:\\a\\struct-ai\\struct-ai\\.artifacts\\windows-selftest\\gui-selftest-app-native-console.log:\n\nApplication log D:\\a\\struct-ai\\struct-ai\\.artifacts\\windows-selftest\\gui-selftest-app-struct_ai.log:\n\nFrozen headless and GUI selftests passed from an unrelated working directory.\nThis is NOT evidence of running on a clean Windows machine without Python.\n{\"bundle_manifest_sha256\": \"322d417d5397d6917f233d33180ce8d39020e85de013f821826a74505562bc8e\", \"bundle_regular_file_bytes\": 130691818, \"bundle_regular_files\": 314, \"bundle_symlinks\": 0, \"checks\": 5, \"clean_windows_no_python_accepted\": false, \"executable_sha256\": \"16c75dff9fdbeb06d610e9af3f0cae6e2edb497d6e1d9ab971c482c000bb97ac\", \"kind\": \"M0B_FROZEN_SMOKE\", \"platform\": \"Windows-2025Server-10.0.26100-SP0\", \"python_version\": \"3.12.10\", \"qt_platform\": \"windows\", \"report_sha256\": {\"gui-selftest\": \"cf4276f586c4f1b70fc02db1b7fdfee6c6898838be9311a8c64a7434e0164a63\", \"selftest\": \"45c604a3ae618b3eba2d6ba8bdaa98e6ce07f0f081b4a2e9c49b3bfd40b234bc\"}, \"resources\": 10, \"result_hash\": \"ec391b2bd243a1c33939b1388e42854eccd4b3a138ea39bc61782b419961ed90\", \"source_result_compared\": true, \"status\": \"PASS\"}\n",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/c60b6e933a8c514f0c33b6c3c3309caa0d033947/.github",
+      "start_line": 17,
+      "start_column": null,
+      "end_line": 17,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI source-sections",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\source-sections.log\n\", \"result_sha256\": \"855a768824fe5b8ee7b57622edf108633d7bb91daa89b61ee32a3d705ff242f1\"}, {\"checks\": 2, \"exit_code\": 0, \"mode\": \"beam-checks\", \"name\": \"SAMPLE_deflection_limits\", \"report_sha256\": \"927173caa3f1a6c69694d3e3a83e84a7f1303fb1b9c2be8a2ff660ea44484a6e\", \"result_hash\": \"75761dea964ff0a1a7f57be2ca4a85fff6d670d95ea2a045a1dd22537aef3cd0\", \"result_sha256\": \"bd62e63b5c4c1956561c9e22990cccd410d1fbe97a2c91a1369010f33fa903fc\"}, {\"checks\": 7, \"exit_code\": 1, \"mode\": \"beam-flexure\", \"name\": \"flexure_revise\", \"report_sha256\": \"1935b8f5db690af53ec67422114f0c342bb1203bdcdbcda4fcfe40e2d012692f\", \"result_hash\": \"7d8806897af4400bf00ead7e0842dd013836b822caf67b6d2a9d90b873ade401\", \"result_sha256\": \"ed18198d0cf46515d5d60567bcb76b6bccf0fa315475a6c130597b4746d78ccb\"}, {\"checks\": 12, \"exit_code\": 1, \"mode\": \"beam-checks\", \"name\": \"shear_revise\", \"report_sha256\": \"1041f1286417e1a7b819ad64ce542a09e745853049c5150b22e28ca2b6c18d72\", \"result_hash\": \"22dd1b72c3baef0a25b3dd791db896f930e8888ed5a04990a38738e30e622126\", \"result_sha256\": \"e150a26e5652ea30afa87638dd6407746943bf1f2bf06159eed83a4250b57b00\"}, {\"error_type\": \"MissingCodeValue\", \"exit_code\": 2, \"mode\": \"beam-checks\", \"name\": \"missing_fire_data\"}, {\"error_type\": \"InputOutOfRange\", \"exit_code\": 2, \"mode\": \"beam-checks\", \"name\": \"duplicate_json\"}, {\"error_type\": \"InputOutOfRange\", \"exit_code\": 2, \"mode\": \"beam-checks\", \"name\": \"strict_type_refusal\"}, {\"exit_code\": 2, \"name\": \"overwrite_refusal\", \"protected_files\": [\"input.json\", \"result.json\", \"trace.md\"]}], \"clean_windows_no_python_accepted\": false, \"executable_sha256\": null, \"kind\": \"DRAFT_SECTION_COMMAND_SMOKE\", \"mode\": \"SOURCE_PYTHON\", \"platform\": \"Windows-2025Server-10.0.26100-SP0\", \"source_payloads_and_reports_compared\": false, \"status\": \"PASS\", \"verified_code_compliance\": false}\n",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/c60b6e933a8c514f0c33b6c3c3309caa0d033947/.github",
+      "start_line": 99,
+      "start_column": null,
+      "end_line": 99,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI quality",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\quality.log\nntegration\\test_selftest.py ....                                  [ 24%]\ntests\\integration\\test_service_boundary.py .........                     [ 26%]\ntests\\integration\\test_solver_diagnostic.py .......................      [ 30%]\ntests\\unit\\test_beam_check_data.py ...................                   [ 34%]\ntests\\unit\\test_beam_checks.py ......................................... [ 42%]\n..........................................................               [ 53%]\ntests\\unit\\test_beam_flexure.py ........................................ [ 60%]\n..............................................                           [ 69%]\ntests\\unit\\test_beam_materials.py ...............                        [ 72%]\ntests\\unit\\test_bundle_inventory.py .....                                [ 73%]\ntests\\unit\\test_checks.py ..................                             [ 76%]\ntests\\unit\\test_ci_step.py .......                                       [ 78%]\ntests\\unit\\test_code_registry.py ..........................              [ 83%]\ntests\\unit\\test_diagnostic_verification.py .                             [ 83%]\ntests\\unit\\test_exceptions.py ........                                   [ 84%]\ntests\\unit\\test_input_boundaries.py .............                        [ 87%]\ntests\\unit\\test_project_io.py ....                                       [ 88%]\ntests\\unit\\test_resources.py .........                                   [ 89%]\ntests\\unit\\test_theme.py ....                                            [ 90%]\ntests\\unit\\test_units.py ............................................... [ 99%]\n...                                                                      [100%]\n\n============================ 526 passed in 25.99s =============================\nAll checks passed!\n95 files already formatted\n",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/c60b6e933a8c514f0c33b6c3c3309caa0d033947/.github",
+      "start_line": 17,
+      "start_column": null,
+      "end_line": 17,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "CI pip-check",
+      "message": "Exit code: 0\nLog: .artifacts\\ci\\pip-check.log\nNo broken requirements found.\n",
+      "raw_details": ""
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 15202120175,
+      "node_id": "MDg6QXJ0aWZhY3QxNTIwMjEyMDE3NQ==",
+      "name": "struct-ai-windows-x64-draft-sections",
+      "size_in_bytes": 55037568,
+      "url": "https://api.github.com/repos/jesdswr-creator/struct-ai/actions/artifacts/15202120175",
+      "archive_download_url": "https://api.github.com/repos/jesdswr-creator/struct-ai/actions/artifacts/15202120175/zip",
+      "expired": false,
+      "digest": "sha256:16d1ded400e15f98eee3a86a8aef6bb2a250274824d3f194bdbeb46c5f62b02c",
+      "created_at": "2026-11-27T13:12:59Z",
+      "updated_at": "2026-11-27T13:12:59Z",
+      "expires_at": "2026-12-04T13:12:55Z",
+      "workflow_run": {
+        "id": 46004913427,
+        "repository_id": 1474085139,
+        "head_repository_id": 1474085139,
+        "head_branch": "arena/4feb7a32-struct-ai",
+        "head_sha": "c60b6e933a8c514f0c33b6c3c3309caa0d033947"
+      },
+      "browser_download_url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/46004913427/artifacts/15202120175"
+    },
+    {
+      "id": 15199867357,
+      "node_id": "MDg6QXJ0aWZhY3QxNTE5OTg2NzM1Nw==",
+      "name": "windows-draft-evidence",
+      "size_in_bytes": 1199021,
+      "url": "https://api.github.com/repos/jesdswr-creator/struct-ai/actions/artifacts/15199867357",
+      "archive_download_url": "https://api.github.com/repos/jesdswr-creator/struct-ai/actions/artifacts/15199867357/zip",
+      "expired": false,
+      "digest": "sha256:730fe1cc2af916deb8c4adc05707677a171f4c8e038858115702b861ca4e205c",
+      "created_at": "2026-11-27T13:13:00Z",
+      "updated_at": "2026-11-27T13:13:00Z",
+      "expires_at": "2026-12-04T13:12:59Z",
+      "workflow_run": {
+        "id": 46004913427,
+        "repository_id": 1474085139,
+        "head_repository_id": 1474085139,
+        "head_branch": "arena/4feb7a32-struct-ai",
+        "head_sha": "c60b6e933a8c514f0c33b6c3c3309caa0d033947"
+      },
+      "browser_download_url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/46004913427/artifacts/15199867357"
+    }
+  ],
+  "verification_limits": {
+    "metadata_and_checks_retrieved_via_github_api": true,
+    "archive_downloaded_or_rehashed_locally": false,
+    "all_section_payloads_and_reports_reviewed_locally": false,
+    "native_interactive_cmd_launcher_run_observed": false,
+    "clean_windows_no_python_accepted_for_this_bundle": false,
+    "native_dpi_performance_or_accessibility_accepted": false,
+    "controlled_code_data_verified": false,
+    "complete_member_or_building_design": false,
+    "ollama_integration": false,
+    "full_m2_or_m14_accepted": false,
+    "commercial_distribution_authorised": false,
+    "notes": [
+      "ZIP digest is the GitHub artifact API digest, not a local rehash. The EXE and runtime-manifest digests come from actual frozen-smoke output on the Windows runner.",
+      "Final distribution manifest records 431 files; the earlier frozen diagnostic inventories 314 runtime files. Neither manifest digest is the ZIP digest.",
+      "Fifteen real frozen section paths passed, with source payload/report comparison. API annotations only retain bounded output tails; complete evidence is bundled in the artifact.",
+      "Eight source-widget screenshots were generated offscreen. They were not retrieved or visually reviewed here and do not constitute native DPI or a new beam GUI.",
+      "Earlier clean-machine success is the separate user report for M0b, not this newer section-enabled EXE."
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # Milestone report
 
-## Scoped M2 checks + section-enabled EXE — validation/publication in progress (2026-11-27)
+## Scoped M2 checks + section-enabled EXE — CI green and bundle published (2026-11-27)
 
 The user's “do balance and verify all; make exe inside github actions” authorises the
 next increment and a new test bundle, not a full-design/compliance claim. **M3–M15,
@@ -19,27 +19,57 @@ records. Actual use is separately counted per calculation and prominently warned
 `f417ef1d947cd46599faa65e17d18c5f9d03ea9a5f1f6fd4de176ab8e6694f3a`.
 [Adopted basis, clauses, source discrepancies and human-review requirements](docs/research/M2_DRAFT_DESIGN_BASIS.md).
 
-Local gate: **510 headless tests passed in 11.93 s**, Ruff/format **95 files**, pip and diff
-checks passed. This includes 15 real source section-command paths from an unrelated working
-directory (nine pass samples, two failed assessments, three refusals, overwrite refusal).
-Qt remains unavailable locally; the same 16 GUI-dependent cases are not selected here.
-The first full Windows gate at `a5fb507` failed on an oversized pytest case ID exceeding
-Windows' environment-variable limit; only the case IDs were shortened. A separate seeded
-probe found a public kN/stress endpoint rounding issue; a failing regression was added,
-then fixed with a direct public-force check (no passing tolerance), with 35 property
-examples. Stirrup outer-fibre geometry and tiny opposite-moment refusal also have tests.
-Full Windows/Linux CI and actual frozen section commands are being rerun, not claimed yet.
+**Tested/bundled revision:** `c60b6e933a8c514f0c33b6c3c3309caa0d033947`.
 
-The updated Actions build adds source/frozen full-payload/report comparisons, typed-error
-and overwrite tests, explicit SAMPLE launcher/files, new-file-only JSON/Markdown/error
-paths and a final distribution manifest. Publication is manually gated after success;
-there is no new download until that run has actually uploaded the artifact. The desktop
-remains diagnostic-only. No new beam GUI screenshots are claimed; native user acceptance
-of a newer section-enabled bundle remains distinct from earlier M0b acceptance.
+| Actual verification gate | Observed result |
+|---|---|
+| Windows source tests | **526 passed in 30.24 s**, Ruff/95-file format, pip/audit/source selftest PASS |
+| Ubuntu 24.04 source tests | **526 passed in 18.85 s**, Ruff/95-file format, pip/audit/source selftest PASS |
+| Windows push build | **526 passed in 33.15 s**, onedir build, native diagnostics and section smoke PASS |
+| Manual publication build | **526 passed in 25.99 s**, all build/smoke/inventory steps and binary/evidence uploads PASS |
+| Frozen section commands | **15 paths PASS**; full source/frozen payload/report comparisons, typed refusals and overwrite checks |
+| New clean-machine acceptance | **Not established** for this bundle; historical M0b user report is separate |
 
-[Usage](docs/M2_BEAM_CHECKS.md) · [Windows instructions](docs/WINDOWS_DRAFT_BUNDLE.md).
+[Full source CI](https://github.com/jesdswr-creator/struct-ai/actions/runs/46004541526) ·
+[Push build](https://github.com/jesdswr-creator/struct-ai/actions/runs/46004541424) ·
+[Manual publication](https://github.com/jesdswr-creator/struct-ai/actions/runs/46004913427) ·
+[Persistent evidence, failed-first-gate history and retrieval limits](docs/evidence/m2/README.md).
 
-## M1 draft beam-section increment — full CI green (2026-11-27)
+Local gate at this implementation commit: **510 headless tests passed in 12.65 s**,
+Ruff/format **95 files**, pip and diff checks passed. This includes 15 real source
+section-command paths from an unrelated working directory (nine pass samples, two failed
+assessments, three refusals, overwrite refusal). The local sandbox lacks Qt prerequisites;
+the 16 GUI-dependent cases excluded locally were included in full CI. No test skip
+markers were introduced.
+
+The first Windows source and packaging gates at `a5fb507` failed on an oversized pytest
+case ID exceeding Windows' environment-variable limit; only the case IDs were shortened.
+Ubuntu passed that first gate. A separate seeded probe found a public kN/stress endpoint
+rounding issue; a failing regression was added, then fixed with a direct public-force
+check (no passing tolerance), with 35 property examples. Stirrup outer-fibre geometry and
+tiny opposite-moment refusal also have tests. Numerical expectations were not changed.
+
+**[Download the section-enabled Windows EXE bundle](https://github.com/jesdswr-creator/struct-ai/actions/runs/46004913427/artifacts/15202120175)**
+— **55,037,568 bytes**, expires **2026-12-04 13:12:55 UTC**. Extract All, keep `_internal`,
+run `struct_ai.exe` for the diagnostic or explicitly opt into `RUN-SAMPLE-SECTIONS.cmd`
+for the synthetic flexure/torsion demonstrations. This is unsigned onedir, not an installer
+or commercial release. The bundle contains samples, JSON/Markdown/error file commands,
+source/frozen evidence and a final 431-file inventory. ZIP/EXE/manifest hashes are distinct
+and recorded in the evidence guide; the ZIP was not independently downloaded/rehashed here.
+
+The desktop remains diagnostic-only. Offscreen Windows source-widget captures passed
+in CI but were not retrieved/visually reviewed here; no new beam GUI screenshots or
+native DPI/performance acceptance is claimed. The interactive SAMPLE launcher itself
+was not observed end-to-end; the underlying frozen commands passed. The complete M14
+DOCX/DXF/installer gate is not complete, and this new bundle does not inherit the old
+M0b clean-machine acceptance.
+
+[Usage](docs/M2_BEAM_CHECKS.md) · [Windows instructions and new-bundle evidence checklist](docs/WINDOWS_DRAFT_BUNDLE.md).
+
+## Historical M1 draft beam-section increment — full CI green (2026-11-27)
+
+This section records the earlier M1 checkpoint; the current M2/publication status is
+at the top of this report. Its historical scope and data counts are not current totals.
 
 **This is not the complete structural-design app.** The source service/CLI now sizes and
 assesses rectangular, doubly reinforced and T/L beam sections under one explicit signed,

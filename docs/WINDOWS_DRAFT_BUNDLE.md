@@ -9,9 +9,27 @@ the EXE or delete `_internal`. No installed Python, Qt or Ollama is required to 
 the bundled functions. Actual clean-machine testing of this newer bundle is still
 required; CI has Python installed and cannot establish that acceptance by itself.
 
+## Published draft — 2026-11-27
+
+**[Download Windows x64 EXE + runtime — 55,037,568 bytes](https://github.com/jesdswr-creator/struct-ai/actions/runs/46004913427/artifacts/15202120175)**
+
+Source revision: `c60b6e933a8c514f0c33b6c3c3309caa0d033947`. The artifact expires
+**2026-12-04 13:12:55 UTC**; GitHub may require sign-in. This replaces the earlier
+M0b-only download for testing the newly implemented section commands.
+
+- Artifact ZIP SHA-256, as reported by GitHub:
+  `16d1ded400e15f98eee3a86a8aef6bb2a250274824d3f194bdbeb46c5f62b02c`.
+- EXE SHA-256, from the actual Windows frozen-run evidence:
+  `16c75dff9fdbeb06d610e9af3f0cae6e2edb497d6e1d9ab971c482c000bb97ac`.
+
+The ZIP was not independently downloaded/rehashed in the development sandbox.
+[Recorded run/artifact metadata, gates and limits](evidence/m2/README.md).
+Repository documentation can postdate the executable; use the recorded source revision,
+not a later documentation commit, to identify this build.
+
 ## Extract and run
 
-1. Download the `struct-ai-windows-x64-draft-sections` artifact from the successful
+1. Download the `struct-ai-windows-x64-draft-sections` artifact above from the successful
    manually dispatched **Windows draft EXE** Actions run. It is retained for seven days.
 2. Use **Extract All** into a normal writable folder. Keep every file/subfolder.
 3. Double-click `struct_ai.exe` for the existing solver-diagnostic desktop. It is
@@ -94,7 +112,9 @@ whole-building design, Ollama, columns, seismic design, BBS/DXF/DOCX export or i
 ## Feedback/evidence needed
 
 On a separate Windows machine without Python/Qt/OpenSees/Ollama, record OS/build, source
-commit/EXE hash, both selftest JSONs/exit codes and the two SAMPLE report/results. Report
+commit/EXE hash, both selftest JSONs/exit codes and the two SAMPLE report/results. The
+interactive `.cmd` launcher itself has not been observed end-to-end here; its underlying
+frozen commands passed CI. Include launcher behaviour in this new-bundle check. Report
 startup errors without dismissing them; logs are under `%APPDATA%\struct_ai\logs`.
 Earlier user-reported clean-machine M0b acceptance is preserved, but it does not test
 this newer section-enabled bundle. Keep engineer review and security review separate.

@@ -31,7 +31,9 @@ Explicit decisions, recorded without inferring missing evidence:
 M1 implementation `6663735` passed **342 full tests on Windows and Linux**, Ruff and the
 existing native Windows packaging regression. [Evidence](evidence/m1/README.md).
 The standalone draft service/CLI is implemented, not a building result or current-code
-verification. M2 scoped implementation has now started under the [announced basis/plan](research/M2_DRAFT_DESIGN_BASIS.md); full CI/publication is pending.
+verification. The scoped M2 increment now also passes full CI and its section-enabled
+Windows bundle is published; [evidence](evidence/m2/README.md). This is not full M2
+acceptance or authorisation to bypass remaining engineering gates.
 
 The announced plan was to deliver a **standalone draft beam-section service and
 independent tests**, not a building result. All clients use `services/engine_service.py`.
@@ -68,11 +70,17 @@ model weights or large generated artifacts are to be bundled.
 
 The user requested the balance of work, verification and an EXE inside GitHub Actions.
 The [M2 draft source/basis plan](research/M2_DRAFT_DESIGN_BASIS.md) was announced before
-implementation. Scoped checks and file commands are implemented, with 510 local
-headless tests passing; 16 Qt-dependent cases await full CI. This is not full M2 acceptance:
-fire cover, maximum crack spacing and chart-derived deflection checks remain blocked.
-M3 is not advanced. The new publication is explicitly authorised by this request; it
-remains an unsigned, seven-day, non-commercial onedir test artifact, not an installer.
+implementation. Scoped checks and file commands are implemented at `c60b6e9`, with
+**526 full tests passing on each of Windows and Ubuntu 24.04**, Ruff/format/pip gates,
+and actual frozen diagnostic plus **15 section-command paths** passing. The local
+restricted sandbox passed 510 headless cases; full CI included the 16 Qt-dependent ones.
+The [authorised manual run](https://github.com/jesdswr-creator/struct-ai/actions/runs/46004913427)
+also passed and uploaded the [section-enabled EXE](WINDOWS_DRAFT_BUNDLE.md).
+
+This is not full M2 acceptance: fire cover, maximum crack spacing and chart-derived
+deflection checks remain blocked. M3 is not advanced. Publication remains an unsigned,
+seven-day, non-commercial onedir test artifact, not an installer. New-bundle clean-machine
+acceptance and human source/engineering review remain separate requirements.
 
 ## Remaining sequence (not implemented by this plan)
 

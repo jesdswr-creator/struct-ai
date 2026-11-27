@@ -1,0 +1,275 @@
+{
+  "kind": "PRESERVED_FAILED_M2_CI_ATTEMPT",
+  "runs": [
+    {
+      "id": 46003834080,
+      "head_sha": "a5fb507554f7b204ddfc14e1cf4eec46dde74ae8",
+      "html_url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/46003834080",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-11-27T13:03:38Z",
+      "updated_at": "2026-11-27T13:05:05Z",
+      "jobs": [
+        {
+          "job_id": 140521904690,
+          "name": "quality (windows-latest)",
+          "conclusion": "failure",
+          "test_summary_excerpts": [
+            "520 passed, 2 errors in 31.72s"
+          ],
+          "error_message_excerpts": [
+            "ValueError: the environment variable is longer than 32767 characters"
+          ],
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "conclusion": "success"
+            },
+            {
+              "name": "Native Linux dependencies (not skipped)",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Isolate exact dependencies from runner preinstalled packages",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python tools/ci_step.py --name install-pins -- -m pip install -r requirements.lock",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python tools/ci_step.py --name install-project -- -m pip install --no-deps --no-build-isolation -e .",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python tools/ci_step.py --name pip-check -- -m pip check",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python tools/ci_step.py --name quality -- tools/check.py",
+              "conclusion": "failure"
+            },
+            {
+              "name": "Run python tools/ci_step.py --name audit -- tools/list_unverified.py",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Run python tools/ci_step.py --name source-selftest -- -m struct_ai --selftest --output .artifacts/source-selftest.json",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Upload source test evidence even on failure",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "job_id": 140521905068,
+          "name": "quality (ubuntu-24.04)",
+          "conclusion": "success",
+          "test_summary_excerpts": [
+            "521 passed in 24.08s"
+          ],
+          "error_message_excerpts": [],
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "conclusion": "success"
+            },
+            {
+              "name": "Native Linux dependencies (not skipped)",
+              "conclusion": "success"
+            },
+            {
+              "name": "Isolate exact dependencies from runner preinstalled packages",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python tools/ci_step.py --name install-pins -- -m pip install -r requirements.lock",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python tools/ci_step.py --name install-project -- -m pip install --no-deps --no-build-isolation -e .",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python tools/ci_step.py --name pip-check -- -m pip check",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python tools/ci_step.py --name quality -- tools/check.py",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python tools/ci_step.py --name audit -- tools/list_unverified.py",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python tools/ci_step.py --name source-selftest -- -m struct_ai --selftest --output .artifacts/source-selftest.json",
+              "conclusion": "success"
+            },
+            {
+              "name": "Upload source test evidence even on failure",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 46003833965,
+      "head_sha": "a5fb507554f7b204ddfc14e1cf4eec46dde74ae8",
+      "html_url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/46003833965",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-11-27T13:03:38Z",
+      "updated_at": "2026-11-27T13:04:49Z",
+      "jobs": [
+        {
+          "job_id": 140521903147,
+          "name": "windows-draft",
+          "conclusion": "failure",
+          "test_summary_excerpts": [
+            "520 passed, 2 errors in 24.95s"
+          ],
+          "error_message_excerpts": [
+            "ValueError: the environment variable is longer than 32767 characters"
+          ],
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "conclusion": "success"
+            },
+            {
+              "name": "Isolate exact dependencies from runner preinstalled packages",
+              "conclusion": "success"
+            },
+            {
+              "name": "Install exact dependencies",
+              "conclusion": "success"
+            },
+            {
+              "name": "Install project without changing dependency pins",
+              "conclusion": "success"
+            },
+            {
+              "name": "Check pinned dependency consistency",
+              "conclusion": "success"
+            },
+            {
+              "name": "Tests and lint (no dependency skips)",
+              "conclusion": "failure"
+            },
+            {
+              "name": "Record source result on the same build host",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Exercise source section commands and refusal paths",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Build windowed onedir draft",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Include draft documentation and explicit opt-in samples",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Exercise actual frozen solver and GUI worker",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Exercise frozen section commands and compare full source payloads",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Capture source widgets (offscreen; not native DPI acceptance)",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Mark artifact scope and acceptance limits",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Inventory final distribution including copied evidence",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Upload draft section EXE, NOT a commercial release",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Upload test and screenshot evidence",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "diagnosis": "The oversized Unicode JSON payload had an unbounded automatically generated pytest node ID. PYTEST_CURRENT_TEST exceeded the Windows environment-value limit during fixture lifecycle. Explicit short IDs retain every original payload and refusal assertion.",
+  "repair_commit": "c60b6e933a8c514f0c33b6c3c3309caa0d033947",
+  "retrieval_limits": "Run/job metadata plus bounded check-annotation excerpts; giant parameter IDs are deliberately not copied. This is not a full downloaded log archive."
+}

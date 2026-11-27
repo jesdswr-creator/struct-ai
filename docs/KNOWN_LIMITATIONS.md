@@ -43,13 +43,16 @@ raise instead of producing NaN or infinity. The diagnostic's displayed ratios ar
 ## Packaging acceptance remains open
 
 - Windows 11 x64 is proposed, not certified; Windows 10 and ARM64 are not tested.
-- Actual Windows source tests, onedir build and both frozen selftests now pass in CI
-  on **Windows Server 2025**, using the native `windows` Qt plugin. This is not the
-  proposed Windows 11 clean-machine acceptance. See [saved CI evidence](evidence/m0b/windows-ci-2026-11-27/README.md).
-- Repository workflow access is restored. A [seven-day diagnostic EXE bundle](TEST_WINDOWS_EXE.md)
-  was uploaded by an explicitly user-approved manual run. Automatic binary publication
+- Current source tests pass **526 cases on both Windows and Ubuntu 24.04**. The
+  actual Windows onedir build, both frozen diagnostic selftests and 15 section-command
+  paths pass, including source/frozen result/report comparisons. The build host is
+  **Windows Server 2025** with the native `windows` Qt plugin, not a separate clean
+  Windows 11 machine. See [saved M2 CI/publication evidence](evidence/m2/README.md).
+- A [seven-day section-enabled draft EXE bundle](WINDOWS_DRAFT_BUNDLE.md) was uploaded
+  by an explicitly user-authorised manual run at `c60b6e9`. Automatic binary publication
   remains disabled; this is not commercial redistribution approval. No installer has
-  been generated.
+  been generated. The interactive `.cmd` SAMPLE launcher itself has not been observed
+  end-to-end here; its underlying frozen section commands passed CI.
 - Historical Linux source/frozen evidence used a custom matching shared Python runtime
   for the restricted sandbox. That excluded bundle/cache is not retained and was not
   rebuilt after the Windows fixes.
