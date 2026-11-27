@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "kind": "AUTHORISED_PUBLIC_SOURCE_DRAFT_NUMERICAL_ADOPTION",
+  "recorded_date_utc": "2026-11-27",
+  "user_decision": {
+    "identifier": "engineering_data_route",
+    "selected_option": "authorize_public_draft_data",
+    "supersedes": "Research-only permission, not provenance or verification requirements"
+  },
+  "catalogue": "struct_ai/codes/is456_2000/data/flexure_draft.json",
+  "numeric_records": 32,
+  "missing_records": 1,
+  "all_records_verified": false,
+  "controlled_code_reviewed": false,
+  "current_amendment_set_reviewed": false,
+  "source_bytes_sha256": null,
+  "original_source_bytes_bundled": false,
+  "visual_pdf_verification_performed": false,
+  "integrity_note": "Only parsed source text was reviewed. No original-byte digest or independent engineering verification is asserted.",
+  "sources": [
+    {
+      "id": "N02",
+      "url": "https://archive.nptel.ac.in/content/storage2/courses/105105104/pdf/m1l2.pdf",
+      "location": "1.2.4, especially representative reinforcement stress-strain discussion",
+      "adopted_scope": "Es, Fe415/500 strengths, primitive stress-ratio/inelastic-strain pairs; fy/gamma and interpolation",
+      "not_adopted": "SP16 total-strain/stress tables or manufacturer/TMT equivalence"
+    },
+    {
+      "id": "N04",
+      "url": "https://archive.nptel.ac.in/content/storage2/courses/105105104/pdf/m3l4.pdf",
+      "location": "3.4.2 and 3.4.5",
+      "adopted_scope": "Bending strains; explicit rounded 0.446 concrete peak convention; steel factor/minimum tension strain; separate Annex G comparison factors",
+      "not_adopted": "Contradictory answer-key inequality; rounded 0.87fy substituted into the exact design curve"
+    },
+    {
+      "id": "N08",
+      "url": "https://archive.nptel.ac.in/content/storage2/courses/105105104/pdf/m4l8.pdf",
+      "location": "4.8.3 through 4.8.5",
+      "adopted_scope": "Compatible opposite-steel strain, displaced concrete, min/max longitudinal provisions",
+      "not_adopted": "Relaxation of xu,max, contradictory classification wording, practical hanger minima, SP16 curve/stress tables"
+    },
+    {
+      "id": "N10",
+      "url": "https://archive.nptel.ac.in/content/storage2/courses/105105104/pdf/m5l10.pdf",
+      "location": "5.10.2 and compression/tension flange discussion",
+      "adopted_scope": "Composite action, conditional transverse steel requirement, four effective-width rules and actual-width cap",
+      "not_adopted": "Automatic 0.7 span inference, approximate 0.45/yf stress-block splicing or over-reinforcement clamping"
+    },
+    {
+      "id": "F-WEB",
+      "url": "https://limitstatelessons.blogspot.com/2015/10/Deflection-control-preliminary-dimensions-of-flanged-beams-T-beams.html",
+      "location": "Items 5 and 6",
+      "adopted_scope": "Unverified secondary cross-check: web width in flanged longitudinal steel limits",
+      "source_quality_limit": "Teaching blog, not a controlled standard or amendment review"
+    }
+  ],
+  "unresolved_record": {
+    "identifier": "is456_2000.applicability.current_amendment_review",
+    "value": null,
+    "status": "TODO_VERIFY",
+    "effect": "CURRENT_AMENDED_CODE requests fail closed; whole-building design remains unavailable"
+  },
+  "basis_document": "docs/research/M1_DRAFT_DESIGN_BASIS.md",
+  "historical_research_register_preserved": "docs/research/M1_SOURCE_REGISTER.json"
+}

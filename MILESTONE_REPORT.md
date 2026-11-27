@@ -1,5 +1,62 @@
 # Milestone report
 
+## M1 draft beam-section service — implemented; full CI validation pending (2026-11-27)
+
+**This is not the complete structural-design app.** The source service/CLI now sizes and
+assesses rectangular, doubly reinforced and T/L beam sections under one explicit signed,
+already-factored pure-bending action. The desktop and previously delivered EXE remain
+the M0b diagnostic. Whole-building design, M2–M15 and Ollama are still unavailable.
+
+Implemented:
+
+- Strict required input models, material/curve and sign/centroid conventions; no inferred
+  load factors, site values, steel type, flange coupling or zero-moment distance.
+- Continuous parabolic-rectangular concrete integration, strain-compatible opposite steel,
+  displaced concrete, actual force equilibrium and no over-reinforced neutral-axis clamp.
+- Four effective-flange-width rules and actual-width caps; flange-in-tension web-only path.
+- Minimum/maximum longitudinal checks; maximum steel uses **overall D**. Continuous areas
+  are not selected bars, detailing or proof of constructability. No section resizing.
+- Separate derived Annex G rectangular comparison coefficients: Fe415 **0.137784375**,
+  Fe500 **0.132740209776** (approximately 0.138 / 0.133). The integrated response uses a
+  different, explicitly labelled teaching-curve convention; these models are not mixed.
+- CheckResult objects, mandatory actual-use warnings, parameters/data/result hashes,
+  strict JSON CLI, Markdown trace and explicit failed/refused outcomes.
+
+**Data:** 33 unverified IS 456 records (32 numeric + one null amendment-review record),
+`verified:false`, `verified_by:null`. Typical actual-use counts: rectangular single **12**,
+rectangular double **24**, sample T/L **15**. Digest:
+`f46cc15afdd50d1ad58d6e0055c49cb09fc8a55d02a47bb5e633d5b3a6460014`.
+Other three code namespaces remain empty. Current-amended-code requests fail closed;
+no current-code-compliance or controlled-source verification is claimed.
+
+**Local validation:** **326 headless tests passed in 4.97 s**, Ruff/format **83 files**,
+`pip check` and `git diff --check` passed. Tests include independent rational rectangle
+states, separately implemented flange quadrature, all steel-curve primitives, compression
+steel below yield, unit/sign/overall-D regressions, missing data/units, strict ingress,
+real CLI runs, fresh-process determinism and Hypothesis round-trip/monotonicity properties.
+No numerical expectations or engineering tolerances were changed to fit the kernel.
+An initial constructed-model test exposed a serializer warning escaping input validation;
+that is now converted to a typed error, not suppressed. A seeded probe also found that
+round-tripping a published limiting moment through kN m/N mm could falsely classify
+exact equality as an overload. The boundary is now decided in the public/check units;
+the regression proves equality passes and the next representable overload is refused.
+No demand is clamped and no passing tolerance was added. Earlier local attempts also
+confirmed the known missing `libGL` prerequisite and the need to expose the OpenSees
+wheel's bundled BLAS directory; these were environment failures, not passing full suites.
+
+This local run excludes the 16 Qt-dependent cases (15 GUI tests plus one GUI selftest);
+**no pytest skip markers were added**. Full Windows/Linux tests and the existing native
+Windows packaging smoke must pass before this is reported as a green M1 increment.
+No M1 GUI was built, so no screenshot is misrepresented as a new beam screen. Existing
+M0b captures are historical; M13 screenshots/native DPI/accessibility feedback remain gated.
+
+[Usage and samples](docs/M1_BEAM_FLEXURE.md) ·
+[Adopted sources, model choices, independent derivations and human review](docs/research/M1_DRAFT_DESIGN_BASIS.md) ·
+[Machine-readable source adoption](docs/research/M1_DRAFT_SOURCE_ADOPTION.json).
+Human review still requires controlled amendments, every record/curve interpretation,
+steel-product/material applicability, independent engineering checks and later milestones.
+No M2 advancement is claimed by this section.
+
 ## Current decisions and M1 start (2026-11-27)
 
 **M0b clean-Windows execution is accepted on the user's report.** The user selected
@@ -16,8 +73,9 @@ provisions blocking affected calculations. The selected distribution intent is
 **internal use**. Keep OpenSees initially; researching PyNite is not backend validation
 or replacement. Ollama remains requested and planned, not implemented or live-tested.
 
-M1 is now starting: rectangular/doubly reinforced/T/L **section** flexure services,
-traceable data and independent tests. See the [updated plan](docs/IMPLEMENTATION_PLAN.md).
+M1 was authorised to start with rectangular/doubly reinforced/T/L **section** flexure
+services, traceable data and independent tests; the implementation/validation status is
+reported above. See the [updated plan](docs/IMPLEMENTATION_PLAN.md).
 Whole-building design remains unavailable. The sections below describe their dated
 historical state; statements that acceptance/data authorisation were pending there
 are not the current decisions above.

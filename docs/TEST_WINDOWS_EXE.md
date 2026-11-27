@@ -60,16 +60,19 @@ CI builds, whose EXE timestamps/hashes may differ. The complete recorded metadat
 not downloaded into the Linux sandbox; its archive digest comes from GitHub, while the
 EXE and runtime-file hashes were computed during the real Windows build.
 
-## Acceptance is still pending
+## User-reported acceptance; audit evidence still outstanding
 
 This exact build uses source revision `a6c8d8c01a006c0b2540621fa8f5f977b466032f`. Its Windows
 job passed **206 tests in 8.00 s**, Ruff/format, pip consistency, the real PyInstaller build,
 source selftest, and both frozen selftests using Qt's native `windows` plugin. Source and
 both frozen modes produced the same diagnostic result hash.
 
-The CI host was Windows Server 2025 with development tools installed. The mandatory
-**separate clean Windows 11 x64 / no installed Python, Qt, OpenSees or Ollama** run has not
-yet been observed. Follow [the complete acceptance checklist](packaging-spike.md#clean-windows-acceptance--must-actually-be-performed)
-and retain the actual selftest JSON reports, tester/OS identity, screenshots and hashes.
-A screenshot alone does not complete that checklist. No M1 engineering functionality or
-MSI/installer is included. This download is not a commercial release or licence grant.
+The CI host was Windows Server 2025 with development tools installed. **Subsequently,
+the user reported a separate clean Windows machine without Python/Qt/OpenSees/Ollama,
+five passing GUI checks and both documented selftests passing.** M0b execution is accepted
+on that report, not independently reviewed OS/JSON evidence. [Separate acceptance record](evidence/m0b/user-reported-windows-acceptance-2026-11-27.json).
+Retain both actual JSON reports, exit codes, tester/OS identity, screenshots and hashes
+against the [repeatable checklist](packaging-spike.md#clean-windows-acceptance--must-actually-be-performed).
+The unspecified OS does not certify Windows 11 specifically. No M1 engineering functionality,
+Ollama or MSI/installer is included in this earlier download. It is not a commercial
+release or licence grant.

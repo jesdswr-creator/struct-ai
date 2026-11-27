@@ -1,0 +1,23 @@
+{
+  "calculation_label": "SAMPLE doubly reinforced section — NOT a project design",
+  "operation": "DESIGN",
+  "reinforcement_policy": "ALLOW_COMPRESSION_STEEL",
+  "source_basis": "PUBLIC_TEACHING_DRAFT",
+  "acknowledge_unverified": true,
+  "method": "CONTINUOUS_STRAIN_COMPATIBILITY",
+  "action_basis": "FACTORED_ULS",
+  "geometry": {
+    "web_width_mm": 300.0,
+    "overall_depth_mm": 550.0,
+    "top_centroid_from_top_mm": 50.0,
+    "bottom_centroid_from_bottom_mm": 50.0,
+    "flange": null
+  },
+  "materials": {
+    "fck_n_mm2": 25.0,
+    "steel_grade": "Fe415",
+    "steel_curve": "REPRESENTATIVE_COLD_WORKED"
+  },
+  "factored_moment_kn_m": 350.0,
+  "axial_force_kn": 0.0
+}

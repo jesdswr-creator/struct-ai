@@ -13,7 +13,10 @@ def test_capabilities_never_claim_building_design():
     status = engine_service.get_engine_status()
     assert not status.building_design_available
     assert "not implemented" in status.message
-    assert engine_service.list_code_constants().records == ()
+    assert status.draft_beam_flexure_available
+    assert not status.ollama_integration_available
+    assert engine_service.list_code_constants().records
+    assert all(not r.data.verified for r in engine_service.list_code_constants().records)
 
 
 @pytest.mark.parametrize(

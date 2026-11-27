@@ -18,8 +18,8 @@ def run_audit(*arguments):
     )
 
 
-def test_empty_catalogue_is_not_advertised_as_verified():
-    completed = run_audit()
+def test_empty_catalogue_is_not_advertised_as_verified(catalogue_root):
+    completed = run_audit("--data-root", catalogue_root)
     assert completed.returncode == 0
     assert "No engineering code constants implemented" in completed.stdout
     assert "NOT evidence" in completed.stdout
@@ -46,7 +46,10 @@ def test_json_inventory_is_reproducible():
     first, second = run_audit("--json"), run_audit("--json")
     assert first.returncode == second.returncode == 0
     assert first.stdout == second.stdout
-    assert json.loads(first.stdout)["records"] == []
+    records = json.loads(first.stdout)["records"]
+    assert records
+    assert all(not record["data"]["verified"] for record in records)
+    assert any(record["data"]["value"] is None for record in records)
 
 
 def test_cli_fails_with_structured_error_for_missing_catalogue(tmp_path):

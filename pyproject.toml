@@ -20,6 +20,7 @@ dependencies = [
 [project.scripts]
 struct-ai = "struct_ai.app_entry:main"
 struct-ai-unverified = "struct_ai.codes.audit:main"
+struct-ai-beam = "struct_ai.cli.beam_flexure:main"
 
 [tool.setuptools.packages.find]
 include = ["struct_ai*"]

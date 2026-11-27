@@ -1,4 +1,10 @@
-# M0b packaging spike — acceptance is pending
+# M0b packaging spike — user-reported acceptance; audit evidence outstanding
+
+The user reports clean-Windows execution with no Python/Qt/OpenSees/Ollama, all five
+diagnostic checks and both selftests passing. [Separate user-report record](evidence/m0b/user-reported-windows-acceptance-2026-11-27.json).
+No OS version, JSON reports or native screenshots have been independently reviewed.
+This later report does not change historical CI evidence flags. The following procedure
+is retained for reproducibility/audit, not a request to repeat the user's decision.
 
 This is a **diagnostic-only** distribution, not a building-design application or a
 commercial installer. Its real OpenSeesPy two-node elastic cantilever is independently
@@ -100,7 +106,8 @@ This is stronger than an import check, but it is still not a Python-free-VM test
    are supplementary evidence, not these acceptance screenshots.
 6. Repeat using the **CI-produced artifact**, not only a developer-local build.
 7. Save both JSON files, native screenshots, exit codes, artifact SHA-256, OS identity,
-   tester and date in the acceptance record below. Only then mark M0b accepted.
+   tester and date in the acceptance record below. Only then mark the audit independently
+   reviewed; the existing clean-machine acceptance is explicitly based on the user's report.
 
 ### Acceptance record (not filled with invented evidence)
 
@@ -109,9 +116,9 @@ This is stronger than an import check, but it is still not a Python-free-VM test
 | Windows local PyInstaller build | PENDING — no Windows execution in this sandbox |
 | Windows CI build and frozen execution | PASS at `8768572` on Windows Server 2025; native `windows` Qt plugin; [evidence](evidence/m0b/windows-ci-2026-11-27/README.md) |
 | Windows binary publication | User-approved seven-day diagnostic [EXE bundle](TEST_WINDOWS_EXE.md) uploaded by manual run `45991582390`; still disabled on push/PR |
-| Clean Windows with no Python: headless selftest | PENDING |
-| Clean Windows with no Python: real window/worker | PENDING |
-| CI artifact tested on clean Windows | PENDING |
+| Clean Windows with no Python: headless selftest | USER-REPORTED PASS; JSON/OS/exit-code audit evidence outstanding |
+| Clean Windows with no Python: real window/worker | USER-REPORTED PASS; five GUI checks and GUI selftest; no screenshots/JSON reviewed |
+| Delivered artifact tested on clean Windows | USER-REPORTED acceptance; exact local bundle hashes/OS build not supplied |
 | Native Windows DPI / AV / cold-start / idle-RAM measurements | PENDING |
 | Commercial redistribution permission | REQUIRED before a commercial release |
 

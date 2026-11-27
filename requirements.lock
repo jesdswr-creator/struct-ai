@@ -20,6 +20,8 @@ packaging==25.0
 pluggy==1.6.0
 Pygments==2.19.2
 pytest==8.4.1
+hypothesis==6.170.17
+sortedcontainers==2.4.0
 pytest-qt==4.5.0
 ruff==0.12.2
 colorama==0.4.6; sys_platform == "win32"

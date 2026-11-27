@@ -1,12 +1,17 @@
-# Known limitations — M0 / M0b only
+# Known limitations — M1 draft sections / M0b desktop
 
-## Not a structural design application yet
+## Not a complete structural design application
 
-- No BuildingInput, RC building model, seismic analysis, member design or independent
+- M1 provides **unverified beam-section flexure only**, through the service/CLI, not
+  the diagnostic GUI. Its integrated teaching curve is not the Annex G equivalent
+  block; the latter is a separate comparison. [Exact basis and limitations](research/M1_DRAFT_DESIGN_BASIS.md).
+- No BuildingInput, RC building model, seismic analysis, member-line design or independent
   building verification exists. `design_building()` rejects every request.
 - Therefore no specific regularity, soft/weak-storey, cantilever or other v1 scope
   screening is claimed. Unsupported and otherwise-supported buildings are all refused.
-- No IS 456, IS 875, IS 1893 or IS 13920 equations, tables or constants are implemented.
+- IS 456 has 32 numeric public-draft primitives and one null amendment-review record,
+  all unverified. Current-amended-code compliance is blocked. IS 875 / IS 1893 /
+  IS 13920 catalogues remain empty. M2–M15 engineering/workflows remain unimplemented.
 - No slab/footing/staircase design, bar selection, drawings, schedules, DOCX, DXF,
   spreadsheet output or project save/load. Explicit Python stubs raise NotImplementedError.
 - No Ollama integration, assistant tools, inference, training, weights or fine-tuning.
@@ -44,7 +49,10 @@ raise instead of producing NaN or infinity. The diagnostic's displayed ratios ar
 - Historical Linux source/frozen evidence used a custom matching shared Python runtime
   for the restricted sandbox. That excluded bundle/cache is not retained and was not
   rebuilt after the Windows fixes.
-- No clean Windows VM without Python has executed the local or CI artifact.
+- The user reports clean Windows without Python/Qt/OpenSees/Ollama, five passing GUI
+  checks and both documented selftests. M0b execution is accepted **on that report**;
+  no OS version, JSON reports, hashes or screenshots were independently reviewed.
+  The earlier download still contains only the M0b diagnostic, not M1 functionality.
 - The supplementary Linux onedir build is tested with Qt's offscreen backend only;
   optional XCB/GTK dependencies emitted warnings. A Linux graphical desktop release
   is not claimed or supported by this spike.

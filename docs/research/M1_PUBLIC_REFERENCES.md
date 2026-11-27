@@ -1,4 +1,11 @@
-# M1 public-reference review — NOT ENGINEERING CODE DATA
+# M1 public-reference review — historical research-only record
+
+**Later authorisation/adoption:** the user subsequently authorised public-source numerical
+**draft implementation**. See [the adopted M1 basis](M1_DRAFT_DESIGN_BASIS.md) and
+[separate adoption record](M1_DRAFT_SOURCE_ADOPTION.json). The original research findings
+below and `M1_SOURCE_REGISTER.json` are preserved as historical records, not current
+claims that permission or clean-machine acceptance is still missing. The adopted data
+remains unverified; current-amendment applicability remains unresolved.
 
 Research date: **2026-11-27**. The user authorised locating public references for review.
 This does **not** accept M0b, start the M1 implementation, approve a design basis, or verify

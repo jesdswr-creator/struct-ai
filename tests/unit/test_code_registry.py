@@ -9,8 +9,8 @@ from struct_ai.exceptions import CodeDataError, MissingCodeValue
 from struct_ai.serialization import canonical_json
 
 
-def test_shipped_catalogues_are_honestly_empty():
-    registry = CodeRegistry.load()
+def test_empty_catalogues_do_not_imply_verified_usage(catalogue_root):
+    registry = CodeRegistry.load(catalogue_root)
     assert registry.records == ()
     assert len(registry.data_digest) == 64
     snapshot = registry.new_tracker().snapshot()
@@ -19,7 +19,9 @@ def test_shipped_catalogues_are_honestly_empty():
 
 
 def test_all_shipped_constants_are_unverified():
-    assert all(not record.data.verified for record in CodeRegistry.load().records)
+    records = CodeRegistry.load().records
+    assert records  # M1 public-draft data now exists; do not let this be vacuously true.
+    assert all(not record.data.verified and record.data.verified_by is None for record in records)
 
 
 def test_actual_use_is_unique_sorted_and_snapshot_is_immutable(

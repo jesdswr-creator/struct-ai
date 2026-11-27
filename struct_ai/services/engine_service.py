@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
+import json
 from collections.abc import Callable, Mapping
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Literal, Never
+from typing import TYPE_CHECKING, Any, Literal, Never, TypeVar
 
 from pydantic import BaseModel, ValidationError
+from pydantic_core import PydanticSerializationError
 
 from struct_ai import __version__
 from struct_ai.arms.diagnostic_models import DiagnosticInput, DiagnosticResult, DiagnosticRun
@@ -17,6 +19,11 @@ from struct_ai.resources import resource_path
 from struct_ai.serialization import content_hash
 
 if TYPE_CHECKING:
+    from struct_ai.design.beam_models import (
+        BeamFlexureAssessmentInput,
+        BeamFlexureDesignInput,
+        BeamFlexureRun,
+    )
     from struct_ai.services.diagnostic_jobs import DiagnosticJob
     from struct_ai.services.selftest import SelftestReport
 
@@ -25,8 +32,10 @@ class EngineStatus(FrozenModel):
     """Truthful implemented capabilities, not a design result. Units: counts only."""
 
     version: str
-    state: Literal["DIAGNOSTIC_ONLY"]
+    state: Literal["DRAFT_BEAM_SECTIONS"]
     building_design_available: Literal[False]
+    draft_beam_flexure_available: Literal[True]
+    ollama_integration_available: Literal[False]
     message: str
 
 
@@ -46,9 +55,15 @@ def get_engine_status() -> EngineStatus:
     """Report capability without importing Qt, OpenSeesPy or an LLM. Units: none."""
     return EngineStatus(
         version=__version__,
-        state="DIAGNOSTIC_ONLY",
+        state="DRAFT_BEAM_SECTIONS",
         building_design_available=False,
-        message="Building analysis/design is not implemented. No IS-code compliance is claimed.",
+        draft_beam_flexure_available=True,
+        ollama_integration_available=False,
+        message=(
+            "Unverified draft beam-section flexure is available through the service. "
+            "Building analysis/design and Ollama are not implemented. No IS-code compliance is "
+            "claimed."
+        ),
     )
 
 
@@ -62,7 +77,7 @@ def list_code_constants(*, data_root: Path | None = None) -> CodeAudit:
 def design_building(building_input: object) -> Never:
     """Refuse design until the validated pipeline exists. Units: not accepted yet."""
     raise NotImplementedError(
-        "Building analysis/design is not implemented in M0/M0b. "
+        "Building analysis/design is not implemented; M1 supplies draft sections only. "
         "BuildingInput, scope screening and engineering milestones must be completed first. "
         "No design or partial building result has been produced."
     )
@@ -161,7 +176,8 @@ def run_diagnostic(
         code_usage=usage,
         limitations=(
             "DIAGNOSTIC ONLY: synthetic two-node elastic cantilever, not a building.",
-            "No Indian Standard checks or engineering code constants are implemented.",
+            "This solver diagnostic performs no Indian Standard checks and consumes no code "
+            "constants.",
             "No self-weight, shear deformation, mass, seismic or member design is included.",
             "The numerical-error checks are not structural utilisation checks.",
             "DRAFT: must be reviewed and sealed by a licensed structural engineer.",
@@ -210,3 +226,144 @@ def write_diagnostic_evidence(path: Path, payload: BaseModel | dict[str, Any]) -
     from struct_ai.services.project_io import write_evidence
 
     write_evidence(path, payload)
+
+
+_SectionInput = TypeVar("_SectionInput", bound=BaseModel)
+
+
+def _validate_section_input(
+    data: BaseModel | Mapping[str, Any], model: type[_SectionInput]
+) -> _SectionInput:
+    """Revalidate even constructed model instances; preserve all context. Units: field suffixes."""
+    if not isinstance(data, BaseModel | Mapping):
+        raise InputOutOfRange(
+            "Beam-section input must be a complete named object.",
+            clause="M1 SECTION INPUT DOMAIN (software bounds, not code allowances)",
+            value=data,
+            limit="explicit geometry, strengths/curve, factored actions and draft acknowledgement",
+        )
+    payload: Any = data
+    try:
+        payload = data.model_dump(warnings="error") if isinstance(data, BaseModel) else dict(data)
+        return model.model_validate(payload)
+    except (ValidationError, PydanticSerializationError) as error:
+        raise InputOutOfRange(
+            "Invalid beam-section input; no defaults or coerced values were used.",
+            clause="M1 SECTION INPUT DOMAIN (software bounds, not code allowances)",
+            value=payload,
+            limit=error.errors(include_url=False)
+            if isinstance(error, ValidationError)
+            else str(error),
+        ) from error
+
+
+def validate_beam_flexure_design(
+    data: BeamFlexureDesignInput | Mapping[str, Any],
+) -> BeamFlexureDesignInput:
+    """Validate inverse inputs without calculating a section. Units: field suffixes."""
+    from struct_ai.design.beam_models import BeamFlexureDesignInput
+
+    return _validate_section_input(data, BeamFlexureDesignInput)
+
+
+def validate_beam_flexure_assessment(
+    data: BeamFlexureAssessmentInput | Mapping[str, Any],
+) -> BeamFlexureAssessmentInput:
+    """Validate supplied areas and explicit bending direction. Units: field suffixes."""
+    from struct_ai.design.beam_models import BeamFlexureAssessmentInput
+
+    return _validate_section_input(data, BeamFlexureAssessmentInput)
+
+
+def _run_beam_section(
+    request: BeamFlexureDesignInput | BeamFlexureAssessmentInput, data_root: Path | None
+) -> BeamFlexureRun:
+    """Execute only deterministic code; no solver, GUI or assistant import. Units: API-specific."""
+    from struct_ai.design.beam_flexure import calculate_beam_flexure
+
+    registry = CodeRegistry.load(resource_path("codes") if data_root is None else data_root)
+    try:
+        return calculate_beam_flexure(request, registry)
+    except (ArithmeticError, ValidationError) as error:
+        raise SolverFailure(
+            "Section arithmetic/result-contract failure; no draft result was published.",
+            clause="M1 NUMERICAL RESULT DOMAIN (not a code allowance)",
+            value=str(error),
+            limit="finite, self-consistent section results within the supported numerical domain",
+        ) from error
+
+
+def design_beam_flexure(
+    data: BeamFlexureDesignInput | Mapping[str, Any], *, data_root: Path | None = None
+) -> BeamFlexureRun:
+    """Draft continuous steel sizing then forward equilibrium/checks. Units: input mm, N/mm², kN m.
+
+    No analysis, action factoring, bars, detailing or code-compliance certification.
+    An alternate data root is explicit and validated, never a missing-data fallback.
+    """
+    return _run_beam_section(validate_beam_flexure_design(data), data_root)
+
+
+def assess_beam_flexure(
+    data: BeamFlexureAssessmentInput | Mapping[str, Any], *, data_root: Path | None = None
+) -> BeamFlexureRun:
+    """Draft assessment of supplied physical top/bottom areas. Units: mm, mm², N/mm², kN m."""
+    return _run_beam_section(validate_beam_flexure_assessment(data), data_root)
+
+
+def run_beam_flexure_json(text: str) -> BeamFlexureRun:
+    """Reject duplicate, nonfinite or oversized JSON. Units: explicit field suffixes."""
+
+    def unique_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+        """Disallow ambiguous duplicate fields, including nested objects. Units: none."""
+        result: dict[str, Any] = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError(f"Duplicate JSON field: {key}")
+            result[key] = value
+        return result
+
+    def reject_constant(token: str) -> Never:
+        """Reject NaN/Infinity tokens. Units: none."""
+        raise ValueError(f"Non-finite JSON token: {token}")
+
+    try:
+        if not isinstance(text, str) or len(text.encode("utf-8")) > 1_000_000:
+            raise ValueError("Request must be UTF-8 JSON text of at most 1,000,000 bytes")
+        payload = json.loads(text, object_pairs_hook=unique_pairs, parse_constant=reject_constant)
+        if not isinstance(payload, dict) or payload.get("operation") not in ("DESIGN", "ASSESS"):
+            raise ValueError("operation must explicitly be DESIGN or ASSESS")
+    except (ValueError, TypeError, UnicodeError, RecursionError) as error:
+        raise InputOutOfRange(
+            "Cannot parse beam-section JSON; no calculation was started.",
+            clause="M1 JSON INPUT FORMAT (not a code clause)",
+            value=str(error),
+            limit="unambiguous finite JSON object with an explicit operation",
+        ) from error
+    if payload["operation"] == "DESIGN":
+        return design_beam_flexure(payload)
+    return assess_beam_flexure(payload)
+
+
+def beam_flexure_report(run: BeamFlexureRun) -> str:
+    """Render revalidated results, failures and warnings. Units: payload-defined."""
+    from struct_ai.design.beam_models import BeamFlexureRun
+    from struct_ai.reporting.beam_flexure import render_beam_report
+
+    if not isinstance(run, BeamFlexureRun):
+        raise InputOutOfRange(
+            "A beam report requires a completed, hashed beam-section run.",
+            clause="M1 REPORT INPUT CONTRACT (not an engineering code clause)",
+            value=type(run).__name__,
+            limit="BeamFlexureRun from the deterministic service",
+        )
+    try:
+        checked_run = BeamFlexureRun.model_validate(run.model_dump(warnings="error"))
+    except (ValidationError, PydanticSerializationError) as error:
+        raise InputOutOfRange(
+            "Beam payload failed integrity/contract validation; no report was rendered.",
+            clause="M1 REPORT INPUT CONTRACT (not an engineering code clause)",
+            value=str(error),
+            limit="unaltered, self-consistent section result with its matching hash",
+        ) from error
+    return render_beam_report(checked_run)

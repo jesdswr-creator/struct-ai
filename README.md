@@ -1,11 +1,13 @@
 # struct_ai
 
-**DRAFT · M0 foundation + M0b diagnostic prototype · NOT FOR BUILDING DESIGN**
+**DRAFT · M1 unverified beam-section service + M0b diagnostic desktop · NOT FOR BUILDING DESIGN**
 
 A staged structural engineering application with a deterministic Python engine and a
-service-only desktop interface. The current app runs a **real, independently checked
-two-node OpenSeesPy cantilever diagnostic**. It does **not** analyse or design an RC
-building, perform Indian Standard checks, or produce construction documents.
+service-only desktop interface. The desktop runs a **real, independently checked
+two-node OpenSeesPy cantilever diagnostic**. The source service/CLI now also provides
+**unverified rectangular, doubly reinforced and T/L beam-section flexure** with traceable
+public-source data. It does **not** analyse or design a complete RC building, certify
+current-code compliance, select bars or produce construction documents.
 
 > DRAFT: must be reviewed and sealed by a licensed structural engineer.
 > Do not use this prototype to issue designs or claim code compliance.
@@ -14,12 +16,17 @@ building, perform Indian Standard checks, or produce construction documents.
 |---|---|
 | M0 — units, errors, checks, code provenance, service, tests | Complete; Linux and Windows CI pass |
 | M0b — diagnostic desktop and packaging implementation | Implemented; Windows build and both frozen selftests pass |
-| M0b — clean Windows/no-Python acceptance | **Pending**; not certified |
-| M1–M15 — engineering, building workflow, full GUI, installer | Not implemented |
+| M0b — clean Windows/no-Python acceptance | **User reports full clean-machine success**; OS/JSON/screenshot audit evidence outstanding |
+| M1 — beam-section flexure | Draft service/CLI implemented; **326 headless tests pass**, full cross-platform validation in progress |
+| M2–M15 — remaining engineering, building workflow, Ollama, full GUI, installer | Not implemented |
 
-Workflow access is working and the implementation is pushed. **206 tests pass on both
-Windows and Linux.** Windows CI built the onedir executable and passed both frozen
-selftests using the native Windows Qt plugin, with matching source/frozen result hashes.
+[Use the M1 section service](docs/M1_BEAM_FLEXURE.md) ·
+[Draft source basis and independent derivations](docs/research/M1_DRAFT_DESIGN_BASIS.md).
+The exact unverified-warning count accompanies every section result/report.
+
+**Historical M0b baseline:** 206 tests passed on both Windows and Linux. Windows CI
+built the onedir executable and passed both frozen selftests using the native Windows
+Qt plugin, with matching source/frozen result hashes.
 The CI host was Windows Server 2025—not a clean Windows 11 machine without Python.
 [Recorded CI evidence](docs/evidence/m0b/windows-ci-2026-11-27/README.md) ·
 [Milestone report and remaining acceptance gates](MILESTONE_REPORT.md).
@@ -33,7 +40,8 @@ still outstanding.
 
 Choose **Extract All**, then double-click **`struct_ai.exe`** and click **Run diagnostic**.
 Keep the `_internal` folder and other files beside the EXE. This is a portable Windows x64
-benchmark, not a source ZIP, MSI installer or building-design application. The download
+benchmark, not a source ZIP, MSI installer or building-design application. **This earlier
+binary does not contain the new M1 section service/UI or Ollama.** The download
 expires **2026-12-04 11:35:32 UTC**; GitHub may require sign-in.
 [Launch instructions, hashes and troubleshooting](docs/TEST_WINDOWS_EXE.md).
 The executable is unsigned; do not disable security protections if it is blocked.
@@ -102,8 +110,10 @@ The restricted local sandbox ran the expanded **190-test headless subset**; its 
 prerequisites remain absent, so that local subset is not a full GUI/frozen rerun. See
 [current CI evidence](docs/evidence/m0b/windows-ci-2026-11-27/README.md) and the
 [earlier restoration record](docs/evidence/m0b/continuation-2026-11-27.json). The historical
-190-test full suite predates the added regression tests. No textbook placeholder tests
-exist because no code-design module exists.
+190-test full suite predates the added regression tests. M1 adds separate analytical,
+quadrature, property, strict-input, provenance and real-CLI tests; its latest validation
+is recorded in the milestone report. These test an explicitly unverified draft basis,
+not controlled textbook values or current-code compliance.
 
 To return to the ordinary Windows display after offscreen tests, run
 `set QT_QPA_PLATFORM=` before launching the source app normally.
@@ -133,12 +143,13 @@ now run automatically; binary artifact upload is a separate manual opt-in after
 distribution-permission review. In a public repository, a diagnostic
 artifact's label is not an access restriction.
 
-**No clean-Windows test has been performed.** Follow the documented
-[clean-VM procedure](docs/packaging-spike.md#clean-windows-acceptance--must-actually-be-performed)
-with both the local build and CI artifact. Python/Qt/OpenSees/Ollama must be absent on
-that machine. Record actual exit codes, evidence JSON, OS build, artifact hash and
-native screenshots before accepting M0b. M14's beam/DOCX/DXF selftest and Inno Setup
-installer are not implemented.
+**The user reports clean-Windows acceptance:** no Python/Qt/OpenSees/Ollama installed,
+five diagnostic checks and both documented selftests passed. This is not independent
+review of a particular OS version or the JSON reports. Retain actual exit codes, both
+reports, OS/build, hashes and native screenshots for audit; see the
+[separate user report](docs/evidence/m0b/user-reported-windows-acceptance-2026-11-27.json)
+and [repeatable checklist](docs/packaging-spike.md#clean-windows-acceptance--must-actually-be-performed).
+M14's beam/DOCX/DXF frozen selftest and Inno Setup installer are not implemented.
 
 The spike is unsigned. See the packaging notes for antivirus/SmartScreen precautions
 and a future code-signing plan. Do not disable security protections to run a build.
@@ -163,9 +174,11 @@ Client (desktop / CLI / future LLM tool)
     → display/export of those same objects
 ```
 
-The present schema is `DiagnosticInput`, **not** a substitute `BuildingInput`.
-`design_building()` refuses every request with `NotImplementedError`. Slab, footing,
-staircase design and BuildingInput project I/O also refuse explicitly.
+The implemented schemas are `DiagnosticInput` and explicit **beam-section** design/
+assessment inputs, **not** a substitute `BuildingInput`. `design_building()` refuses
+every request with `NotImplementedError`. Slab, footing, staircase design and BuildingInput
+project I/O also refuse explicitly. M1 executes deterministic section mathematics without
+loading OpenSees, Qt or an LLM; it never infers building actions.
 
 The diagnostic uses fixed stages: validation → model → linear static analysis →
 independent analytical/equilibrium checks. The GUI only supplies text fields and
@@ -186,12 +199,13 @@ Different OS/toolchain environments are not assumed bit-identical.
 
 ## Code source-of-truth policy
 
-No Indian Standard values or clauses have been implemented. The four required JSON
-catalogues are deliberately **empty**. Empty is not verified. Required absent/null
-values raise `MissingCodeValue`; incomplete source metadata also blocks consumption.
-No remembered code values are silently adopted.
+The user authorised cited public-source **draft numerical implementation**. IS 456 now
+has **33 unverified records** (32 numeric, one missing current-amendment review); the
+other three code namespaces remain empty. Required absent/null values raise
+`MissingCodeValue`; incomplete metadata or mismatched units also block consumption.
+No remembered value or amendment-completeness claim is silently substituted.
 
-Future shipped records must have `verified=false`, `verified_by=null`, explicit units,
+Every shipped record has `verified=false`, `verified_by=null`, explicit units,
 code edition and clause references. The actual-use tracker records distinct consumed
 constants and emits `UNVERIFIED CODE CONSTANTS USED: N` when N > 0. Audit inventory
 counts and per-run usage counts are deliberately different. See
@@ -213,10 +227,11 @@ Native Windows DPI testing and design feedback are still required before later U
 Logs: `%APPDATA%\struct_ai\logs` on Windows, XDG state storage on Linux. Copy diagnostics
 shows versions and the log path without exposing environment secrets.
 
-Next gates: validate an authorised Windows artifact on a **separate clean machine**;
-resolve redistribution licensing; review
-[the public-reference shortlist and M1 data needs](docs/research/M1_PUBLIC_REFERENCES.md)
-and supply the unresolved design-basis information. That shortlist is not runtime code data.
-**Do not advance to engineering milestones on the strength of a passing two-node diagnostic.**
+Next gates: complete M1 cross-platform validation and source review, then M2; retain
+the clean-machine audit evidence; resolve building design-basis inputs and current
+amendments. The selected use is **internal** and OpenSees is retained; commercial
+redistribution still requires separate review. Ollama integration remains a later
+bounded assistant milestone with a form-only fallback, not an engineering calculator.
+**A passing diagnostic or draft section check is not building-design approval.**
 See [known limitations](docs/KNOWN_LIMITATIONS.md) and the
 [human-verification checklist](MILESTONE_REPORT.md).

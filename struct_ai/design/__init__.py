@@ -1,1 +1,1 @@
-"""Design modules are not implemented in M0/M0b. Units: future N, mm, N/mm²."""
+"""Draft beam-section flexure; other design stubs explicitly refuse. Units: N, mm, N/mm²."""

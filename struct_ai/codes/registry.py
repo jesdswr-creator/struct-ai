@@ -201,8 +201,10 @@ class CodeRegistry:
         """Start isolated actual-use tracking. Units: none."""
         return CodeUseTracker(self.data_digest)
 
-    def require(self, identifier: str, tracker: CodeUseTracker) -> float:
-        """Resolve and log a required value, or block calculation. Units: declared in record."""
+    def require(
+        self, identifier: str, tracker: CodeUseTracker, *, expected_units: str | None = None
+    ) -> float:
+        """Resolve/log a value; optionally enforce its unit contract. Units: declared in record."""
         record = next((item for item in self.records if item.identifier == identifier), None)
         if record is None:
             raise MissingCodeValue(
@@ -220,6 +222,13 @@ class CodeRegistry:
                 clause=record.data.clause,
                 value=record.data.value,
                 limit=f"supplied value, edition, clause and units for {identifier}",
+            )
+        if expected_units is not None and record.data.units != expected_units:
+            raise CodeDataError(
+                f"Code constant has incompatible units: {identifier}",
+                clause=record.data.clause,
+                value=record.data.units,
+                limit=expected_units,
             )
         tracker.capture(self.data_digest, record)
         return record.data.value
