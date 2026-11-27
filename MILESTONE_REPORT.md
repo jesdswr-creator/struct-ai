@@ -1,5 +1,39 @@
 # Milestone report
 
+## Scoped M2 checks + section-enabled EXE — validation/publication in progress (2026-11-27)
+
+The user's “do balance and verify all; make exe inside github actions” authorises the
+next increment and a new test bundle, not a full-design/compliance claim. **M3–M15,
+whole-building design and Ollama are not implemented. Full M2 acceptance is also not
+claimed while fire/crack-spacing/chart routes remain blocked.**
+
+Implemented scoped M2 service/file operations: Table 19/20 shear, supplied stirrups,
+rectangular closed-cage torsion and both required equivalent-moment M1 checks; side faces;
+straight deformed-bar Ld with explicit stress/state/bundle; base cover/minimum clear spacing;
+and final/post-finish limits against documented externally supplied service deflections.
+No default project actions, automatic bars/resizing, current-amendment values or unavailable
+charts are invented. CheckResult failures remain `REVISE_SECTION` with full evidence.
+
+Data: **159 wholly unverified records** (155 numeric, four null), including 126 new M2
+records. Actual use is separately counted per calculation and prominently warned. Digest:
+`f417ef1d947cd46599faa65e17d18c5f9d03ea9a5f1f6fd4de176ab8e6694f3a`.
+[Adopted basis, clauses, source discrepancies and human-review requirements](docs/research/M2_DRAFT_DESIGN_BASIS.md).
+
+Local gate: **505 headless tests passed in 12.11 s**, Ruff/format **95 files**, pip and diff
+checks passed. This includes 15 real source section-command paths from an unrelated working
+directory (nine pass samples, two failed assessments, three refusals, overwrite refusal).
+Qt remains unavailable locally; the same 16 GUI-dependent cases are not selected here.
+Full Windows/Linux CI and actual frozen section commands are next, not claimed yet.
+
+The updated Actions build adds source/frozen full-payload/report comparisons, typed-error
+and overwrite tests, explicit SAMPLE launcher/files, new-file-only JSON/Markdown/error
+paths and a final distribution manifest. Publication is manually gated after success;
+there is no new download until that run has actually uploaded the artifact. The desktop
+remains diagnostic-only. No new beam GUI screenshots are claimed; native user acceptance
+of a newer section-enabled bundle remains distinct from earlier M0b acceptance.
+
+[Usage](docs/M2_BEAM_CHECKS.md) · [Windows instructions](docs/WINDOWS_DRAFT_BUNDLE.md).
+
 ## M1 draft beam-section increment — full CI green (2026-11-27)
 
 **This is not the complete structural-design app.** The source service/CLI now sizes and

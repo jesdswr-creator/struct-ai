@@ -100,7 +100,11 @@ class SpikeWindow(QMainWindow):
         banner_layout.setContentsMargins(16, 10, 16, 10)
         banner_layout.addWidget(label("!   DIAGNOSTIC ONLY", "caption"))
         banner_layout.addWidget(
-            label("No building analysis or IS-code design is implemented.", "caption"), 1
+            label(
+                "This screen is diagnostic only; draft sections use explicit JSON commands.",
+                "caption",
+            ),
+            1,
         )
         layout.addWidget(banner)
         self.usage_warning = StatusChip("Unverified constants warning", "warning")
@@ -171,7 +175,7 @@ class SpikeWindow(QMainWindow):
         self.building_button.setAccessibleName("Building design, not implemented")
         self.building_button.setEnabled(False)
         self.building_button.setToolTip(
-            "Not implemented. M1 and later engineering milestones are incomplete."
+            "Not implemented. Remaining engineering and building-workflow gates are incomplete."
         )
         layout.addWidget(self.building_button)
         layout.addSpacing(24)
@@ -179,7 +183,8 @@ class SpikeWindow(QMainWindow):
         layout.addWidget(label("Packaging spike", "muted"))
         layout.addWidget(
             label(
-                "A small, real analysis to test the solver and desktop distribution.",
+                "Real solver diagnostic. For draft section tools, "
+                "see README-DRAFT.md in the EXE bundle.",
                 "caption",
                 wrap=True,
             )

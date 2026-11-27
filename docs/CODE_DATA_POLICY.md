@@ -1,15 +1,17 @@
-# Code-data policy — M1 public-draft route
+# Code-data policy — M1/M2 public-draft route
 
 The user explicitly authorised numerical transcription from **cited public sources for
 draft implementation** on 2026-11-27. This supersedes earlier research-only permission,
 not the fail-closed/verification policy. It does **not** establish controlled-code,
 amendment-complete or production-compliance data.
 
-There are four required code namespaces. IS 456 now contains **33 unverified records**:
-32 numeric draft flexure primitives and one null current-amendment review record. The
+There are four required code namespaces. IS 456 now contains **159 unverified records**:
+155 numeric values and four nulls (amendment applicability, fire cover, maximum crack
+spacing and deflection-chart factors). M1 contributes 33 records; M2 contributes 126. The
 other three catalogues remain empty. Whole-building design still raises
 `NotImplementedError`. Current-amended-code section calculations raise `MissingCodeValue`.
-See the [adopted M1 draft basis](research/M1_DRAFT_DESIGN_BASIS.md) for exact source locations,
+See the [M1 basis](research/M1_DRAFT_DESIGN_BASIS.md) and
+[M2 basis](research/M2_DRAFT_DESIGN_BASIS.md) for exact source locations,
 precision conventions, independent derivations and exclusions.
 
 Every scalar, table cell, prescribed coefficient and limit belongs in
@@ -26,7 +28,7 @@ namespace and a `constants` array. Each record requires:
 
 Do not replace unknown values or references with remembered values. `require()` raises
 `MissingCodeValue` when an identifier is absent, its value is null, or its edition,
-clause or units still contains `TODO_VERIFY`. M1 callers also declare expected units;
+clause or units still contains `TODO_VERIFY`. M1/M2 callers also declare expected units;
 a mismatch raises `CodeDataError` before consumption is recorded. Invalid physical
 curve ordering and required missing values do not receive fallbacks.
 
@@ -40,7 +42,7 @@ even though the inventory is no longer empty; its data digest changes with the i
 An explicit verification workflow is not implemented. Tests enforce that all shipped
 records remain unverified. The schema can represent a future verified record only with
 a numerical value and an identified verifier; it does not grant verification itself.
-M1 results always declare `verified_code_compliance:false`. A changed amendment scalar
+M1/M2 results always declare `verified_code_compliance:false`. A changed amendment scalar
 cannot turn on a compliance workflow that does not exist.
 
 `python tools/list_unverified.py` lists every unverified entry, including nulls.

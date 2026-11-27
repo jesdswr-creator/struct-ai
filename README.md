@@ -1,12 +1,13 @@
 # struct_ai
 
-**DRAFT · M1 unverified beam-section service + M0b diagnostic desktop · NOT FOR BUILDING DESIGN**
+**DRAFT · M1 flexure + scoped M2 component checks · NOT FOR BUILDING DESIGN**
 
 A staged structural engineering application with a deterministic Python engine and a
 service-only desktop interface. The desktop runs a **real, independently checked
 two-node OpenSeesPy cantilever diagnostic**. The source service/CLI now also provides
 **unverified rectangular, doubly reinforced and T/L beam-section flexure** with traceable
-public-source data. It does **not** analyse or design a complete RC building, certify
+public-source data, plus scoped shear/torsion, straight development length, base cover/clear
+spacing and checks of supplied service deflections. It does **not** analyse or design a complete RC building, certify
 current-code compliance, select bars or produce construction documents.
 
 > DRAFT: must be reviewed and sealed by a licensed structural engineer.
@@ -18,9 +19,12 @@ current-code compliance, select bars or produce construction documents.
 | M0b — diagnostic desktop and packaging implementation | Implemented; Windows build and both frozen selftests pass |
 | M0b — clean Windows/no-Python acceptance | **User reports full clean-machine success**; OS/JSON/screenshot audit evidence outstanding |
 | M1 — beam-section flexure | Draft service/CLI implemented; **342 full tests pass on Windows and Linux**, packaging regression passes |
-| M2–M15 — remaining engineering, building workflow, Ollama, full GUI, installer | Not implemented |
+| M2 — beam component checks | Scoped service/file commands implemented; missing fire/crack-spacing/chart routes blocked; full CI in progress |
+| M3–M15 — remaining engineering, building workflow, Ollama, full GUI, installer | Not implemented |
 
 [Use the M1 section service](docs/M1_BEAM_FLEXURE.md) ·
+[M2 component checks and limits](docs/M2_BEAM_CHECKS.md) ·
+[Section-enabled Windows bundle instructions](docs/WINDOWS_DRAFT_BUNDLE.md) ·
 [Draft source basis and independent derivations](docs/research/M1_DRAFT_DESIGN_BASIS.md).
 The exact unverified-warning count accompanies every section result/report.
 [M1 source/build evidence](docs/evidence/m1/README.md), tested implementation `6663735`.
@@ -35,7 +39,15 @@ A temporary diagnostic binary has now been uploaded with the user's explicit app
 automatic push/PR binary uploads remain disabled. Commercial release/licensing review is
 still outstanding.
 
-## Download the Windows test EXE
+## Windows draft EXE
+
+The **Windows draft EXE** Actions workflow now builds and exercises the actual M1/M2
+section commands as well as the diagnostic desktop. It publishes an onedir artifact
+only on explicit manual `publish_draft_binary=true` after every test/build/smoke gate
+passes. The current publication is in progress; no new download is claimed yet.
+[Instructions and exact scope](docs/WINDOWS_DRAFT_BUNDLE.md).
+
+### Earlier diagnostic-only download (historical)
 
 **[Download EXE + required runtime files — ZIP, about 54 MB](https://github.com/jesdswr-creator/struct-ai/actions/runs/45991582390/artifacts/15193683657)**
 
@@ -150,7 +162,8 @@ review of a particular OS version or the JSON reports. Retain actual exit codes,
 reports, OS/build, hashes and native screenshots for audit; see the
 [separate user report](docs/evidence/m0b/user-reported-windows-acceptance-2026-11-27.json)
 and [repeatable checklist](docs/packaging-spike.md#clean-windows-acceptance--must-actually-be-performed).
-M14's beam/DOCX/DXF frozen selftest and Inno Setup installer are not implemented.
+Frozen section file commands now have a separate smoke gate; the complete M14
+beam/DOCX/DXF/export selftest and Inno Setup installer remain unimplemented.
 
 The spike is unsigned. See the packaging notes for antivirus/SmartScreen precautions
 and a future code-signing plan. Do not disable security protections to run a build.
@@ -201,7 +214,7 @@ Different OS/toolchain environments are not assumed bit-identical.
 ## Code source-of-truth policy
 
 The user authorised cited public-source **draft numerical implementation**. IS 456 now
-has **33 unverified records** (32 numeric, one missing current-amendment review); the
+has **159 unverified records** (155 numeric, four missing values/workflows); the
 other three code namespaces remain empty. Required absent/null values raise
 `MissingCodeValue`; incomplete metadata or mismatched units also block consumption.
 No remembered value or amendment-completeness claim is silently substituted.
@@ -228,8 +241,8 @@ Native Windows DPI testing and design feedback are still required before later U
 Logs: `%APPDATA%\struct_ai\logs` on Windows, XDG state storage on Linux. Copy diagnostics
 shows versions and the log path without exposing environment secrets.
 
-Next engineering milestone: **M2** (shear/torsion/anchorage/spacing/serviceability), after
-the reported green M1 draft increment. Source review remains mandatory. Retain the
+Current engineering work: **M2 scoped checks** plus actual section-enabled Windows
+packaging. Fire/crack-spacing/chart routes remain blocked; M3–M15 are not advanced. Source review remains mandatory. Retain the
 clean-machine audit evidence; resolve building design-basis inputs and current
 amendments. The selected use is **internal** and OpenSees is retained; commercial
 redistribution still requires separate review. Ollama integration remains a later

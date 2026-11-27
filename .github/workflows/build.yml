@@ -1,18 +1,18 @@
-name: Windows packaging spike
+name: Windows draft EXE
 on:
   push:
   pull_request:
   workflow_dispatch:
     inputs:
-      publish_diagnostic_binary:
-        description: 'Upload diagnostic binary only after reviewing redistribution permissions'
+      publish_draft_binary:
+        description: 'Publish seven-day public draft EXE bundle; internal-use intent, not a commercial release'
         required: false
         default: false
         type: boolean
 permissions:
   contents: read
 jobs:
-  windows-diagnostic:
+  windows-draft:
     runs-on: windows-latest
     timeout-minutes: 20
     env:
@@ -52,25 +52,41 @@ jobs:
         run: python tools/ci_step.py --name quality -- tools/check.py
       - name: Record source result on the same build host
         run: python tools/ci_step.py --name source-selftest -- -m struct_ai --selftest --output .artifacts/source-selftest.json
-      - name: Build windowed onedir diagnostic
+      - name: Exercise source section commands and refusal paths
+        run: python tools/ci_step.py --name source-sections -- tools/smoke_sections.py --output .artifacts/sections-source
+      - name: Build windowed onedir draft
         run: python tools/ci_step.py --name freeze -- -m PyInstaller --noconfirm --clean packaging/struct_ai.spec
+      - name: Include draft documentation and explicit opt-in samples
+        shell: pwsh
+        run: |
+          Copy-Item docs/WINDOWS_DRAFT_BUNDLE.md dist/struct_ai/README-DRAFT.md
+          Copy-Item docs/M1_BEAM_FLEXURE.md dist/struct_ai/M1-BEAM-FLEXURE.md
+          Copy-Item docs/M2_BEAM_CHECKS.md dist/struct_ai/M2-BEAM-CHECKS.md
+          Copy-Item packaging/RUN-SAMPLE-SECTIONS.cmd dist/struct_ai/
+          Copy-Item -Recurse examples dist/struct_ai/examples
+          Copy-Item struct_ai/gui/resources/NOTICES.md dist/struct_ai/THIRD-PARTY-NOTICES.md
       - name: Exercise actual frozen solver and GUI worker
         run: python tools/ci_step.py --name frozen-selftest -- tools/smoke_frozen.py dist/struct_ai/struct_ai.exe --output .artifacts/windows-selftest --source-report .artifacts/source-selftest.json
+      - name: Exercise frozen section commands and compare full source payloads
+        run: python tools/ci_step.py --name frozen-sections -- tools/smoke_sections.py --executable dist/struct_ai/struct_ai.exe --output .artifacts/sections-frozen --source-evidence .artifacts/sections-source
       - name: Capture source widgets (offscreen; not native DPI acceptance)
         run: python tools/ci_step.py --name screenshots -- tools/make_screenshots.py --output .artifacts/windows-screenshots
       - name: Mark artifact scope and acceptance limits
         shell: pwsh
         run: |
-          Copy-Item docs/packaging-spike.md dist/struct_ai/PACKAGING-SPIKE.md
-          Copy-Item struct_ai/gui/resources/NOTICES.md dist/struct_ai/THIRD-PARTY-NOTICES.md
-          Copy-Item -Recurse .artifacts/windows-selftest dist/struct_ai/ci-evidence
+          New-Item -ItemType Directory -Force dist/struct_ai/ci-evidence
+          Copy-Item -Recurse .artifacts/windows-selftest dist/struct_ai/ci-evidence/diagnostic
+          Copy-Item -Recurse .artifacts/sections-frozen dist/struct_ai/ci-evidence/section-commands
+          Copy-Item -Recurse .artifacts/sections-source dist/struct_ai/ci-evidence/source-section-commands
+      - name: Inventory final distribution including copied evidence
+        run: python tools/ci_step.py --name distribution-manifest -- tools/package_manifest.py dist/struct_ai --commit ${{ github.sha }}
       # Artifact labels are not access controls, particularly in a public repository.
       # Build/test automatically; publish the binary only by explicit reviewed opt-in.
-      - name: Upload diagnostic binary, NOT a commercial release
-        if: github.event_name == 'workflow_dispatch' && inputs.publish_diagnostic_binary
+      - name: Upload draft section EXE, NOT a commercial release
+        if: github.event_name == 'workflow_dispatch' && inputs.publish_draft_binary
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: struct-ai-m0b-windows-x64-diagnostic
+          name: struct-ai-windows-x64-draft-sections
           path: dist/struct_ai/
           retention-days: 7
           if-no-files-found: error
@@ -78,7 +94,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: m0b-windows-evidence
+          name: windows-draft-evidence
           path: .artifacts/
           include-hidden-files: true
           retention-days: 7

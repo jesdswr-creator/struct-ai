@@ -1,4 +1,4 @@
-# M0b ONLY. The M14 beam/DOCX/DXF/installer selftests are not implemented yet.
+# Diagnostic desktop + draft section file commands. NOT the complete M14 installer/export gate.
 import platform
 import struct
 import sys

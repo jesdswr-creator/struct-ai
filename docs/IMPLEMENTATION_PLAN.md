@@ -31,7 +31,7 @@ Explicit decisions, recorded without inferring missing evidence:
 M1 implementation `6663735` passed **342 full tests on Windows and Linux**, Ruff and the
 existing native Windows packaging regression. [Evidence](evidence/m1/README.md).
 The standalone draft service/CLI is implemented, not a building result or current-code
-verification. M2 is next; its plan/data review must precede implementation.
+verification. M2 scoped implementation has now started under the [announced basis/plan](research/M2_DRAFT_DESIGN_BASIS.md); full CI/publication is pending.
 
 The announced plan was to deliver a **standalone draft beam-section service and
 independent tests**, not a building result. All clients use `services/engine_service.py`.
@@ -63,6 +63,16 @@ independent tests**, not a building result. All clients use `services/engine_ser
 The detailed source/basis note must distinguish equations actually implemented from
 research leads and approximations not adopted. No standard prose, SP16 charts, PDFs,
 model weights or large generated artifacts are to be bundled.
+
+## M2 scoped implementation and EXE request — 2026-11-27
+
+The user requested the balance of work, verification and an EXE inside GitHub Actions.
+The [M2 draft source/basis plan](research/M2_DRAFT_DESIGN_BASIS.md) was announced before
+implementation. Scoped checks and file commands are implemented, with 505 local
+headless tests passing; 16 Qt-dependent cases await full CI. This is not full M2 acceptance:
+fire cover, maximum crack spacing and chart-derived deflection checks remain blocked.
+M3 is not advanced. The new publication is explicitly authorised by this request; it
+remains an unsigned, seven-day, non-commercial onedir test artifact, not an installer.
 
 ## Remaining sequence (not implemented by this plan)
 

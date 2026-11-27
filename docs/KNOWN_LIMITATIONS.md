@@ -1,17 +1,21 @@
-# Known limitations — M1 draft sections / M0b desktop
+# Known limitations — M1/scoped M2 drafts / diagnostic desktop
 
 ## Not a complete structural design application
 
 - M1 provides **unverified beam-section flexure only**, through the service/CLI, not
   the diagnostic GUI. Its integrated teaching curve is not the Annex G equivalent
   block; the latter is a separate comparison. [Exact basis and limitations](research/M1_DRAFT_DESIGN_BASIS.md).
+- M2 adds **scoped** shear/torsion, straight Ld, base cover/minimum clear spacing and
+  externally supplied service-deflection limit checks. Fire, maximum crack spacing and
+  deflection-chart requests fail closed. This is **not full-member design or full M2
+  acceptance**. [Details](M2_BEAM_CHECKS.md).
 - No BuildingInput, RC building model, seismic analysis, member-line design or independent
   building verification exists. `design_building()` rejects every request.
 - Therefore no specific regularity, soft/weak-storey, cantilever or other v1 scope
   screening is claimed. Unsupported and otherwise-supported buildings are all refused.
-- IS 456 has 32 numeric public-draft primitives and one null amendment-review record,
+- IS 456 has 155 numeric public-draft values and four null missing records,
   all unverified. Current-amended-code compliance is blocked. IS 875 / IS 1893 /
-  IS 13920 catalogues remain empty. M2–M15 engineering/workflows remain unimplemented.
+  IS 13920 catalogues remain empty. Unimplemented M2 routes and M3–M15 remain gated.
 - No slab/footing/staircase design, bar selection, drawings, schedules, DOCX, DXF,
   spreadsheet output or project save/load. Explicit Python stubs raise NotImplementedError.
 - No Ollama integration, assistant tools, inference, training, weights or fine-tuning.
@@ -53,6 +57,8 @@ raise instead of producing NaN or infinity. The diagnostic's displayed ratios ar
   checks and both documented selftests. M0b execution is accepted **on that report**;
   no OS version, JSON reports, hashes or screenshots were independently reviewed.
   The earlier download still contains only the M0b diagnostic, not M1 functionality.
+  A newer section-enabled Actions build does not inherit clean-machine acceptance from it;
+  [new bundle instructions](WINDOWS_DRAFT_BUNDLE.md) distinguish its scope and test gates.
 - The supplementary Linux onedir build is tested with Qt's offscreen backend only;
   optional XCB/GTK dependencies emitted warnings. A Linux graphical desktop release
   is not claimed or supported by this spike.
