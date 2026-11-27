@@ -4,6 +4,10 @@
 > This is a public-source **unverified section calculator**, not a complete structural
 > design application, a current-code compliance result or a bar schedule.
 
+Implementation `6663735` passed **342 full tests on Windows and Linux**, Ruff and the
+existing native Windows diagnostic packaging regression. [Evidence and scope](evidence/m1/README.md).
+This does not turn unverified source values into verified code-compliance data.
+
 ## What is available
 
 - Single/double reinforcement, rectangular and T/L section flexure.

@@ -17,12 +17,13 @@ current-code compliance, select bars or produce construction documents.
 | M0 — units, errors, checks, code provenance, service, tests | Complete; Linux and Windows CI pass |
 | M0b — diagnostic desktop and packaging implementation | Implemented; Windows build and both frozen selftests pass |
 | M0b — clean Windows/no-Python acceptance | **User reports full clean-machine success**; OS/JSON/screenshot audit evidence outstanding |
-| M1 — beam-section flexure | Draft service/CLI implemented; **326 headless tests pass**, full cross-platform validation in progress |
+| M1 — beam-section flexure | Draft service/CLI implemented; **342 full tests pass on Windows and Linux**, packaging regression passes |
 | M2–M15 — remaining engineering, building workflow, Ollama, full GUI, installer | Not implemented |
 
 [Use the M1 section service](docs/M1_BEAM_FLEXURE.md) ·
 [Draft source basis and independent derivations](docs/research/M1_DRAFT_DESIGN_BASIS.md).
 The exact unverified-warning count accompanies every section result/report.
+[M1 source/build evidence](docs/evidence/m1/README.md), tested implementation `6663735`.
 
 **Historical M0b baseline:** 206 tests passed on both Windows and Linux. Windows CI
 built the onedir executable and passed both frozen selftests using the native Windows
@@ -227,8 +228,9 @@ Native Windows DPI testing and design feedback are still required before later U
 Logs: `%APPDATA%\struct_ai\logs` on Windows, XDG state storage on Linux. Copy diagnostics
 shows versions and the log path without exposing environment secrets.
 
-Next gates: complete M1 cross-platform validation and source review, then M2; retain
-the clean-machine audit evidence; resolve building design-basis inputs and current
+Next engineering milestone: **M2** (shear/torsion/anchorage/spacing/serviceability), after
+the reported green M1 draft increment. Source review remains mandatory. Retain the
+clean-machine audit evidence; resolve building design-basis inputs and current
 amendments. The selected use is **internal** and OpenSees is retained; commercial
 redistribution still requires separate review. Ollama integration remains a later
 bounded assistant milestone with a form-only fallback, not an engineering calculator.

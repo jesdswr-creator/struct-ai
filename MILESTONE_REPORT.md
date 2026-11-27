@@ -1,6 +1,6 @@
 # Milestone report
 
-## M1 draft beam-section service — implemented; full CI validation pending (2026-11-27)
+## M1 draft beam-section increment — full CI green (2026-11-27)
 
 **This is not the complete structural-design app.** The source service/CLI now sizes and
 assesses rectangular, doubly reinforced and T/L beam sections under one explicit signed,
@@ -29,7 +29,23 @@ rectangular double **24**, sample T/L **15**. Digest:
 Other three code namespaces remain empty. Current-amended-code requests fail closed;
 no current-code-compliance or controlled-source verification is claimed.
 
-**Local validation:** **326 headless tests passed in 4.97 s**, Ruff/format **83 files**,
+**Tested implementation:** `66637358ded77062d2898cc42bfeb2cbed0966d8`.
+
+| Full gate | Observed result |
+|---|---|
+| Windows source tests | **342 passed in 14.90 s**, Ruff/83 formatted files, pip/audit/source selftest PASS |
+| Ubuntu 24.04 source tests | **342 passed in 13.38 s**, Ruff/83 formatted files, pip/audit/source selftest PASS |
+| Windows packaging tests | **342 passed in 13.29 s**, actual windowed onedir build PASS |
+| Existing native Windows frozen diagnostic | **PASS**, source/headless/GUI equality, five checks, ten resources |
+| New binary publication | Not performed; intentional push-run publication guard |
+
+[Source CI](https://github.com/jesdswr-creator/struct-ai/actions/runs/45999677118) ·
+[Windows build](https://github.com/jesdswr-creator/struct-ai/actions/runs/45999677169) ·
+[Persistent evidence and scope limits](docs/evidence/m1/README.md).
+The frozen smoke is still the **M0b diagnostic**, not M14's frozen beam/DOCX/DXF test.
+No new M1 EXE or beam UI was delivered, and current-code compliance remains blocked.
+
+**Local validation:** **326 headless tests passed in 5.04 s**, Ruff/format **83 files**,
 `pip check` and `git diff --check` passed. Tests include independent rational rectangle
 states, separately implemented flange quadrature, all steel-curve primitives, compression
 steel below yield, unit/sign/overall-D regressions, missing data/units, strict ingress,
@@ -45,8 +61,9 @@ confirmed the known missing `libGL` prerequisite and the need to expose the Open
 wheel's bundled BLAS directory; these were environment failures, not passing full suites.
 
 This local run excludes the 16 Qt-dependent cases (15 GUI tests plus one GUI selftest);
-**no pytest skip markers were added**. Full Windows/Linux tests and the existing native
-Windows packaging smoke must pass before this is reported as a green M1 increment.
+**no pytest skip markers were added**. The full Windows/Linux tests above include those
+cases and passed, as did the existing native Windows packaging regression. M1 is green
+as the explicitly scoped **draft section-service increment**, not as code verification.
 No M1 GUI was built, so no screenshot is misrepresented as a new beam screen. Existing
 M0b captures are historical; M13 screenshots/native DPI/accessibility feedback remain gated.
 

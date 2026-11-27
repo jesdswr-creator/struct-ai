@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "kind": "M1_SOURCE_VERIFICATION_AND_M0B_PACKAGING_REGRESSION",
+  "recorded_date_utc": "2026-11-27",
+  "tested_commit": "66637358ded77062d2898cc42bfeb2cbed0966d8",
+  "retrieval": "GitHub REST run/job metadata and check-run annotations; not downloaded full artifacts",
+  "runs": [
+    {
+      "run_id": 45999677118,
+      "workflow_name": "Tests and lint",
+      "head_sha": "66637358ded77062d2898cc42bfeb2cbed0966d8",
+      "head_branch": "arena/4feb7a32-struct-ai",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45999677118",
+      "created_at": "2026-11-27T12:33:47Z",
+      "updated_at": "2026-11-27T12:34:51Z",
+      "jobs": [
+        {
+          "job_id": 140507819581,
+          "name": "quality (windows-latest)",
+          "conclusion": "success",
+          "check_run_url": "https://api.github.com/repos/jesdswr-creator/struct-ai/check-runs/140507819581",
+          "started_at": "2026-11-27T12:33:49Z",
+          "completed_at": "2026-11-27T12:34:51Z",
+          "pytest_passed": 342,
+          "pytest_seconds": 14.9,
+          "quality_annotation": {
+            "path": ".github",
+            "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/66637358ded77062d2898cc42bfeb2cbed0966d8/.github",
+            "start_line": 87,
+            "start_column": null,
+            "end_line": 87,
+            "end_column": null,
+            "annotation_level": "notice",
+            "title": "CI quality",
+            "message": "Exit code: 0\nLog: .artifacts\\ci\\quality.log\n                                                                  [ 14%]\ntests\\integration\\test_diagnostic_jobs.py ......                         [ 16%]\ntests\\integration\\test_list_unverified.py ....                           [ 17%]\ntests\\integration\\test_selftest.py ....                                  [ 18%]\ntests\\integration\\test_service_boundary.py .........                     [ 21%]\ntests\\integration\\test_solver_diagnostic.py .......................      [ 28%]\ntests\\unit\\test_beam_flexure.py ........................................ [ 39%]\n..............................................                           [ 53%]\ntests\\unit\\test_beam_materials.py ...............                        [ 57%]\ntests\\unit\\test_bundle_inventory.py .....                                [ 59%]\ntests\\unit\\test_checks.py ..................                             [ 64%]\ntests\\unit\\test_ci_step.py .......                                       [ 66%]\ntests\\unit\\test_code_registry.py ..........................              [ 73%]\ntests\\unit\\test_diagnostic_verification.py .                             [ 74%]\ntests\\unit\\test_exceptions.py ........                                   [ 76%]\ntests\\unit\\test_input_boundaries.py .............                        [ 80%]\ntests\\unit\\test_project_io.py ....                                       [ 81%]\ntests\\unit\\test_resources.py .........                                   [ 84%]\ntests\\unit\\test_theme.py ....                                            [ 85%]\ntests\\unit\\test_units.py ............................................... [ 99%]\n...                                                                      [100%]\n\n============================ 342 passed in 14.90s =============================\nAll checks passed!\n83 files already formatted\n",
+            "raw_details": ""
+          },
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 3,
+              "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 4,
+              "name": "Native Linux dependencies (not skipped)",
+              "status": "completed",
+              "conclusion": "skipped"
+            },
+            {
+              "number": 5,
+              "name": "Isolate exact dependencies from runner preinstalled packages",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 6,
+              "name": "Run python tools/ci_step.py --name install-pins -- -m pip install -r requirements.lock",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 7,
+              "name": "Run python tools/ci_step.py --name install-project -- -m pip install --no-deps --no-build-isolation -e .",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 8,
+              "name": "Run python tools/ci_step.py --name pip-check -- -m pip check",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 9,
+              "name": "Run python tools/ci_step.py --name quality -- tools/check.py",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 10,
+              "name": "Run python tools/ci_step.py --name audit -- tools/list_unverified.py",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 11,
+              "name": "Run python tools/ci_step.py --name source-selftest -- -m struct_ai --selftest --output .artifacts/source-selftest.json",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 12,
+              "name": "Upload source test evidence even on failure",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 23,
+              "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 24,
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 25,
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "job_id": 140507819897,
+          "name": "quality (ubuntu-24.04)",
+          "conclusion": "success",
+          "check_run_url": "https://api.github.com/repos/jesdswr-creator/struct-ai/check-runs/140507819897",
+          "started_at": "2026-11-27T12:33:49Z",
+          "completed_at": "2026-11-27T12:34:49Z",
+          "pytest_passed": 342,
+          "pytest_seconds": 13.38,
+          "quality_annotation": {
+            "path": ".github",
+            "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/66637358ded77062d2898cc42bfeb2cbed0966d8/.github",
+            "start_line": 54,
+            "start_column": null,
+            "end_line": 54,
+            "end_column": null,
+            "annotation_level": "notice",
+            "title": "CI quality",
+            "message": "Exit code: 0\nLog: .artifacts/ci/quality.log\n                                           [ 14%]\ntests/integration/test_diagnostic_jobs.py ......                         [ 16%]\ntests/integration/test_list_unverified.py ....                           [ 17%]\ntests/integration/test_selftest.py ....                                  [ 18%]\ntests/integration/test_service_boundary.py .........                     [ 21%]\ntests/integration/test_solver_diagnostic.py .......................      [ 28%]\ntests/unit/test_beam_flexure.py ........................................ [ 39%]\n..............................................                           [ 53%]\ntests/unit/test_beam_materials.py ...............                        [ 57%]\ntests/unit/test_bundle_inventory.py .....                                [ 59%]\ntests/unit/test_checks.py ..................                             [ 64%]\ntests/unit/test_ci_step.py .......                                       [ 66%]\ntests/unit/test_code_registry.py ..........................              [ 73%]\ntests/unit/test_diagnostic_verification.py .                             [ 74%]\ntests/unit/test_exceptions.py ........                                   [ 76%]\ntests/unit/test_input_boundaries.py .............                        [ 80%]\ntests/unit/test_project_io.py ....                                       [ 81%]\ntests/unit/test_resources.py .........                                   [ 84%]\ntests/unit/test_theme.py ....                                            [ 85%]\ntests/unit/test_units.py ............................................... [ 99%]\n...                                                                      [100%]\n\n============================= 342 passed in 13.38s =============================\nProcess 0 Terminating\nAll checks passed!\n83 files already formatted\n",
+            "raw_details": ""
+          },
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 3,
+              "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 4,
+              "name": "Native Linux dependencies (not skipped)",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 5,
+              "name": "Isolate exact dependencies from runner preinstalled packages",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 6,
+              "name": "Run python tools/ci_step.py --name install-pins -- -m pip install -r requirements.lock",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 7,
+              "name": "Run python tools/ci_step.py --name install-project -- -m pip install --no-deps --no-build-isolation -e .",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 8,
+              "name": "Run python tools/ci_step.py --name pip-check -- -m pip check",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 9,
+              "name": "Run python tools/ci_step.py --name quality -- tools/check.py",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 10,
+              "name": "Run python tools/ci_step.py --name audit -- tools/list_unverified.py",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 11,
+              "name": "Run python tools/ci_step.py --name source-selftest -- -m struct_ai --selftest --output .artifacts/source-selftest.json",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 12,
+              "name": "Upload source test evidence even on failure",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 23,
+              "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 24,
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 25,
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": 45999677169,
+      "workflow_name": "Windows packaging spike",
+      "head_sha": "66637358ded77062d2898cc42bfeb2cbed0966d8",
+      "head_branch": "arena/4feb7a32-struct-ai",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45999677169",
+      "created_at": "2026-11-27T12:33:47Z",
+      "updated_at": "2026-11-27T12:35:12Z",
+      "jobs": [
+        {
+          "job_id": 140507819836,
+          "name": "windows-diagnostic",
+          "conclusion": "success",
+          "check_run_url": "https://api.github.com/repos/jesdswr-creator/struct-ai/check-runs/140507819836",
+          "started_at": "2026-11-27T12:33:49Z",
+          "completed_at": "2026-11-27T12:35:11Z",
+          "pytest_passed": 342,
+          "pytest_seconds": 13.29,
+          "quality_annotation": {
+            "path": ".github",
+            "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/66637358ded77062d2898cc42bfeb2cbed0966d8/.github",
+            "start_line": 87,
+            "start_column": null,
+            "end_line": 87,
+            "end_column": null,
+            "annotation_level": "notice",
+            "title": "CI quality",
+            "message": "Exit code: 0\nLog: .artifacts\\ci\\quality.log\n                                                                  [ 14%]\ntests\\integration\\test_diagnostic_jobs.py ......                         [ 16%]\ntests\\integration\\test_list_unverified.py ....                           [ 17%]\ntests\\integration\\test_selftest.py ....                                  [ 18%]\ntests\\integration\\test_service_boundary.py .........                     [ 21%]\ntests\\integration\\test_solver_diagnostic.py .......................      [ 28%]\ntests\\unit\\test_beam_flexure.py ........................................ [ 39%]\n..............................................                           [ 53%]\ntests\\unit\\test_beam_materials.py ...............                        [ 57%]\ntests\\unit\\test_bundle_inventory.py .....                                [ 59%]\ntests\\unit\\test_checks.py ..................                             [ 64%]\ntests\\unit\\test_ci_step.py .......                                       [ 66%]\ntests\\unit\\test_code_registry.py ..........................              [ 73%]\ntests\\unit\\test_diagnostic_verification.py .                             [ 74%]\ntests\\unit\\test_exceptions.py ........                                   [ 76%]\ntests\\unit\\test_input_boundaries.py .............                        [ 80%]\ntests\\unit\\test_project_io.py ....                                       [ 81%]\ntests\\unit\\test_resources.py .........                                   [ 84%]\ntests\\unit\\test_theme.py ....                                            [ 85%]\ntests\\unit\\test_units.py ............................................... [ 99%]\n...                                                                      [100%]\n\n============================ 342 passed in 13.29s =============================\nAll checks passed!\n83 files already formatted\n",
+            "raw_details": ""
+          },
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 3,
+              "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 4,
+              "name": "Isolate exact dependencies from runner preinstalled packages",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 5,
+              "name": "Install exact dependencies",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 6,
+              "name": "Install project without changing dependency pins",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 7,
+              "name": "Check pinned dependency consistency",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 8,
+              "name": "Tests and lint (no dependency skips)",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 9,
+              "name": "Record source result on the same build host",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 10,
+              "name": "Build windowed onedir diagnostic",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 11,
+              "name": "Exercise actual frozen solver and GUI worker",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 12,
+              "name": "Capture source widgets (offscreen; not native DPI acceptance)",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 13,
+              "name": "Mark artifact scope and acceptance limits",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 14,
+              "name": "Upload diagnostic binary, NOT a commercial release",
+              "status": "completed",
+              "conclusion": "skipped"
+            },
+            {
+              "number": 15,
+              "name": "Upload test and screenshot evidence",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 29,
+              "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 30,
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 31,
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ],
+          "frozen_smoke_annotation": {
+            "path": ".github",
+            "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/66637358ded77062d2898cc42bfeb2cbed0966d8/.github",
+            "start_line": 33,
+            "start_column": null,
+            "end_line": 33,
+            "end_column": null,
+            "annotation_level": "notice",
+            "title": "CI frozen-selftest",
+            "message": "Exit code: 0\nLog: .artifacts\\ci\\frozen-selftest.log\nApplication log D:\\a\\struct-ai\\struct-ai\\.artifacts\\windows-selftest\\selftest-app-struct_ai.log:\n\nApplication log D:\\a\\struct-ai\\struct-ai\\.artifacts\\windows-selftest\\gui-selftest-app-native-console.log:\n\nApplication log D:\\a\\struct-ai\\struct-ai\\.artifacts\\windows-selftest\\gui-selftest-app-struct_ai.log:\n\nFrozen headless and GUI selftests passed from an unrelated working directory.\nThis is NOT evidence of running on a clean Windows machine without Python.\n{\"bundle_manifest_sha256\": \"5d38245f0dd56b578219c5e2954323d15d830c5d10bdc9ab02adcf1bc3569340\", \"bundle_regular_file_bytes\": 130555776, \"bundle_regular_files\": 299, \"bundle_symlinks\": 0, \"checks\": 5, \"clean_windows_no_python_accepted\": false, \"executable_sha256\": \"e3ba0d3ba3204b080c8dbbc5bd06b89b771c975555ec444ee1ad9100abcf32eb\", \"kind\": \"M0B_FROZEN_SMOKE\", \"platform\": \"Windows-2025Server-10.0.26100-SP0\", \"python_version\": \"3.12.10\", \"qt_platform\": \"windows\", \"report_sha256\": {\"gui-selftest\": \"c2f7d4e4eb435342288ad12930d166d634f4a5796970672f4365fc0ae01bb00b\", \"selftest\": \"1f88df738d8994f70bbb36bac29744b0f9f04a2e53cf4a5270ee572cf1e395f1\"}, \"resources\": 10, \"result_hash\": \"877cb4a2b8c03c56846e9f439d13f73c70e5fb74206634ba0ed4ffea1a5181d0\", \"source_result_compared\": true, \"status\": \"PASS\"}\n",
+            "raw_details": ""
+          },
+          "frozen_diagnostic_summary": {
+            "bundle_manifest_sha256": "5d38245f0dd56b578219c5e2954323d15d830c5d10bdc9ab02adcf1bc3569340",
+            "bundle_regular_file_bytes": 130555776,
+            "bundle_regular_files": 299,
+            "bundle_symlinks": 0,
+            "checks": 5,
+            "clean_windows_no_python_accepted": false,
+            "executable_sha256": "e3ba0d3ba3204b080c8dbbc5bd06b89b771c975555ec444ee1ad9100abcf32eb",
+            "kind": "M0B_FROZEN_SMOKE",
+            "platform": "Windows-2025Server-10.0.26100-SP0",
+            "python_version": "3.12.10",
+            "qt_platform": "windows",
+            "report_sha256": {
+              "gui-selftest": "c2f7d4e4eb435342288ad12930d166d634f4a5796970672f4365fc0ae01bb00b",
+              "selftest": "1f88df738d8994f70bbb36bac29744b0f9f04a2e53cf4a5270ee572cf1e395f1"
+            },
+            "resources": 10,
+            "result_hash": "877cb4a2b8c03c56846e9f439d13f73c70e5fb74206634ba0ed4ffea1a5181d0",
+            "source_result_compared": true,
+            "status": "PASS"
+          }
+        }
+      ]
+    }
+  ],
+  "code_data": {
+    "digest": "f46cc15afdd50d1ad58d6e0055c49cb09fc8a55d02a47bb5e633d5b3a6460014",
+    "records": 33,
+    "numeric": 32,
+    "missing": 1,
+    "all_unverified": true
+  },
+  "local_sample": {
+    "kind": "SAMPLE_NOT_A_PROJECT",
+    "input_path": "examples/SAMPLE_beam_rectangular.json",
+    "result_hash": "1ba67343b1954e12600003a52310edbf1cbb2c55173848a4c343539d219b98ff",
+    "unverified_constants_used": 12,
+    "status": "DRAFT_SECTION_CHECKS_PASS"
+  },
+  "scope_limits": [
+    "342 tests per CI job validate the implemented draft model, not current-code compliance.",
+    "Frozen smoke is still the M0b cantilever/GUI diagnostic, not a frozen beam/DOCX/DXF test.",
+    "Current-amended-code applicability is missing and affected requests fail closed.",
+    "No new binary was published; push-run binary-upload step was deliberately skipped.",
+    "No M1 GUI or clean-machine execution of M1 was observed.",
+    "Earlier user-reported clean-Windows M0b acceptance is a separate record, not changed by CI flags.",
+    "This does not implement M2–M15, whole-building design or Ollama.",
+    "Source PNG capture generation is not visual/native-DPI acceptance."
+  ]
+}

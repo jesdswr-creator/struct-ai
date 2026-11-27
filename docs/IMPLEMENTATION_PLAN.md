@@ -26,10 +26,15 @@ Explicit decisions, recorded without inferring missing evidence:
   no inference during deterministic analysis. No change moving M12 before the
   engineering milestones has been agreed.
 
-## M1 — next increment, before implementation
+## M1 — implemented draft increment; original plan below
 
-Deliver a **standalone draft beam-section service and independent tests**, not a
-building result. All clients use `services/engine_service.py`.
+M1 implementation `6663735` passed **342 full tests on Windows and Linux**, Ruff and the
+existing native Windows packaging regression. [Evidence](evidence/m1/README.md).
+The standalone draft service/CLI is implemented, not a building result or current-code
+verification. M2 is next; its plan/data review must precede implementation.
+
+The announced plan was to deliver a **standalone draft beam-section service and
+independent tests**, not a building result. All clients use `services/engine_service.py`.
 
 1. Adopt only explicitly cited public-source primitives, with unverified provenance.
    Record the outstanding current-amendment review as missing, not a guessed value.
