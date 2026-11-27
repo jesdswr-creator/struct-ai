@@ -12,15 +12,18 @@ building, perform Indian Standard checks, or produce construction documents.
 
 | Milestone | Current status |
 |---|---|
-| M0 — units, errors, checks, code provenance, service, tests | Complete; locally tested |
-| M0b — diagnostic desktop and packaging implementation | Implemented; Linux source/frozen tests pass |
+| M0 — units, errors, checks, code provenance, service, tests | Complete; Linux and Windows CI pass |
+| M0b — diagnostic desktop and packaging implementation | Implemented; Windows build and both frozen selftests pass |
 | M0b — clean Windows/no-Python acceptance | **Pending**; not certified |
 | M1–M15 — engineering, building workflow, full GUI, installer | Not implemented |
 
-Workflow access is working and the implementation is pushed. Both Windows and Linux
-source CI now pass 201 tests, and CI has built the actual Windows onedir executable.
-Frozen execution is still being validated after a smoke-harness fix; clean-machine
-acceptance remains pending. See [the milestone report](MILESTONE_REPORT.md) for run evidence.
+Workflow access is working and the implementation is pushed. **206 tests pass on both
+Windows and Linux.** Windows CI built the onedir executable and passed both frozen
+selftests using the native Windows Qt plugin, with matching source/frozen result hashes.
+The CI host was Windows Server 2025—not a clean Windows 11 machine without Python.
+[Recorded CI evidence](docs/evidence/m0b/windows-ci-2026-11-27/README.md) ·
+[Milestone report and remaining acceptance gates](MILESTONE_REPORT.md).
+Only evidence was uploaded; binary publication remains disabled pending licensing review.
 
 ## Desktop preview
 
@@ -79,12 +82,15 @@ set PYTHONUTF8=1
 ```
 
 `tools/check.py` runs pytest, ruff lint and ruff format checks, returning nonzero on
-failure. Last recorded full gate: **190 passed, zero skipped**. Tests exercise actual
-OpenSees, spawned workers and Qt widgets, not mocked engineering functions. In the restored
-sandbox, **174 headless tests** were rerun successfully; its excluded graphics-library cache
-is absent, so this partial check does not replace the full GUI/frozen gate. See the latest
-[continuation record](docs/evidence/m0b/continuation-2026-11-27.json). There are no textbook
-placeholder tests yet because no code-design module exists.
+failure. The recorded full CI gates at `8768572` passed **206 tests, zero skipped**, on
+both Windows and Ubuntu 24.04. Tests exercise actual OpenSees, spawned workers and Qt
+widgets, not mocked engineering functions. Ruff/format and `pip check` also passed.
+The restricted local sandbox ran the expanded **190-test headless subset**; its graphics
+prerequisites remain absent, so that local subset is not a full GUI/frozen rerun. See
+[current CI evidence](docs/evidence/m0b/windows-ci-2026-11-27/README.md) and the
+[earlier restoration record](docs/evidence/m0b/continuation-2026-11-27.json). The historical
+190-test full suite predates the added regression tests. No textbook placeholder tests
+exist because no code-design module exists.
 
 To return to the ordinary Windows display after offscreen tests, run
 `set QT_QPA_PLATFORM=` before launching the source app normally.
@@ -194,8 +200,8 @@ Native Windows DPI testing and design feedback are still required before later U
 Logs: `%APPDATA%\struct_ai\logs` on Windows, XDG state storage on Linux. Copy diagnostics
 shows versions and the log path without exposing environment secrets.
 
-Next gates: finish the actual CI/build validation ([workflow access is restored](docs/GITHUB_WORKFLOW_ACCESS.md));
-validate the real Windows artifact on a clean machine; resolve redistribution licensing; review
+Next gates: validate an authorised Windows artifact on a **separate clean machine**;
+resolve redistribution licensing; review
 [the public-reference shortlist and M1 data needs](docs/research/M1_PUBLIC_REFERENCES.md)
 and supply the unresolved design-basis information. That shortlist is not runtime code data.
 **Do not advance to engineering milestones on the strength of a passing two-node diagnostic.**

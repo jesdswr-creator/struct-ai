@@ -1,0 +1,21 @@
+{
+  "bundle_manifest_sha256": "7904e77882acbe514d0caec9b485bab16d9cdb36c7fab3a512e2dac21bb4791e",
+  "bundle_regular_file_bytes": 129441769,
+  "bundle_regular_files": 297,
+  "bundle_symlinks": 0,
+  "checks": 5,
+  "clean_windows_no_python_accepted": false,
+  "executable_sha256": "5788ef8a3cbb53dfa47409e768c7ad7206ebd974e171628e06cbbd89267c3a5c",
+  "kind": "M0B_FROZEN_SMOKE",
+  "platform": "Windows-2025Server-10.0.26100-SP0",
+  "python_version": "3.12.10",
+  "qt_platform": "windows",
+  "report_sha256": {
+    "gui-selftest": "d1b801f7287838c220e351d281f6bad05de30d69ad5403221a5a8b896fdc05d5",
+    "selftest": "01afd7495016b802231570189749f9cc238eab7ff6178968adb8b9634128cc90"
+  },
+  "resources": 10,
+  "result_hash": "33431478a4aa16c5d5c11c4fcbe09c69dfd57c00c00823b6bce440893fb9c1b0",
+  "source_result_compared": true,
+  "status": "PASS"
+}

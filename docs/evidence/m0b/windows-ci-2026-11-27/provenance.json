@@ -1,0 +1,14 @@
+{
+  "retrieved_at_utc": "2026-11-27T11:02:04.229036+00:00",
+  "revision": "8768572fbaa38f99bdd5f1a2bf19bfda1b46db64",
+  "retrieval_method": "GitHub REST run/job/artifact metadata and annotations via gh",
+  "full_artifact_downloaded_here": false,
+  "download_limitation": "The sandbox cannot reach the redirected Actions log/artifact-storage host.",
+  "frozen_summary_origin": "Parsed without alteration from the CI frozen-selftest annotation.",
+  "native_windows_screenshots_visually_reviewed_here": false,
+  "ci_widget_captures_reported": 8,
+  "binary_published": false,
+  "clean_windows_no_python_accepted": false,
+  "m0b_accepted": false,
+  "m1_started": false
+}

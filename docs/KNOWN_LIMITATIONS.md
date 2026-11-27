@@ -34,10 +34,14 @@ raise instead of producing NaN or infinity. The diagnostic's displayed ratios ar
 ## Packaging acceptance remains open
 
 - Windows 11 x64 is proposed, not certified; Windows 10 and ARM64 are not tested.
-- Only Linux source and Linux frozen execution have been observed here. A custom
-  matching Python shared runtime was built to support this unusually minimal Linux
-  sandbox; see the packaging notes. No Windows binary was built or renamed from Linux.
-- Windows CI is defined but the current GitHub App cannot push workflow changes.
+- Actual Windows source tests, onedir build and both frozen selftests now pass in CI
+  on **Windows Server 2025**, using the native `windows` Qt plugin. This is not the
+  proposed Windows 11 clean-machine acceptance. See [saved CI evidence](evidence/m0b/windows-ci-2026-11-27/README.md).
+- Repository workflow access is restored. Only evidence was uploaded; public binary
+  publication remains a separate reviewed opt-in. No installer has been generated.
+- Historical Linux source/frozen evidence used a custom matching shared Python runtime
+  for the restricted sandbox. That excluded bundle/cache is not retained and was not
+  rebuilt after the Windows fixes.
 - No clean Windows VM without Python has executed the local or CI artifact.
 - The supplementary Linux onedir build is tested with Qt's offscreen backend only;
   optional XCB/GTK dependencies emitted warnings. A Linux graphical desktop release

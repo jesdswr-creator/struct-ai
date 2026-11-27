@@ -1,0 +1,263 @@
+[
+  {
+    "run_id": 45986697648,
+    "job_id": 140464080281,
+    "job_name": "quality (ubuntu-24.04)",
+    "annotations": [
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 18,
+        "start_column": null,
+        "end_line": 18,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI source-selftest",
+        "message": "Exit code: 0\nLog: .artifacts/ci/source-selftest.log\nM0b diagnostic selftest PASS (not building design): .artifacts/source-selftest.json\nProcess 0 Terminating\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 18,
+        "start_column": null,
+        "end_line": 18,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI audit",
+        "message": "Exit code: 0\nLog: .artifacts/ci/audit.log\nNo engineering code constants implemented. Building design is unavailable.\nAn empty catalogue is NOT evidence of verified design.\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 49,
+        "start_column": null,
+        "end_line": 49,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI quality",
+        "message": "Exit code: 0\nLog: .artifacts/ci/quality.log\nrootdir: /home/runner/work/struct-ai/struct-ai\nconfigfile: pyproject.toml\ntestpaths: tests\nplugins: qt-4.5.0\ncollected 206 items\n\ntests/gui/test_spike.py ..........                                       [  4%]\ntests/gui/test_worker.py .....                                           [  7%]\ntests/integration/test_diagnostic_jobs.py ......                         [ 10%]\ntests/integration/test_list_unverified.py ....                           [ 12%]\ntests/integration/test_selftest.py ....                                  [ 14%]\ntests/integration/test_service_boundary.py .........                     [ 18%]\ntests/integration/test_solver_diagnostic.py .......................      [ 29%]\ntests/unit/test_bundle_inventory.py .....                                [ 32%]\ntests/unit/test_checks.py ..................                             [ 40%]\ntests/unit/test_ci_step.py .......                                       [ 44%]\ntests/unit/test_code_registry.py ..........................              [ 56%]\ntests/unit/test_diagnostic_verification.py .                             [ 57%]\ntests/unit/test_exceptions.py ........                                   [ 61%]\ntests/unit/test_input_boundaries.py .............                        [ 67%]\ntests/unit/test_project_io.py ....                                       [ 69%]\ntests/unit/test_resources.py .........                                   [ 73%]\ntests/unit/test_theme.py ....                                            [ 75%]\ntests/unit/test_units.py ............................................... [ 98%]\n...                                                                      [100%]\n\n============================= 206 passed in 6.22s ==============================\nProcess 0 Terminating\nAll checks passed!\n71 files already formatted\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 17,
+        "start_column": null,
+        "end_line": 17,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI pip-check",
+        "message": "Exit code: 0\nLog: .artifacts/ci/pip-check.log\nNo broken requirements found.\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 32,
+        "start_column": null,
+        "end_line": 32,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI install-project",
+        "message": "Exit code: 0\nLog: .artifacts/ci/install-project.log\nObtaining file:///home/runner/work/struct-ai/struct-ai\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: struct-ai\n  Building editable for struct-ai (pyproject.toml): started\n  Building editable for struct-ai (pyproject.toml): finished with status 'done'\n  Created wheel for struct-ai: filename=struct_ai-0.0.1-0.editable-py3-none-any.whl size=8153 sha256=ee9d5ba46556973cc1b29560e34464d00c5b03de2407de69ddf11118772aeb26\n  Stored in directory: /tmp/pip-ephem-wheel-cache-_7gt65ud/wheels/97/5a/7e/2fae97c711fc9abdb30ccbc8a1a9718fd869f9e8f68dcd1def\nSuccessfully built struct-ai\nInstalling collected packages: struct-ai\nSuccessfully installed struct-ai-0.0.1\n\n[notice] A new release of pip is available: 25.1.1 -> 26.3\n[notice] To update, run: pip install --upgrade pip\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 95,
+        "start_column": null,
+        "end_line": 95,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI install-pins",
+        "message": "Exit code: 0\nLog: .artifacts/ci/install-pins.log\nx-3.7.1.2-py3-none-any.whl (58.1 MB)\nUsing cached PySide6_Essentials-6.8.3-cp39-abi3-manylinux_2_28_x86_64.whl (95.1 MB)\nUsing cached shiboken6-6.8.3-cp39-abi3-manylinux_2_28_x86_64.whl (204 kB)\nUsing cached iniconfig-2.1.0-py3-none-any.whl (6.0 kB)\nUsing cached packaging-25.0-py3-none-any.whl (66 kB)\nUsing cached pluggy-1.6.0-py3-none-any.whl (20 kB)\nUsing cached pygments-2.19.2-py3-none-any.whl (1.2 MB)\nUsing cached pytest-8.4.1-py3-none-any.whl (365 kB)\nUsing cached pytest_qt-4.5.0-py3-none-any.whl (37 kB)\nUsing cached ruff-0.12.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.6 MB)\nUsing cached altgraph-0.17.4-py2.py3-none-any.whl (21 kB)\nUsing cached pyinstaller-6.14.2-py3-none-manylinux2014_x86_64.whl (725 kB)\nUsing cached pyinstaller_hooks_contrib-2025.5-py3-none-any.whl (437 kB)\nInstalling collected packages: altgraph, wheel, typing-extensions, shiboken6, setuptools, ruff, Pygments, pluggy, pip, packaging, openseespylinux, iniconfig, annotated-types, typing-inspection, pytest, PySide6-Essentials, pyinstaller-hooks-contrib, pydantic-core, openseespy, pytest-qt, pyinstaller, pydantic\n  Attempting uninstall: pip\n    Found existing installation: pip 25.0.1\n    Uninstalling pip-25.0.1:\n      Successfully uninstalled pip-25.0.1\nSuccessfully installed PySide6-Essentials-6.8.3 Pygments-2.19.2 altgraph-0.17.4 annotated-types-0.7.0 iniconfig-2.1.0 openseespy-3.7.1.2 openseespylinux-3.7.1.2 packaging-25.0 pip-25.1.1 pluggy-1.6.0 pydantic-2.11.7 pydantic-core-2.33.2 pyinstaller-6.14.2 pyinstaller-hooks-contrib-2025.5 pytest-8.4.1 pytest-qt-4.5.0 ruff-0.12.2 setuptools-80.9.0 shiboken6-6.8.3 typing-extensions-4.14.1 typing-inspection-0.4.1 wheel-0.45.1\n\n[notice] A new release of pip is available: 25.1.1 -> 26.3\n[notice] To update, run: pip install --upgrade pip\n",
+        "raw_details": ""
+      }
+    ]
+  },
+  {
+    "run_id": 45986697648,
+    "job_id": 140464080903,
+    "job_name": "quality (windows-latest)",
+    "annotations": [
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 17,
+        "start_column": null,
+        "end_line": 17,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI source-selftest",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\source-selftest.log\nM0b diagnostic selftest PASS (not building design): .artifacts\\source-selftest.json\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 19,
+        "start_column": null,
+        "end_line": 19,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI audit",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\audit.log\nNo engineering code constants implemented. Building design is unavailable.\nAn empty catalogue is NOT evidence of verified design.\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 77,
+        "start_column": null,
+        "end_line": 77,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI quality",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\quality.log\n runtime 6.8.3 -- Qt compiled 6.8.3\nrootdir: D:\\a\\struct-ai\\struct-ai\nconfigfile: pyproject.toml\ntestpaths: tests\nplugins: qt-4.5.0\ncollected 206 items\n\ntests\\gui\\test_spike.py ..........                                       [  4%]\ntests\\gui\\test_worker.py .....                                           [  7%]\ntests\\integration\\test_diagnostic_jobs.py ......                         [ 10%]\ntests\\integration\\test_list_unverified.py ....                           [ 12%]\ntests\\integration\\test_selftest.py ....                                  [ 14%]\ntests\\integration\\test_service_boundary.py .........                     [ 18%]\ntests\\integration\\test_solver_diagnostic.py .......................      [ 29%]\ntests\\unit\\test_bundle_inventory.py .....                                [ 32%]\ntests\\unit\\test_checks.py ..................                             [ 40%]\ntests\\unit\\test_ci_step.py .......                                       [ 44%]\ntests\\unit\\test_code_registry.py ..........................              [ 56%]\ntests\\unit\\test_diagnostic_verification.py .                             [ 57%]\ntests\\unit\\test_exceptions.py ........                                   [ 61%]\ntests\\unit\\test_input_boundaries.py .............                        [ 67%]\ntests\\unit\\test_project_io.py ....                                       [ 69%]\ntests\\unit\\test_resources.py .........                                   [ 73%]\ntests\\unit\\test_theme.py ....                                            [ 75%]\ntests\\unit\\test_units.py ............................................... [ 98%]\n...                                                                      [100%]\n\n============================ 206 passed in 13.30s =============================\nAll checks passed!\n71 files already formatted\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 17,
+        "start_column": null,
+        "end_line": 17,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI pip-check",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\pip-check.log\nNo broken requirements found.\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 47,
+        "start_column": null,
+        "end_line": 47,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI install-project",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\install-project.log\nObtaining file:///D:/a/struct-ai/struct-ai\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: struct-ai\n  Building editable for struct-ai (pyproject.toml): started\n  Building editable for struct-ai (pyproject.toml): finished with status 'done'\n  Created wheel for struct-ai: filename=struct_ai-0.0.1-0.editable-py3-none-any.whl size=8208 sha256=63d24905c7909101bec145c838904ca8929964a1ac083ed017dc9cfad2f4d3b2\n  Stored in directory: C:\\Users\\runneradmin\\AppData\\Local\\Temp\\pip-ephem-wheel-cache-dauasxqj\\wheels\\69\\38\\5e\\63a2acd896a65d2cc8b287d21ce56d4bf597c8269e0f1d53f2\nSuccessfully built struct-ai\nInstalling collected packages: struct-ai\nSuccessfully installed struct-ai-0.0.1\n\n[notice] A new release of pip is available: 25.1.1 -> 26.3\n[notice] To update, run: python.EXE -m pip install --upgrade pip\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 185,
+        "start_column": null,
+        "end_line": 185,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI install-pins",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\install-pins.log\n0-py3-none-any.whl (6.0 kB)\nUsing cached packaging-25.0-py3-none-any.whl (66 kB)\nUsing cached pluggy-1.6.0-py3-none-any.whl (20 kB)\nUsing cached pygments-2.19.2-py3-none-any.whl (1.2 MB)\nUsing cached pytest-8.4.1-py3-none-any.whl (365 kB)\nUsing cached pytest_qt-4.5.0-py3-none-any.whl (37 kB)\nUsing cached ruff-0.12.2-py3-none-win_amd64.whl (11.6 MB)\nUsing cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)\nUsing cached altgraph-0.17.4-py2.py3-none-any.whl (21 kB)\nUsing cached pyinstaller-6.14.2-py3-none-win_amd64.whl (1.4 MB)\nUsing cached pyinstaller_hooks_contrib-2025.5-py3-none-any.whl (437 kB)\nUsing cached pefile-2023.2.7-py3-none-any.whl (71 kB)\nUsing cached pywin32_ctypes-0.2.3-py3-none-any.whl (30 kB)\nInstalling collected packages: altgraph, wheel, typing-extensions, shiboken6, setuptools, ruff, pywin32-ctypes, Pygments, pluggy, pip, pefile, packaging, openseespywin, iniconfig, colorama, annotated-types, typing-inspection, pytest, PySide6-Essentials, pyinstaller-hooks-contrib, pydantic-core, openseespy, pytest-qt, pyinstaller, pydantic\n  Attempting uninstall: pip\n    Found existing installation: pip 25.0.1\n    Uninstalling pip-25.0.1:\n      Successfully uninstalled pip-25.0.1\nSuccessfully installed PySide6-Essentials-6.8.3 Pygments-2.19.2 altgraph-0.17.4 annotated-types-0.7.0 colorama-0.4.6 iniconfig-2.1.0 openseespy-3.7.1.2 openseespywin-3.7.1.2 packaging-25.0 pefile-2023.2.7 pip-25.1.1 pluggy-1.6.0 pydantic-2.11.7 pydantic-core-2.33.2 pyinstaller-6.14.2 pyinstaller-hooks-contrib-2025.5 pytest-8.4.1 pytest-qt-4.5.0 pywin32-ctypes-0.2.3 ruff-0.12.2 setuptools-80.9.0 shiboken6-6.8.3 typing-extensions-4.14.1 typing-inspection-0.4.1 wheel-0.45.1\n\n[notice] A new release of pip is available: 25.1.1 -> 26.3\n[notice] To update, run: python.EXE -m pip install --upgrade pip\n",
+        "raw_details": ""
+      }
+    ]
+  },
+  {
+    "run_id": 45986697708,
+    "job_id": 140464081002,
+    "job_name": "windows-diagnostic",
+    "annotations": [
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 17,
+        "start_column": null,
+        "end_line": 17,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI screenshots",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\screenshots.log\nSaved 8 real desktop captures to .artifacts\\windows-screenshots\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 33,
+        "start_column": null,
+        "end_line": 33,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI frozen-selftest",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\frozen-selftest.log\nApplication log D:\\a\\struct-ai\\struct-ai\\.artifacts\\windows-selftest\\selftest-app-struct_ai.log:\n\nApplication log D:\\a\\struct-ai\\struct-ai\\.artifacts\\windows-selftest\\gui-selftest-app-native-console.log:\n\nApplication log D:\\a\\struct-ai\\struct-ai\\.artifacts\\windows-selftest\\gui-selftest-app-struct_ai.log:\n\nFrozen headless and GUI selftests passed from an unrelated working directory.\nThis is NOT evidence of running on a clean Windows machine without Python.\n{\"bundle_manifest_sha256\": \"7904e77882acbe514d0caec9b485bab16d9cdb36c7fab3a512e2dac21bb4791e\", \"bundle_regular_file_bytes\": 129441769, \"bundle_regular_files\": 297, \"bundle_symlinks\": 0, \"checks\": 5, \"clean_windows_no_python_accepted\": false, \"executable_sha256\": \"5788ef8a3cbb53dfa47409e768c7ad7206ebd974e171628e06cbbd89267c3a5c\", \"kind\": \"M0B_FROZEN_SMOKE\", \"platform\": \"Windows-2025Server-10.0.26100-SP0\", \"python_version\": \"3.12.10\", \"qt_platform\": \"windows\", \"report_sha256\": {\"gui-selftest\": \"d1b801f7287838c220e351d281f6bad05de30d69ad5403221a5a8b896fdc05d5\", \"selftest\": \"01afd7495016b802231570189749f9cc238eab7ff6178968adb8b9634128cc90\"}, \"resources\": 10, \"result_hash\": \"33431478a4aa16c5d5c11c4fcbe09c69dfd57c00c00823b6bce440893fb9c1b0\", \"source_result_compared\": true, \"status\": \"PASS\"}\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 283,
+        "start_column": null,
+        "end_line": 283,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI freeze",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\freeze.log\n not resolve 'api-ms-win-shcore-scaling-l1-1-1.dll', dependency of 'D:\\\\a\\\\struct-ai\\\\struct-ai\\\\.venv\\\\Lib\\\\site-packages\\\\PySide6\\\\plugins\\\\platforms\\\\qdirect2d.dll'.\n20932 INFO: Warnings written to D:\\a\\struct-ai\\struct-ai\\build\\struct_ai\\warn-struct_ai.txt\n20992 INFO: Graph cross-reference written to D:\\a\\struct-ai\\struct-ai\\build\\struct_ai\\xref-struct_ai.html\n21023 INFO: checking PYZ\n21023 INFO: Building PYZ because PYZ-00.toc is non existent\n21023 INFO: Building PYZ (ZlibArchive) D:\\a\\struct-ai\\struct-ai\\build\\struct_ai\\PYZ-00.pyz\n21984 INFO: Building PYZ (ZlibArchive) D:\\a\\struct-ai\\struct-ai\\build\\struct_ai\\PYZ-00.pyz completed successfully.\n22015 INFO: checking PKG\n22015 INFO: Building PKG because PKG-00.toc is non existent\n22015 INFO: Building PKG (CArchive) struct_ai.pkg\n22034 INFO: Building PKG (CArchive) struct_ai.pkg completed successfully.\n22036 INFO: Bootloader D:\\a\\struct-ai\\struct-ai\\.venv\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\runw.exe\n22036 INFO: checking EXE\n22036 INFO: Building EXE because EXE-00.toc is non existent\n22036 INFO: Building EXE from EXE-00.toc\n22036 INFO: Copying bootloader EXE to D:\\a\\struct-ai\\struct-ai\\build\\struct_ai\\struct_ai.exe\n22037 INFO: Copying icon to EXE\n22039 INFO: Copying version information to EXE\n22044 INFO: Copying 0 resources to EXE\n22044 INFO: Embedding manifest in EXE\n22045 INFO: Appending PKG archive to EXE\n22048 INFO: Fixing EXE headers\n22123 INFO: Building EXE from EXE-00.toc completed successfully.\n22127 INFO: checking COLLECT\n22127 INFO: Building COLLECT because COLLECT-00.toc is non existent\n22127 INFO: Building COLLECT COLLECT-00.toc\n22419 INFO: Building COLLECT COLLECT-00.toc completed successfully.\n22425 INFO: Build complete! The results are available in: D:\\a\\struct-ai\\struct-ai\\dist\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 17,
+        "start_column": null,
+        "end_line": 17,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI source-selftest",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\source-selftest.log\nM0b diagnostic selftest PASS (not building design): .artifacts\\source-selftest.json\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 77,
+        "start_column": null,
+        "end_line": 77,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI quality",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\quality.log\n runtime 6.8.3 -- Qt compiled 6.8.3\nrootdir: D:\\a\\struct-ai\\struct-ai\nconfigfile: pyproject.toml\ntestpaths: tests\nplugins: qt-4.5.0\ncollected 206 items\n\ntests\\gui\\test_spike.py ..........                                       [  4%]\ntests\\gui\\test_worker.py .....                                           [  7%]\ntests\\integration\\test_diagnostic_jobs.py ......                         [ 10%]\ntests\\integration\\test_list_unverified.py ....                           [ 12%]\ntests\\integration\\test_selftest.py ....                                  [ 14%]\ntests\\integration\\test_service_boundary.py .........                     [ 18%]\ntests\\integration\\test_solver_diagnostic.py .......................      [ 29%]\ntests\\unit\\test_bundle_inventory.py .....                                [ 32%]\ntests\\unit\\test_checks.py ..................                             [ 40%]\ntests\\unit\\test_ci_step.py .......                                       [ 44%]\ntests\\unit\\test_code_registry.py ..........................              [ 56%]\ntests\\unit\\test_diagnostic_verification.py .                             [ 57%]\ntests\\unit\\test_exceptions.py ........                                   [ 61%]\ntests\\unit\\test_input_boundaries.py .............                        [ 67%]\ntests\\unit\\test_project_io.py ....                                       [ 69%]\ntests\\unit\\test_resources.py .........                                   [ 73%]\ntests\\unit\\test_theme.py ....                                            [ 75%]\ntests\\unit\\test_units.py ............................................... [ 98%]\n...                                                                      [100%]\n\n============================ 206 passed in 12.54s =============================\nAll checks passed!\n71 files already formatted\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 17,
+        "start_column": null,
+        "end_line": 17,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI pip-check",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\pip-check.log\nNo broken requirements found.\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 47,
+        "start_column": null,
+        "end_line": 47,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI install-project",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\install-project.log\nObtaining file:///D:/a/struct-ai/struct-ai\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: struct-ai\n  Building editable for struct-ai (pyproject.toml): started\n  Building editable for struct-ai (pyproject.toml): finished with status 'done'\n  Created wheel for struct-ai: filename=struct_ai-0.0.1-0.editable-py3-none-any.whl size=8208 sha256=e44a4013c6476de0acff9395932be8e8eb51c14bdfdd5ac73a9640e68f40b11a\n  Stored in directory: C:\\Users\\runneradmin\\AppData\\Local\\Temp\\pip-ephem-wheel-cache-01hc6dh8\\wheels\\69\\38\\5e\\63a2acd896a65d2cc8b287d21ce56d4bf597c8269e0f1d53f2\nSuccessfully built struct-ai\nInstalling collected packages: struct-ai\nSuccessfully installed struct-ai-0.0.1\n\n[notice] A new release of pip is available: 25.1.1 -> 26.3\n[notice] To update, run: python.exe -m pip install --upgrade pip\n",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/jesdswr-creator/struct-ai/blob/8768572fbaa38f99bdd5f1a2bf19bfda1b46db64/.github",
+        "start_line": 185,
+        "start_column": null,
+        "end_line": 185,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "CI install-pins",
+        "message": "Exit code: 0\nLog: .artifacts\\ci\\install-pins.log\n0-py3-none-any.whl (6.0 kB)\nUsing cached packaging-25.0-py3-none-any.whl (66 kB)\nUsing cached pluggy-1.6.0-py3-none-any.whl (20 kB)\nUsing cached pygments-2.19.2-py3-none-any.whl (1.2 MB)\nUsing cached pytest-8.4.1-py3-none-any.whl (365 kB)\nUsing cached pytest_qt-4.5.0-py3-none-any.whl (37 kB)\nUsing cached ruff-0.12.2-py3-none-win_amd64.whl (11.6 MB)\nUsing cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)\nUsing cached altgraph-0.17.4-py2.py3-none-any.whl (21 kB)\nUsing cached pyinstaller-6.14.2-py3-none-win_amd64.whl (1.4 MB)\nUsing cached pyinstaller_hooks_contrib-2025.5-py3-none-any.whl (437 kB)\nUsing cached pefile-2023.2.7-py3-none-any.whl (71 kB)\nUsing cached pywin32_ctypes-0.2.3-py3-none-any.whl (30 kB)\nInstalling collected packages: altgraph, wheel, typing-extensions, shiboken6, setuptools, ruff, pywin32-ctypes, Pygments, pluggy, pip, pefile, packaging, openseespywin, iniconfig, colorama, annotated-types, typing-inspection, pytest, PySide6-Essentials, pyinstaller-hooks-contrib, pydantic-core, openseespy, pytest-qt, pyinstaller, pydantic\n  Attempting uninstall: pip\n    Found existing installation: pip 25.0.1\n    Uninstalling pip-25.0.1:\n      Successfully uninstalled pip-25.0.1\nSuccessfully installed PySide6-Essentials-6.8.3 Pygments-2.19.2 altgraph-0.17.4 annotated-types-0.7.0 colorama-0.4.6 iniconfig-2.1.0 openseespy-3.7.1.2 openseespywin-3.7.1.2 packaging-25.0 pefile-2023.2.7 pip-25.1.1 pluggy-1.6.0 pydantic-2.11.7 pydantic-core-2.33.2 pyinstaller-6.14.2 pyinstaller-hooks-contrib-2025.5 pytest-8.4.1 pytest-qt-4.5.0 pywin32-ctypes-0.2.3 ruff-0.12.2 setuptools-80.9.0 shiboken6-6.8.3 typing-extensions-4.14.1 typing-inspection-0.4.1 wheel-0.45.1\n\n[notice] A new release of pip is available: 25.1.1 -> 26.3\n[notice] To update, run: python.exe -m pip install --upgrade pip\n",
+        "raw_details": ""
+      }
+    ]
+  }
+]

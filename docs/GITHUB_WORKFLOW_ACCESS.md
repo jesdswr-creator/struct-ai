@@ -4,9 +4,10 @@ This concerns Arena's **repository Git connection**, not a chat-app connector.
 
 After the latest user access update, pushing implementation commit `bfb6fcf` to the current
 session branch succeeded. Both configured workflows actually started. Their first runs
-failed at setup/test gates; see [the milestone report](../MILESTONE_REPORT.md). No further
-permission change is currently requested. CI success and clean-machine acceptance remain
-separate requirements.
+failed at setup/test gates; those failures were subsequently repaired and **both workflows
+now pass**, including actual Windows frozen execution. See
+[the milestone report](../MILESTONE_REPORT.md). No further permission change is currently
+requested. CI success and clean-machine acceptance remain separate requirements.
 
 ## Historical rejection and remediation
 
@@ -53,6 +54,6 @@ onedir output to a **separate clean Windows machine without Python** and follow
 [the acceptance procedure](packaging-spike.md). Preserve the actual JSON reports, OS/build
 identity, artifact hash and screenshots. A source archive alone proves none of those results.
 
-Once workflow access is repaired, Windows CI can run too. CI execution is not itself proof
+Workflow access is now repaired and Windows CI passes. CI execution is not itself proof
 of clean-machine acceptance. Binary artifact publication remains a separate reviewed opt-in;
 no commercial redistribution permission is inferred from a successful build.

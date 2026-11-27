@@ -1,6 +1,53 @@
 # Milestone report
 
-## Latest continuation — workflow access restored; first CI failures (2026-11-27)
+## Current status — Windows CI build/runtime passed; M0b acceptance pending (2026-11-27)
+
+**Workflow access is resolved.** The implementation and fixes are pushed on
+`arena/4feb7a32-struct-ai`. Tested implementation revision: **`8768572`**.
+
+| Actual gate | Observed result |
+|---|---|
+| Ubuntu 24.04 source CI | **206 passed in 6.22 s**, Ruff/format, pip check, audit and source selftest passed |
+| Windows source CI | **206 passed in 13.30 s**, Ruff/format, pip check, audit and source selftest passed |
+| Windows packaging tests | **206 passed in 12.54 s**, no pytest skips |
+| Windows windowed onedir build | **PASS — actual Windows executable built** |
+| Frozen headless + real GUI-worker execution | **PASS**, native Qt `windows` plugin, five checks, ten required resources |
+| Source/frozen result equality | **PASS on the same Windows host** |
+| Windows source-widget captures | Eight offscreen captures generated in CI; not visually reviewed here or native-DPI acceptance |
+| Separate clean Windows / no Python | **NOT RUN — mandatory acceptance still pending** |
+| Binary publication / redistribution review | Binary upload not enabled; licensing review remains required |
+
+Successful runs: [cross-platform tests](https://github.com/jesdswr-creator/struct-ai/actions/runs/45986697648)
+and [Windows packaging](https://github.com/jesdswr-creator/struct-ai/actions/runs/45986697708).
+[Persistent API evidence, hashes and retrieval limits](docs/evidence/m0b/windows-ci-2026-11-27/README.md).
+
+The frozen host was **Windows Server 2025 (10.0.26100), CPython 3.12.10**, not a clean
+Windows 11 VM. The smoke removed external Python/library/plugin paths, stripped Python
+from PATH and used isolated application-data and working directories. That does not prove
+Python was absent from the host. The runtime inventory has 297 files / 129,441,769 file
+bytes (not a RAM measurement). The observed source/headless/GUI hash is
+`33431478a4aa16c5d5c11c4fcbe09c69dfd57c00c00823b6bce440893fb9c1b0`.
+
+Repairs include pinned Ubuntu selection and isolated dependencies, Windows named-pipe EOF
+handling without suppressing unexpected errors, rooted Windows resource-path rejection,
+case-correct smoke environment sanitisation, and retained failure logs / byte hashes.
+Numerical expectations and tolerances were not changed. **No IS clauses or code constants
+were added; all four catalogues remain empty. M1 has not started.**
+
+Human gates before acceptance/advancement:
+
+1. Perform the [separate clean-Windows/no-Python checklist](docs/packaging-spike.md#clean-windows-acceptance--must-actually-be-performed),
+   preserving tester/OS identity, exit codes, both JSON reports, bundle hashes and native
+   screenshots. Native DPI/performance/accessibility/AV checks remain outstanding.
+2. Resolve distribution permissions before publishing any CI binary. Evidence is uploaded,
+   but an executable was deliberately not published by these push runs.
+3. Supply/review controlled numerical sources and unresolved building assumptions before
+   M1. [Public-reference research](docs/research/M1_PUBLIC_REFERENCES.md) is review material,
+   not adopted engine data. Review the actual UI captures before subsequent UI milestones.
+
+**M0 is complete. M0b is implemented and CI-validated, but NOT accepted. M1–M15 are unimplemented.**
+
+## CI repair chronology — preserved failures and intermediate results (2026-11-27)
 
 The user updated the repository connection again. The subsequent push of `bfb6fcf`
 **succeeded** on the session branch. Workflow-write access is no longer the blocker.
@@ -91,10 +138,12 @@ library), so 16 Qt-dependent tests and a new frozen build were not run. The earl
 190-test/GUI/frozen evidence remains valid historical evidence, not new Windows acceptance.
 
 A push of the baseline branch succeeded, but the subsequent **implementation/workflow push
-was rejected again**: the GitHub App lacks `workflows` permission. The remote branch still
-points to the initial README-only baseline. No Windows CI run, Windows binary or clean-VM
-acceptance was produced. Reauthorising the repository connection with workflow-write access
-is required; no permission bypass or deletion of the required workflows was attempted.
+was rejected again**: the GitHub App then lacked `workflows` permission. At that point
+the remote branch still pointed to the initial README-only baseline. No Windows CI run,
+Windows binary or clean-VM acceptance had been produced. Reauthorising the repository
+connection with workflow-write access was required; no permission bypass or deletion of
+the required workflows was attempted. The current successful push/CI evidence supersedes
+that historical blocker, but not the clean-machine acceptance requirement.
 
 See [continuation record](docs/evidence/m0b/continuation-2026-11-27.json) and
 [fresh headless test output](docs/evidence/m0b/headless-continuation-tests.txt).
@@ -184,8 +233,10 @@ was altered to repair an implementation failure. No design/solver function was m
 ## M0b — IMPLEMENTED; WINDOWS ACCEPTANCE PENDING (2026-11-27)
 
 **Not marked complete:** the mandatory clean-Windows/no-Python criterion has not been
-observed. The implementation is prepared and supplementary Linux source/frozen checks
-pass. Windows-specific behaviour is not validated. M1 and later have not started.
+observed. The following sections preserve the original Linux implementation checkpoint;
+the current Windows CI evidence above supersedes its earlier Windows-not-run status.
+Those historical source hashes and frozen results describe that checkpoint, not a newly
+rebuilt Linux bundle after the Windows repairs. M1 and later have not started.
 No production engineering results are available.
 
 ### Built
@@ -206,7 +257,8 @@ No production engineering results are available.
 - A windowed onedir spec with native OpenSees collection, resources, icon/version info,
   multiprocessing freeze support, local logs and separate headless/GUI selftests.
 - Pinned Windows build script, Windows CI definition, frozen smoke runner and explicit
-  clean-VM procedure. No installer or Windows binary is claimed to have been generated.
+  clean-VM procedure. These were initially unexecuted on Windows; the successful current
+  CI build/runtime evidence is above. No installer has been generated.
 
 ### Clauses and constants
 
@@ -246,7 +298,7 @@ frozen execution paths:
 | Linux PyInstaller onedir build | Successful; supplementary only |
 | Frozen headless and GUI selftests | PASS with external Python/library paths removed and unrelated cwd |
 | Frozen GUI platform | `offscreen`; not a Linux graphical desktop or Windows certification |
-| Windows build / clean VM / CI artifact | **Not run — acceptance still pending** |
+| Windows build / clean VM / CI artifact at this historical checkpoint | **Not run then — current Windows CI evidence is at the top of this report; clean-VM acceptance remains pending** |
 
 The suite includes 15 real Qt tests, including thread-affinity, queued-result cancellation,
 re-entry and shutdown/child-cleanup checks. Additional input-boundary tests reject wrong
@@ -267,8 +319,9 @@ archived as a persistent release. Source, tests and frozen evidence use the same
 ### Packaging findings and limits
 
 The actual Windows wheel metadata and loader require Python 3.12 x64. Its PE imports
-were inspected; runtime execution on Windows is still required. The proposed build
-uses Python 3.12.10 / OpenSeesPy 3.7.1.2 / PySide6 Essentials 6.8.3 / PyInstaller 6.14.2.
+were inspected at the original checkpoint; actual CI execution has now passed as recorded
+above, while separate clean-Windows testing remains required. The pinned build uses
+Python 3.12.10 / OpenSeesPy 3.7.1.2 / PySide6 Essentials 6.8.3 / PyInstaller 6.14.2.
 
 The restricted Linux host lacked graphics libraries and a matching libpython shared
 runtime. Native prerequisites and a CPython 3.11.2 shared runtime with the host's
@@ -310,9 +363,9 @@ UI milestone.** No user design approval has been assumed.
 
 ### External blockers and human-verification checklist
 
-- [ ] Reconnect GitHub in Arena with workflow access. The attempted push was rejected
-      because the GitHub App cannot create/update workflow files. Local commits remain
-      on `arena/4feb7a32-struct-ai`; no PR/release or successful CI run is claimed.
+- [x] Repository workflow access restored; fixes pushed on `arena/4feb7a32-struct-ai`.
+      Both actual CI workflows passed at `8768572`; evidence is linked above. No PR,
+      installer, public executable or release was created by this continuation.
 - [ ] Build on Windows 11 x64 and run both frozen selftests on a clean VM without Python.
 - [ ] After distribution-permission review, explicitly opt in to a CI binary upload and
       repeat the clean-VM test with that artifact; retain hashes, exit codes and screenshots.

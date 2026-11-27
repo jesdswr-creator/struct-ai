@@ -44,8 +44,9 @@ Manual equivalent after installation:
 
 ```bat
 python tools\check.py
+python -m struct_ai --selftest --output .artifacts\source-selftest.json
 python -m PyInstaller --noconfirm --clean packaging\struct_ai.spec
-python tools\smoke_frozen.py dist\struct_ai\struct_ai.exe --output .artifacts\windows-selftest
+python tools\smoke_frozen.py dist\struct_ai\struct_ai.exe --output .artifacts\windows-selftest --source-report .artifacts\source-selftest.json
 ```
 
 The spec explicitly collects OpenSees wrapper/native modules and binary files, versioned
@@ -106,7 +107,8 @@ This is stronger than an import check, but it is still not a Python-free-VM test
 | Item | Status / evidence |
 |---|---|
 | Windows local PyInstaller build | PENDING — no Windows execution in this sandbox |
-| Windows CI build / evidence | RUNNING VALIDATION — access restored; initial runs failed setup/test gates |
+| Windows CI build and frozen execution | PASS at `8768572` on Windows Server 2025; native `windows` Qt plugin; [evidence](evidence/m0b/windows-ci-2026-11-27/README.md) |
+| Windows binary publication | Not enabled on push/PR; evidence artifact only, no EXE download |
 | Clean Windows with no Python: headless selftest | PENDING |
 | Clean Windows with no Python: real window/worker | PENDING |
 | CI artifact tested on clean Windows | PENDING |

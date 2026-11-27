@@ -1,0 +1,1300 @@
+[
+  {
+    "conclusion": "failure",
+    "databaseId": 45984232268,
+    "headSha": "bfb6fcf4dbe790b0516dff1b429a649f68cbfd72",
+    "jobs": [
+      {
+        "completedAt": "2026-11-27T10:42:19Z",
+        "conclusion": "failure",
+        "databaseId": 140455614146,
+        "name": "windows-diagnostic",
+        "startedAt": "2026-11-27T10:41:38Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@v5",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install exact dependencies",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install project without changing dependency pins",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "failure",
+            "name": "Check pinned dependency consistency",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Tests and lint (no dependency skips)",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Build windowed onedir diagnostic",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Exercise actual frozen solver and GUI worker",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Capture real desktop evidence",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Mark artifact scope and acceptance limits",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Upload diagnostic binary, NOT a commercial release",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Upload test and screenshot evidence",
+            "number": 13,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-python@v5",
+            "number": 25,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 26,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 27,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45984232268/job/140455614146"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45984232268",
+    "workflowName": "Windows packaging spike"
+  },
+  {
+    "conclusion": "failure",
+    "databaseId": 45984232279,
+    "headSha": "bfb6fcf4dbe790b0516dff1b429a649f68cbfd72",
+    "jobs": [
+      {
+        "completedAt": "2026-11-27T10:41:43Z",
+        "conclusion": "failure",
+        "databaseId": 140455613961,
+        "name": "quality (windows-latest)",
+        "startedAt": "2026-11-27T10:41:38Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@v5",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Native Linux dependencies (not skipped)",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python -m pip install -r requirements.lock",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python -m pip install --no-deps --no-build-isolation -e .",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "failure",
+            "name": "Run python tools/check.py",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run python tools/list_unverified.py",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run python -m struct_ai --selftest --output .artifacts/source-selftest.json",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-python@v5",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45984232279/job/140455613961"
+      },
+      {
+        "completedAt": "2026-11-27T10:41:43Z",
+        "conclusion": "failure",
+        "databaseId": 140455614421,
+        "name": "quality (ubuntu-latest)",
+        "startedAt": "2026-11-27T10:41:38Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "failure",
+            "name": "Run actions/setup-python@v5",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Native Linux dependencies (not skipped)",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run python -m pip install -r requirements.lock",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run python -m pip install --no-deps --no-build-isolation -e .",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run python tools/check.py",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run python tools/list_unverified.py",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run python -m struct_ai --selftest --output .artifacts/source-selftest.json",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-python@v5",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45984232279/job/140455614421"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45984232279",
+    "workflowName": "Tests and lint"
+  },
+  {
+    "conclusion": "failure",
+    "databaseId": 45985397791,
+    "headSha": "9c6e028771171849121577ccf10f5f7114f06eee",
+    "jobs": [
+      {
+        "completedAt": "2026-11-27T10:52:12Z",
+        "conclusion": "failure",
+        "databaseId": 140459594797,
+        "name": "windows-diagnostic",
+        "startedAt": "2026-11-27T10:49:59Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Isolate exact dependencies from runner preinstalled packages",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install exact dependencies",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install project without changing dependency pins",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Check pinned dependency consistency",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "failure",
+            "name": "Tests and lint (no dependency skips)",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Build windowed onedir diagnostic",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Exercise actual frozen solver and GUI worker",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Capture source widgets (offscreen; not native DPI acceptance)",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Mark artifact scope and acceptance limits",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Upload diagnostic binary, NOT a commercial release",
+            "number": 13,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Upload test and screenshot evidence",
+            "number": 14,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 27,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 28,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 29,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45985397791/job/140459594797"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45985397791",
+    "workflowName": "Windows packaging spike"
+  },
+  {
+    "conclusion": "failure",
+    "databaseId": 45985397793,
+    "headSha": "9c6e028771171849121577ccf10f5f7114f06eee",
+    "jobs": [
+      {
+        "completedAt": "2026-11-27T10:52:17Z",
+        "conclusion": "success",
+        "databaseId": 140459594649,
+        "name": "quality (ubuntu-24.04)",
+        "startedAt": "2026-11-27T10:49:59Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Native Linux dependencies (not skipped)",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Isolate exact dependencies from runner preinstalled packages",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name install-pins -- -m pip install -r requirements.lock",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name install-project -- -m pip install --no-deps --no-build-isolation -e .",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name pip-check -- -m pip check",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name quality -- tools/check.py",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name audit -- tools/list_unverified.py",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name source-selftest -- -m struct_ai --selftest --output .artifacts/source-selftest.json",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Upload source test evidence even on failure",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 23,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 24,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 25,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45985397793/job/140459594649"
+      },
+      {
+        "completedAt": "2026-11-27T10:52:17Z",
+        "conclusion": "failure",
+        "databaseId": 140459595065,
+        "name": "quality (windows-latest)",
+        "startedAt": "2026-11-27T10:49:59Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Native Linux dependencies (not skipped)",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Isolate exact dependencies from runner preinstalled packages",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name install-pins -- -m pip install -r requirements.lock",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name install-project -- -m pip install --no-deps --no-build-isolation -e .",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name pip-check -- -m pip check",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "failure",
+            "name": "Run python tools/ci_step.py --name quality -- tools/check.py",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run python tools/ci_step.py --name audit -- tools/list_unverified.py",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run python tools/ci_step.py --name source-selftest -- -m struct_ai --selftest --output .artifacts/source-selftest.json",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Upload source test evidence even on failure",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 23,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 24,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 25,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45985397793/job/140459595065"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45985397793",
+    "workflowName": "Tests and lint"
+  },
+  {
+    "conclusion": "failure",
+    "databaseId": 45985977070,
+    "headSha": "d6b738b466060c3504065ae907045bfbd913e395",
+    "jobs": [
+      {
+        "completedAt": "2026-11-27T10:54:55Z",
+        "conclusion": "failure",
+        "databaseId": 140461578750,
+        "name": "windows-diagnostic",
+        "startedAt": "2026-11-27T10:54:10Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Isolate exact dependencies from runner preinstalled packages",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install exact dependencies",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install project without changing dependency pins",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Check pinned dependency consistency",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "failure",
+            "name": "Tests and lint (no dependency skips)",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Build windowed onedir diagnostic",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Exercise actual frozen solver and GUI worker",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Capture source widgets (offscreen; not native DPI acceptance)",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Mark artifact scope and acceptance limits",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Upload diagnostic binary, NOT a commercial release",
+            "number": 13,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Upload test and screenshot evidence",
+            "number": 14,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 27,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 28,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 29,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45985977070/job/140461578750"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45985977070",
+    "workflowName": "Windows packaging spike"
+  },
+  {
+    "conclusion": "failure",
+    "databaseId": 45985976974,
+    "headSha": "d6b738b466060c3504065ae907045bfbd913e395",
+    "jobs": [
+      {
+        "completedAt": "2026-11-27T10:54:51Z",
+        "conclusion": "success",
+        "databaseId": 140461579017,
+        "name": "quality (ubuntu-24.04)",
+        "startedAt": "2026-11-27T10:54:10Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Native Linux dependencies (not skipped)",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Isolate exact dependencies from runner preinstalled packages",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name install-pins -- -m pip install -r requirements.lock",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name install-project -- -m pip install --no-deps --no-build-isolation -e .",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name pip-check -- -m pip check",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name quality -- tools/check.py",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name audit -- tools/list_unverified.py",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name source-selftest -- -m struct_ai --selftest --output .artifacts/source-selftest.json",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Upload source test evidence even on failure",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 23,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 24,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 25,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45985976974/job/140461579017"
+      },
+      {
+        "completedAt": "2026-11-27T10:54:51Z",
+        "conclusion": "failure",
+        "databaseId": 140461579454,
+        "name": "quality (windows-latest)",
+        "startedAt": "2026-11-27T10:54:10Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Native Linux dependencies (not skipped)",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Isolate exact dependencies from runner preinstalled packages",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name install-pins -- -m pip install -r requirements.lock",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name install-project -- -m pip install --no-deps --no-build-isolation -e .",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name pip-check -- -m pip check",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "failure",
+            "name": "Run python tools/ci_step.py --name quality -- tools/check.py",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run python tools/ci_step.py --name audit -- tools/list_unverified.py",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run python tools/ci_step.py --name source-selftest -- -m struct_ai --selftest --output .artifacts/source-selftest.json",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Upload source test evidence even on failure",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 23,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 24,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 25,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45985976974/job/140461579454"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45985976974",
+    "workflowName": "Tests and lint"
+  },
+  {
+    "conclusion": "failure",
+    "databaseId": 45986283217,
+    "headSha": "cdedbcdb773250dad2edd719e73774f9be267f78",
+    "jobs": [
+      {
+        "completedAt": "2026-11-27T10:57:54Z",
+        "conclusion": "failure",
+        "databaseId": 140462623746,
+        "name": "windows-diagnostic",
+        "startedAt": "2026-11-27T10:56:25Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Isolate exact dependencies from runner preinstalled packages",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install exact dependencies",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install project without changing dependency pins",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Check pinned dependency consistency",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Tests and lint (no dependency skips)",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Build windowed onedir diagnostic",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "failure",
+            "name": "Exercise actual frozen solver and GUI worker",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Capture source widgets (offscreen; not native DPI acceptance)",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Mark artifact scope and acceptance limits",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Upload diagnostic binary, NOT a commercial release",
+            "number": 13,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Upload test and screenshot evidence",
+            "number": 14,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 27,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 28,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 29,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45986283217/job/140462623746"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45986283217",
+    "workflowName": "Windows packaging spike"
+  },
+  {
+    "conclusion": "success",
+    "databaseId": 45986283284,
+    "headSha": "cdedbcdb773250dad2edd719e73774f9be267f78",
+    "jobs": [
+      {
+        "completedAt": "2026-11-27T10:57:23Z",
+        "conclusion": "success",
+        "databaseId": 140462624677,
+        "name": "quality (ubuntu-24.04)",
+        "startedAt": "2026-11-27T10:56:24Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Native Linux dependencies (not skipped)",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Isolate exact dependencies from runner preinstalled packages",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name install-pins -- -m pip install -r requirements.lock",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name install-project -- -m pip install --no-deps --no-build-isolation -e .",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name pip-check -- -m pip check",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name quality -- tools/check.py",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name audit -- tools/list_unverified.py",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name source-selftest -- -m struct_ai --selftest --output .artifacts/source-selftest.json",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Upload source test evidence even on failure",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 23,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 24,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 25,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45986283284/job/140462624677"
+      },
+      {
+        "completedAt": "2026-11-27T10:57:23Z",
+        "conclusion": "success",
+        "databaseId": 140462625022,
+        "name": "quality (windows-latest)",
+        "startedAt": "2026-11-27T10:56:24Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Native Linux dependencies (not skipped)",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Isolate exact dependencies from runner preinstalled packages",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name install-pins -- -m pip install -r requirements.lock",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name install-project -- -m pip install --no-deps --no-build-isolation -e .",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name pip-check -- -m pip check",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name quality -- tools/check.py",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name audit -- tools/list_unverified.py",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run python tools/ci_step.py --name source-selftest -- -m struct_ai --selftest --output .artifacts/source-selftest.json",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Upload source test evidence even on failure",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 23,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 24,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 25,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45986283284/job/140462625022"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/jesdswr-creator/struct-ai/actions/runs/45986283284",
+    "workflowName": "Tests and lint"
+  }
+]
