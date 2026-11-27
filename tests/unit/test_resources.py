@@ -17,7 +17,10 @@ def test_frozen_layout_contract_with_explicit_resource_root(tmp_path):
     assert resource_path("resource.txt", package_root=root).read_text() == "actual resource"
 
 
-@pytest.mark.parametrize("path", ["../outside", "/etc/passwd", "C:\\Windows\\file", "..\\file"])
+@pytest.mark.parametrize(
+    "path",
+    ["../outside", "/etc/passwd", "C:\\Windows\\file", "..\\file", "\\Windows\\file", "C:relative"],
+)
 def test_resource_traversal_rejected(path):
     with pytest.raises(CodeDataError, match="cannot escape"):
         resource_path(path)

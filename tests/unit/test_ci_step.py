@@ -68,3 +68,34 @@ def test_ci_step_rejects_unsafe_log_names_before_execution(tmp_path, name):
     assert completed.returncode == 2
     assert "--name must contain" in completed.stderr
     assert not list(tmp_path.iterdir())
+
+
+def test_long_unicode_failure_annotations_preserve_the_final_diagnostic(tmp_path):
+    completed = subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPT),
+            "--name",
+            "long-output",
+            "--output",
+            str(tmp_path),
+            "--",
+            "-c",
+            "import sys; print('start-' + '\\u2713' * 2500 + '-FINAL-DIAGNOSTIC'); sys.exit(3)",
+        ],
+        env=dict(os.environ, GITHUB_ACTIONS="true", PYTHONUTF8="1"),
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        check=False,
+        timeout=15,
+    )
+    assert completed.returncode == 3
+    parts = [
+        line.split("::", 2)[2].replace("%0A", "\n").replace("%0D", "\r").replace("%25", "%")
+        for line in completed.stdout.splitlines()
+        if line.startswith("::error title=CI long-output")
+    ]
+    assert len(parts) >= 3
+    assert all(len(part.encode("utf-8")) <= 3000 for part in parts)
+    assert "".join(parts).endswith("-FINAL-DIAGNOSTIC\n")

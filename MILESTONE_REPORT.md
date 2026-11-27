@@ -26,6 +26,28 @@ with 70 formatted files and `pip check` passed. Full GUI validation is delegated
 actual CI run, not reported as locally repeated. No engine results, expected engineering
 values, dependency pins or licensing/publication gates were changed.
 
+### Second actual CI result and Windows-specific repair
+
+At `9c6e028`, [Linux CI](https://github.com/jesdswr-creator/struct-ai/actions/runs/45985397793)
+passed **195 tests in 6.08 s**, Ruff and its real source selftest. Both Windows jobs passed
+`pip check` in isolated venvs, but [Windows packaging](https://github.com/jesdswr-creator/struct-ai/actions/runs/45985397791)
+correctly stopped at failing tests. The visible traceback identifies `PeekNamedPipe`
+raising **WinError 109** after normal child closure; the implementation was incorrectly
+emitting error events after receiving a valid terminal result.
+
+The repair normalises only that specific Windows transport EOF, remembers that the pipe
+ended, and still rejects a child exit without a terminal message. Other IPC exceptions
+remain errors. Real-process regressions exercise repeated normal closure and actual child
+termination without cancellation; no solver is mocked. A separately reviewed Windows path
+edge case now rejects rooted-without-drive paths before resource resolution. Engineering
+expectations/tolerances are unchanged. Annotation messages are chunked under GitHub's
+per-message truncation limit so future failure summaries remain visible.
+
+Local repair validation: **184 headless tests passed in 2.56 s**, Ruff/format (70 files)
+and `pip check` passed. The changed files intentionally supersede their earlier historical
+source-manifest hashes; the old evidence is not rewritten to imply a new frozen run.
+A new full cross-platform/Windows frozen CI run is required to validate this repair.
+
 M0b is still **not accepted**. A successful CI build will not substitute for clean Windows
 without Python, native DPI feedback or licensing review. M1 has not started.
 

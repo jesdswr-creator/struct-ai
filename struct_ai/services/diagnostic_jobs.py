@@ -72,6 +72,7 @@ class DiagnosticJob:
         )
         self._terminal = False
         self._closed = False
+        self._pipe_eof = False
         self._cancelled_at: float | None = None
         try:
             self._process.start()
@@ -120,11 +121,23 @@ class DiagnosticJob:
         child_was_alive = self._process.is_alive()
         events: list[DiagnosticEvent] = []
         try:
-            while self._receiver.poll():
+            while not self._pipe_eof:
                 try:
-                    payload = json.loads(self._receiver.recv_bytes(maxlength=1_000_000))
+                    if not self._receiver.poll():
+                        break
+                    message = self._receiver.recv_bytes(maxlength=1_000_000)
                 except EOFError:
+                    self._pipe_eof = True
                     break
+                except BrokenPipeError as error:
+                    # CPython's Windows PeekNamedPipe can report ERROR_BROKEN_PIPE
+                    # (109) on normal peer closure, whereas recv_bytes reports EOF.
+                    # Only that transport EOF is normalised; other errors still fail.
+                    if getattr(error, "winerror", None) != 109:
+                        raise
+                    self._pipe_eof = True
+                    break
+                payload = json.loads(message)
                 kind = payload["kind"]
                 if self._terminal:
                     raise ValueError("Unexpected event after terminal worker message")

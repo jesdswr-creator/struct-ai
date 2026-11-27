@@ -61,7 +61,25 @@ def main() -> int:
         limit = 14000 if completed.returncode else 1800
         tail = output[-limit:]
         summary = f"Exit code: {completed.returncode}\nLog: {log}\n{tail}"
-        print(f"::{severity} title=CI {args.name}::{annotation_text(summary)}", flush=True)
+        # GitHub truncates individual annotation messages to about 4 KiB. Split on
+        # a smaller UTF-8 byte budget so the final failure summary is not lost.
+        chunks: list[str] = []
+        current = ""
+        byte_count = 0
+        for character in summary:
+            size = len(character.encode("utf-8"))
+            if byte_count + size > 3000:
+                chunks.append(current)
+                current = ""
+                byte_count = 0
+            current += character
+            byte_count += size
+        if current:
+            chunks.append(current)
+        for index, chunk in enumerate(chunks, start=1):
+            suffix = f" ({index}/{len(chunks)})" if len(chunks) > 1 else ""
+            title = f"CI {args.name}{suffix}"
+            print(f"::{severity} title={title}::{annotation_text(chunk)}", flush=True)
     return completed.returncode
 
 

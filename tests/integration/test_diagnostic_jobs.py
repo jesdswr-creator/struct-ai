@@ -65,3 +65,29 @@ def test_two_jobs_have_isolated_solver_domains():
     # as the analytical solver tests; preserve the solver's floating-point roundoff.
     assert first_result.result.observations.support_fx_kn == pytest.approx(-12.0, rel=1e-12)
     assert second_result.result.observations.support_fx_kn == pytest.approx(12.0, rel=1e-12)
+
+
+def test_repeated_real_child_eof_never_becomes_a_second_terminal_event():
+    # Real Windows named pipes report WinError 109 from poll() after peer closure.
+    # Real POSIX pipes report EOF through recv_bytes(). Both must yield one result.
+    for _ in range(3):
+        job = engine_service.start_diagnostic_job(fields())
+        events = collect(job)
+        terminal = [event for event in events if event.kind != "progress"]
+        assert [event.kind for event in terminal] == ["result"]
+        assert all(check.ok for check in terminal[0].run.result.checks)
+        assert job.poll() == []
+
+
+def test_actual_process_death_without_terminal_message_remains_an_error():
+    job = engine_service.start_diagnostic_job(fields())
+    # Kill the actual child before any solver work, without using the cancel API.
+    # Transport EOF must not be misinterpreted as successful execution/cancellation.
+    job._process.terminate()
+    events = collect(job)
+    terminal = [event for event in events if event.kind != "progress"]
+    assert len(terminal) == 1
+    assert terminal[0].kind == "error"
+    assert terminal[0].error["type"] == "WorkerExited"
+    assert terminal[0].error["value"] != 0
+    assert not [event for event in events if event.kind == "result"]

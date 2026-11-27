@@ -17,7 +17,7 @@ def resource_path(relative: str, *, package_root: Path | None = None) -> Path:
         )
     path = Path(relative)
     windows_path = PureWindowsPath(relative)
-    if path.is_absolute() or windows_path.drive or ".." in windows_path.parts:
+    if path.is_absolute() or windows_path.anchor or ".." in windows_path.parts:
         raise CodeDataError(
             "Resource paths must be relative and cannot escape the package.",
             clause="PACKAGING RESOURCE CONTRACT (not an IS-code clause)",
