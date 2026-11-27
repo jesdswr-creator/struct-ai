@@ -132,7 +132,12 @@ warnings: a Linux graphical desktop distribution is not claimed. The complete so
 and frozen smoke evidence remains explicitly labelled Linux. Native binaries, source
 build trees and onedir build products are kept out of Git.
 
-### Observed supplementary result (2026-11-27)
+### Recorded supplementary result (2026-11-27, prior sandbox execution)
+
+The results below were preserved from the earlier execution. The restored checkout's
+source and evidence hashes match, but its ignored native cache and `dist/` bundle were not
+retained. The latest continuation ran headless checks only; it did not repeat this freeze.
+See the [continuation record](evidence/m0b/continuation-2026-11-27.json).
 
 The final actual Linux onedir build and **both frozen selftests passed**, after the
 QThread worker implementation was included. The smoke runner used an unrelated temporary

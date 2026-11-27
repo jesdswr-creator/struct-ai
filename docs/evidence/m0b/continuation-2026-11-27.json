@@ -1,0 +1,29 @@
+{
+  "clean_no_python_windows_acceptance": false,
+  "engineering_milestone_advanced": false,
+  "fresh_headless_tests": {
+    "log": "headless-continuation-tests.txt",
+    "passed": 174,
+    "qt_dependent_tests_not_run": 16,
+    "scope": "Unit and non-GUI integration tests only; NOT the full 190-test gate"
+  },
+  "fresh_lint": "PASS; 68 files formatted",
+  "fresh_pip_check": "PASS",
+  "fresh_qt_import": "BLOCKED: libGL.so.1 is absent in the restored Linux sandbox",
+  "fresh_real_solver_import": "PASS; OpenSees 3.7.1",
+  "historical_git_object_available_in_restored_checkout": false,
+  "historical_linux_build_commit": "fd261de63143595cf63122885aaa27b9806e6107",
+  "implementation_push": "REJECTED: GitHub App lacks workflows permission",
+  "implementation_push_error": "refusing to allow a GitHub App to create or update workflow `.github/workflows/build.yml` without `workflows` permission",
+  "kind": "M0B_CONTINUATION_CHECK_NOT_ACCEPTANCE",
+  "native_cache_and_linux_bundle_retained": false,
+  "new_repository_policy": ".gitattributes preserves LF text resource hashes on Windows, CRLF batch scripts, binary assets and the unmodified upstream OFL notice.",
+  "note": "Historical evidence is preserved unchanged. This continuation does not claim a new full GUI/frozen test or Windows acceptance.",
+  "previous_evidence_file_hashes_match": true,
+  "previously_recorded_source_files_checked": 86,
+  "recorded_source_file_hashes_match": true,
+  "recorded_utc": "2026-11-27T10:07:30.180719+00:00",
+  "remote_branch_head": "565b834be74382fde42da537b3d8b2f6e787ba67",
+  "restored_source_checkpoint": "ff496b8ca4f244e7331b5e352a9e32896e6bdbd4",
+  "windows_ci_run": false
+}

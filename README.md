@@ -78,9 +78,12 @@ set PYTHONUTF8=1
 ```
 
 `tools/check.py` runs pytest, ruff lint and ruff format checks, returning nonzero on
-failure. Current suite: **190 passed, zero skipped**. Tests exercise actual OpenSees,
-actual spawned workers and actual Qt widgets, not mocked engineering functions.
-There are no textbook placeholder tests yet because no code-design module exists.
+failure. Last recorded full gate: **190 passed, zero skipped**. Tests exercise actual
+OpenSees, spawned workers and Qt widgets, not mocked engineering functions. In the restored
+sandbox, **174 headless tests** were rerun successfully; its excluded graphics-library cache
+is absent, so this partial check does not replace the full GUI/frozen gate. See the latest
+[continuation record](docs/evidence/m0b/continuation-2026-11-27.json). There are no textbook
+placeholder tests yet because no code-design module exists.
 
 To return to the ordinary Windows display after offscreen tests, run
 `set QT_QPA_PLATFORM=` before launching the source app normally.

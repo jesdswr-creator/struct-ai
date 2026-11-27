@@ -1,5 +1,31 @@
 # Milestone report
 
+## Latest continuation — Windows gate still blocked (2026-11-27)
+
+The resumed checkout contained the implementation files but its Git HEAD was the original
+`565b834` baseline; the earlier unpublished commit objects and excluded native caches/build
+products were not present. All **86 recorded source/test/build files** and the saved evidence
+files were checked against their SHA-256 manifests and matched. The restored implementation
+was checkpointed as `ff496b8`; historical evidence below is preserved, not rewritten as a
+new execution. `.gitattributes` now keeps resource text hashes stable across platforms while
+preserving the upstream OFL notice byte-for-byte.
+
+Fresh checks: **174 headless unit/integration tests passed**, Ruff and `pip check` passed,
+and the real OpenSees library loaded. This is **not a fresh full 190-test gate**: the current
+sandbox lacks the excluded Linux graphics prerequisites (`libGL.so.1` is the first missing
+library), so 16 Qt-dependent tests and a new frozen build were not run. The earlier full
+190-test/GUI/frozen evidence remains valid historical evidence, not new Windows acceptance.
+
+A push of the baseline branch succeeded, but the subsequent **implementation/workflow push
+was rejected again**: the GitHub App lacks `workflows` permission. The remote branch still
+points to the initial README-only baseline. No Windows CI run, Windows binary or clean-VM
+acceptance was produced. Reauthorising the repository connection with workflow-write access
+is required; no permission bypass or deletion of the required workflows was attempted.
+
+See [continuation record](docs/evidence/m0b/continuation-2026-11-27.json) and
+[fresh headless test output](docs/evidence/m0b/headless-continuation-tests.txt).
+M1 remains blocked by milestone acceptance and missing authorised code data.
+
 ## M0 — COMPLETE (local evidence, 2026-11-27)
 
 ### Built

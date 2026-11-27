@@ -1,0 +1,24 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+rootdir: /home/user/struct-ai
+configfile: pyproject.toml
+collected 174 items
+
+tests/unit/test_checks.py ..................                             [ 10%]
+tests/unit/test_code_registry.py ..........................              [ 25%]
+tests/unit/test_diagnostic_verification.py .                             [ 25%]
+tests/unit/test_exceptions.py ........                                   [ 30%]
+tests/unit/test_input_boundaries.py .............                        [ 37%]
+tests/unit/test_project_io.py ....                                       [ 40%]
+tests/unit/test_resources.py .......                                     [ 44%]
+tests/unit/test_theme.py ....                                            [ 46%]
+tests/unit/test_units.py ............................................... [ 73%]
+...                                                                      [ 75%]
+tests/integration/test_solver_diagnostic.py .......................      [ 88%]
+tests/integration/test_diagnostic_jobs.py ....                           [ 90%]
+tests/integration/test_list_unverified.py ....                           [ 93%]
+tests/integration/test_service_boundary.py .........                     [ 98%]
+tests/integration/test_selftest.py ...                                   [100%]
+
+============================= 174 passed in 1.88s ==============================
+Process 0 Terminating
