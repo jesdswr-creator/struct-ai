@@ -24,7 +24,30 @@ is required; no permission bypass or deletion of the required workflows was atte
 
 See [continuation record](docs/evidence/m0b/continuation-2026-11-27.json) and
 [fresh headless test output](docs/evidence/m0b/headless-continuation-tests.txt).
-M1 remains blocked by milestone acceptance and missing authorised code data.
+M1 remains blocked by milestone acceptance and pending controlled-code data review.
+
+After the user reported updating access, the same implementation push was retried and
+GitHub returned the same missing-`workflows`-permission rejection. See
+[repository-access troubleshooting](docs/GITHUB_WORKFLOW_ACCESS.md); no Windows CI execution
+is implied by the user's confirmation alone.
+
+### Requested public-reference research
+
+The user selected public-reference research for review. Completed:
+[review notes and M1 intake checklist](docs/research/M1_PUBLIC_REFERENCES.md) and
+[a seven-entry source register](docs/research/M1_SOURCE_REGISTER.json). Four NPTEL lesson
+texts were read; BIS primary-metadata pages returned HTTP 500 on direct retrieval and are
+explicitly marked search-index-only. Source-specific extraction/interpretation issues and
+an edition mismatch are flagged, not silently corrected or adopted.
+
+All source entries remain unverified and **not adopted by the engine**. No PDF or standard
+prose was copied into the project. The actual-use catalogue audit still contains zero
+records with unchanged digest `21ad9599cc2c803b16200e8bee4f7bf30bafbccb6bd394aeee05abe70024fdcc`.
+No M1 implementation or acceptance result is claimed.
+
+A source-only ZIP was provided through the file viewer as an alternative local Windows
+build handoff. It contains no EXE and is not a substitute for the documented clean-machine
+execution. The 174-test continuation check remains a headless subset, not a full GUI gate.
 
 ## M0 — COMPLETE (local evidence, 2026-11-27)
 

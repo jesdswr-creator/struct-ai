@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "kind": "REVIEW_ONLY_BIBLIOGRAPHY_NOT_CODE_VALUES",
+  "user_authorised_activity": "Find public references for review",
+  "milestone_implementation_started": false,
+  "runtime_catalogues_changed": false,
+  "primary_amendment_set_selected": null,
+  "amendment_selection_status": "TODO_VERIFY against the controlled publication",
+  "integrity_note": "Tool-returned parsed text/search previews are not original PDF bytes. No source-content digest is fabricated.",
+  "reuse_note": "Only original review notes and links are stored; public access is not a redistribution licence.",
+  "sources": [
+    {
+      "id": "BIS_PUBLICATION_RECORD",
+      "provider": "Bureau of Indian Standards",
+      "url": "https://standards.bis.gov.in/website/standard-details?encryptedId=eyJpdiI6InVIejZUOFI5V1Z5RXZMWEZGNnh4a1E9PSIsInZhbHVlIjoiZ1ZhcnlpWEFRVE00Q1dndk1Tc3lrQT09IiwibWFjIjoiYjAzMjg2ZDY3YWE0NzhkNGRlZDczYzI2ZGJiZTVkNThiNThlYmZmNTI3MDFmZTA0MzljNWM5Njg1ZWNmYjhhNiIsInRhZyI6IiJ9",
+      "source_type": "primary_publication_metadata",
+      "retrieval_status": "SEARCH_INDEX_ONLY_DIRECT_FETCH_HTTP_500",
+      "search_citation": "[2](https://standards.bis.gov.in/website/standard-details?encryptedId=eyJpdiI6InVIejZUOFI5V1Z5RXZMWEZGNnh4a1E9PSIsInZhbHVlIjoiZ1ZhcnlpWEFRVE00Q1dndk1Tc3lrQT09IiwibWFjIjoiYjAzMjg2ZDY3YWE0NzhkNGRlZDczYzI2ZGJiZTVkNThiNThlYmZmNTI3MDFmZTA0MzljNWM5Njg1ZWNmYjhhNiIsInRhZyI6IiJ9)",
+      "scope": "Discover the controlled publication and amendment set; no technical provisions retrieved.",
+      "review_flags": [
+        "Direct inspection of the current publication record remains incomplete."
+      ],
+      "access_date_utc": "2026-11-27",
+      "verified": false,
+      "verified_by": null,
+      "adopted_for_engine": false,
+      "original_pdf_or_page_bytes_bundled": false,
+      "source_bytes_sha256": null,
+      "visual_pdf_verification_performed": false
+    },
+    {
+      "id": "BIS_FORMULATION_RECORD",
+      "provider": "Bureau of Indian Standards",
+      "url": "https://www.services.bis.gov.in/php/BIS_2.0/StandardsFormulationV2/doc_details_outside.php?ID=MTM4MDQ%3D",
+      "source_type": "primary_work_item_metadata_not_publication_acceptance",
+      "retrieval_status": "SEARCH_INDEX_ONLY_DIRECT_FETCH_HTTP_500",
+      "search_citation": "[1](https://www.services.bis.gov.in/php/BIS_2.0/StandardsFormulationV2/doc_details_outside.php?ID=MTM4MDQ%3D)",
+      "scope": "Work-item discovery only.",
+      "review_flags": [
+        "Indexed title and amendment-number field differ; do not select an adopted amendment from this work item."
+      ],
+      "access_date_utc": "2026-11-27",
+      "verified": false,
+      "verified_by": null,
+      "adopted_for_engine": false,
+      "original_pdf_or_page_bytes_bundled": false,
+      "source_bytes_sha256": null,
+      "visual_pdf_verification_performed": false
+    },
+    {
+      "id": "N04",
+      "provider": "NPTEL / IIT Kharagpur",
+      "url": "https://archive.nptel.ac.in/content/storage2/courses/105105104/pdf/m3l4.pdf",
+      "topic_label": "Flexural parameters and assumptions",
+      "source_type": "secondary_teaching_reference",
+      "retrieval_status": "PARSED_TEXT_READ_THROUGH_FINAL_RETURNED_CHUNK",
+      "locations_to_review": [
+        "3.4.2",
+        "3.4.5",
+        "3.4.8"
+      ],
+      "review_flags": [
+        "See the source-specific flags in M1_PUBLIC_REFERENCES.md; no automatic numerical ingestion."
+      ],
+      "access_date_utc": "2026-11-27",
+      "verified": false,
+      "verified_by": null,
+      "adopted_for_engine": false,
+      "original_pdf_or_page_bytes_bundled": false,
+      "source_bytes_sha256": null,
+      "visual_pdf_verification_performed": false
+    },
+    {
+      "id": "N05",
+      "provider": "NPTEL / IIT Kharagpur",
+      "url": "https://archive.nptel.ac.in/content/storage2/courses/105105104/pdf/m3l5.pdf",
+      "topic_label": "Neutral axis and moment resistance",
+      "source_type": "secondary_teaching_reference",
+      "retrieval_status": "PARSED_TEXT_READ_THROUGH_FINAL_RETURNED_CHUNK",
+      "locations_to_review": [
+        "3.5.2",
+        "3.5.3",
+        "3.5.5",
+        "3.5.6"
+      ],
+      "review_flags": [
+        "See the source-specific flags in M1_PUBLIC_REFERENCES.md; no automatic numerical ingestion."
+      ],
+      "access_date_utc": "2026-11-27",
+      "verified": false,
+      "verified_by": null,
+      "adopted_for_engine": false,
+      "original_pdf_or_page_bytes_bundled": false,
+      "source_bytes_sha256": null,
+      "visual_pdf_verification_performed": false
+    },
+    {
+      "id": "N08",
+      "provider": "NPTEL / IIT Kharagpur",
+      "url": "https://archive.nptel.ac.in/content/storage2/courses/105105104/pdf/m4l8.pdf",
+      "topic_label": "Doubly reinforced beam theory",
+      "source_type": "secondary_teaching_reference",
+      "retrieval_status": "PARSED_TEXT_READ_THROUGH_FINAL_RETURNED_CHUNK",
+      "locations_to_review": [
+        "4.8.3",
+        "4.8.4",
+        "4.8.5",
+        "4.8.6"
+      ],
+      "review_flags": [
+        "See the source-specific flags in M1_PUBLIC_REFERENCES.md; no automatic numerical ingestion."
+      ],
+      "access_date_utc": "2026-11-27",
+      "verified": false,
+      "verified_by": null,
+      "adopted_for_engine": false,
+      "original_pdf_or_page_bytes_bundled": false,
+      "source_bytes_sha256": null,
+      "visual_pdf_verification_performed": false
+    },
+    {
+      "id": "N10",
+      "provider": "NPTEL / IIT Kharagpur",
+      "url": "https://archive.nptel.ac.in/content/storage2/courses/105105104/pdf/m5l10.pdf",
+      "topic_label": "Flanged beam theory",
+      "source_type": "secondary_teaching_reference",
+      "retrieval_status": "PARSED_TEXT_READ_THROUGH_FINAL_RETURNED_CHUNK",
+      "locations_to_review": [
+        "5.10.2",
+        "5.10.4"
+      ],
+      "review_flags": [
+        "See the source-specific flags in M1_PUBLIC_REFERENCES.md; no automatic numerical ingestion."
+      ],
+      "access_date_utc": "2026-11-27",
+      "verified": false,
+      "verified_by": null,
+      "adopted_for_engine": false,
+      "original_pdf_or_page_bytes_bundled": false,
+      "source_bytes_sha256": null,
+      "visual_pdf_verification_performed": false
+    },
+    {
+      "id": "N40_EXCLUDED_FROM_M4",
+      "provider": "NPTEL / IIT Kharagpur",
+      "url": "https://archive.nptel.ac.in/content/storage2/courses/105105104/pdf/m16l40.pdf",
+      "source_type": "secondary_teaching_reference_wrong_requested_edition",
+      "retrieval_status": "SEARCH_INDEX_ONLY_NOT_FULLY_REVIEWED",
+      "search_citation": "[1](https://archive.nptel.ac.in/content/storage2/courses/105105104/pdf/m16l40.pdf)",
+      "scope": "Excluded as an authority for the requested IS 13920:2016 implementation.",
+      "review_flags": [
+        "The indexed lesson identifies IS 13920:1993; it is not the requested edition."
+      ],
+      "access_date_utc": "2026-11-27",
+      "verified": false,
+      "verified_by": null,
+      "adopted_for_engine": false,
+      "original_pdf_or_page_bytes_bundled": false,
+      "source_bytes_sha256": null,
+      "visual_pdf_verification_performed": false
+    }
+  ]
+}

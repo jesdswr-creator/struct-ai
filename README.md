@@ -193,8 +193,10 @@ Native Windows DPI testing and design feedback are still required before later U
 Logs: `%APPDATA%\struct_ai\logs` on Windows, XDG state storage on Linux. Copy diagnostics
 shows versions and the log path without exposing environment secrets.
 
-Next gates: reconnect workflow access; validate the real Windows artifact on a clean
-machine; resolve redistribution licensing; supply authorised M1 code data and unresolved
-building assumptions. **Do not advance to engineering milestones on the strength of a
-passing two-node diagnostic.** See [known limitations](docs/KNOWN_LIMITATIONS.md) and the
+Next gates: [repair repository workflow access](docs/GITHUB_WORKFLOW_ACCESS.md); validate
+the real Windows artifact on a clean machine; resolve redistribution licensing; review
+[the public-reference shortlist and M1 data needs](docs/research/M1_PUBLIC_REFERENCES.md)
+and supply the unresolved design-basis information. That shortlist is not runtime code data.
+**Do not advance to engineering milestones on the strength of a passing two-node diagnostic.**
+See [known limitations](docs/KNOWN_LIMITATIONS.md) and the
 [human-verification checklist](MILESTONE_REPORT.md).
