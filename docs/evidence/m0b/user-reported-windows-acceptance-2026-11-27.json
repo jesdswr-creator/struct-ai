@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "recorded_date_utc": "2026-11-27",
+  "evidence_kind": "USER_REPORT_NOT_INDEPENDENTLY_REVIEWED",
+  "decision_identifier": "windows_acceptance",
+  "selected_option": "clean_full_test",
+  "reported_environment": {
+    "operating_system_family": "Windows",
+    "operating_system_version": null,
+    "python_installed": false,
+    "qt_installed": false,
+    "opensees_installed": false,
+    "ollama_installed": false
+  },
+  "reported_results": {
+    "gui_diagnostic_checks_passed": 5,
+    "documented_headless_selftest_passed": true,
+    "documented_gui_selftest_passed": true
+  },
+  "reviewed_attachments": [],
+  "independently_reviewed": false,
+  "outstanding_audit_evidence": [
+    "OS version/build and tester details",
+    "Headless selftest JSON and actual exit code",
+    "GUI selftest JSON and actual exit code",
+    "Downloaded bundle/executable hashes",
+    "Native screenshots, DPI, accessibility and performance feedback"
+  ],
+  "acceptance_status": "M0b clean-machine execution accepted on the user's report; independent audit evidence outstanding",
+  "related_delivery_record": "windows-test-download-2026-11-27.json",
+  "historical_ci_records_modified": false,
+  "not_established": [
+    "Independently verified clean-Windows execution",
+    "A particular supported Windows version",
+    "Engineering/code compliance",
+    "Commercial redistribution permission",
+    "An installer or full building-design release"
+  ]
+}

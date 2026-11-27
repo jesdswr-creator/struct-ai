@@ -1,6 +1,28 @@
 # Milestone report
 
-## Runnable Windows test bundle delivered (2026-11-27)
+## Current decisions and M1 start (2026-11-27)
+
+**M0b clean-Windows execution is accepted on the user's report.** The user selected
+`clean_full_test`: no Python/Qt/OpenSees/Ollama installed, all five GUI diagnostic
+checks and both documented selftests passed. No OS version, JSON reports or native
+screenshots were supplied for independent review. [Separate user-report evidence](docs/evidence/m0b/user-reported-windows-acceptance-2026-11-27.json)
+records those limits; it does not rewrite the historical CI flags below. Retain the
+OS/build, both JSON reports/exit codes and hashes for the eventual audit. Native DPI,
+performance, accessibility and release-licensing gates remain outstanding.
+
+The user also explicitly authorised **cited public-source numerical draft
+implementation**, always unverified, with missing/ambiguous/amendment-dependent
+provisions blocking affected calculations. The selected distribution intent is
+**internal use**. Keep OpenSees initially; researching PyNite is not backend validation
+or replacement. Ollama remains requested and planned, not implemented or live-tested.
+
+M1 is now starting: rectangular/doubly reinforced/T/L **section** flexure services,
+traceable data and independent tests. See the [updated plan](docs/IMPLEMENTATION_PLAN.md).
+Whole-building design remains unavailable. The sections below describe their dated
+historical state; statements that acceptance/data authorisation were pending there
+are not the current decisions above.
+
+## Runnable Windows test bundle delivered — historical handoff (2026-11-27)
 
 The user explicitly approved a seven-day public diagnostic artifact after the repository's
 public visibility was disclosed. Manual run
